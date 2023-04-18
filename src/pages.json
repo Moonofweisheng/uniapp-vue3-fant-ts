@@ -1,0 +1,54 @@
+{
+  "pages": [{
+      "path": "pages/home/Home",
+      "name": "home",
+      "style": {
+        "mp-alipay": {
+          "allowsBounceVertical": "NO"
+        },
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/login/Login",
+      "name": "login",
+      "style": {
+        "mp-alipay": {
+          "allowsBounceVertical": "NO"
+        },
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/mine/Mine",
+      "name": "mine",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#E7F0FF"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#0165FF",
+    "backgroundColor": "#ffffff",
+    "list": [{
+        "pagePath": "pages/home/Home",
+        "iconPath": "static/icon_home.png",
+        "selectedIconPath": "static/icon_home_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mine/Mine",
+        "iconPath": "static/icon_mine.png",
+        "selectedIconPath": "static/icon_mine_selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#FFF",
+    "backgroundColor": "#F8F8F8"
+  }
+}

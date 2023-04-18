@@ -1,0 +1,72 @@
+## 0.0.7（2023-04-10）
+### 0.0.7 (2023-04-10)
+
+
+### Bug Fixes
+
+* 🐛 修复README中缺少演示小程序二维码的问题
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.7](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.6...v0.0.7) (2023-04-10)
+
+
+### Bug Fixes
+
+* 🐛 修复README中缺少演示小程序二维码的问题 ([298a21d](https://gitlab.hd123.com/vue/fant-mini-plus/commit/298a21d647bc82d705d4458aa4694ecff35f3f56))
+
+### [0.0.6](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.5...v0.0.6) (2023-04-07)
+
+
+### Bug Fixes
+
+* 🐛 修复DatePicker组件动画效果生硬的问题 ([1b821e0](https://gitlab.hd123.com/vue/fant-mini-plus/commit/1b821e04e56025e9cee82859e8278dfabfc90d23))
+
+### [0.0.5](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.4...v0.0.5) (2023-04-05)
+
+
+### Bug Fixes
+
+* 🐛 修复支付宝小程序Calendar组件不显示二级标题月份的问题 ([b7c541d](https://gitlab.hd123.com/vue/fant-mini-plus/commit/b7c541d4b6fbbe10c746f7a56dbc36c5eb1e0831))
+* 🐛 修复Area组件有默认值时打开未滚动到默认选项的问题 ([b3df205](https://gitlab.hd123.com/vue/fant-mini-plus/commit/b3df20514b7ef22ef7cb46907229dc9d981a374f))
+* 🐛 修复Transition组件动画抖动的问题 ([e5fa79b](https://gitlab.hd123.com/vue/fant-mini-plus/commit/e5fa79b8ee599cc14392abb89cbf988e07104e92))
+
+### [0.0.4](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.3...v0.0.4) (2023-04-04)
+
+
+### Features
+
+* ✨ Popup和Transition组件新增destory属性用于控制是否销毁插槽中的内容 ([bb26d31](https://gitlab.hd123.com/vue/fant-mini-plus/commit/bb26d318af7af1cffe6d3d9eca9018c1c1ce8f40))
+
+
+### Bug Fixes
+
+* 🐛 修复Modal组件弹出异常的问题 ([38b88b6](https://gitlab.hd123.com/vue/fant-mini-plus/commit/38b88b6f5fc8e596411ab43df59a1f41db430528))
+* 🐛 修复Popup连续多次弹出有概率无法再弹出的问题 ([23e51d2](https://gitlab.hd123.com/vue/fant-mini-plus/commit/23e51d2e04bf6931bd8c3cd5b4dcf7dce15f3850))
+
+### [0.0.3](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.2...v0.0.3) (2023-04-03)
+
+
+### Bug Fixes
+
+* 🐛 修复DatePicker组件在支付宝平台显示异常的问题 ([604277c](https://gitlab.hd123.com/vue/fant-mini-plus/commit/604277c16a284b05829353a93a6a213f42269dc4))
+
+### [0.0.2](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.1...v0.0.2) (2023-04-03)
+
+
+### Bug Fixes
+
+* 🐛 改善transition动画延迟的问题 ([38b4d74](https://gitlab.hd123.com/vue/fant-mini-plus/commit/38b4d74bf27166d81f799661b058762caf6c145c))
+
+### 0.0.1 (2023-03-29)
+
+
+### Features
+
+* ✨ v0.0.1版本完成，移植所有fant-mini组件到vue3 ([e0a7e75](https://gitlab.hd123.com/vue/fant-mini-plus/commit/e0a7e75ffbcc89928be1868d1130cf0a74727882))
+
+
+### Bug Fixes
+
+* 🐛 修复动画组件在微信小程序上卡顿的问题 ([4c66ced](https://gitlab.hd123.com/vue/fant-mini-plus/commit/4c66cedcb67515a1c1301bba65a9c7e653885df7))
