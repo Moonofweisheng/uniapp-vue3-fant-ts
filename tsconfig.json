@@ -17,8 +17,7 @@
     "types": [
       "@dcloudio/types",
       "miniprogram-api-typings",
-      "mini-types",
-      "pinia-plugin-persist"
+      "mini-types"
     ],
     "paths": {
       "@/*": [
