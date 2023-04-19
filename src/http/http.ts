@@ -36,6 +36,7 @@ export default class ApiClient {
         if (response.data instanceof ArrayBuffer) {
           return response
         }
+        // 此处为前后端约定的接口成功的字段，旨在处理状态码为200的错误响应，开发者可自行调整
         if (response.data.success) {
           return response
         } else {

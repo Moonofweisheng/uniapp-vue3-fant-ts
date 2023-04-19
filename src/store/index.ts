@@ -1,7 +1,7 @@
 /*
  * @Author: weisheng
  * @Date: 2023-04-14 12:57:12
- * @LastEditTime: 2023-04-18 17:20:29
+ * @LastEditTime: 2023-04-19 11:03:00
  * @LastEditors: weisheng
  * @Description: pinia商店
  * @FilePath: \uniapp-vue3-fant-ts\src\store\index.ts
@@ -13,11 +13,6 @@ import { defineStore } from 'pinia'
 interface AuthStore {
   // 鉴权令牌
   userInfo: Nullable<UserInfo>
-}
-
-interface OtherStore {
-  // 鉴权令牌
-  otherInfo: Nullable<string>
 }
 // defineStore 调用后返回一个函数，调用该函数获得 Store 实体
 export const useAuthStore = defineStore('authState', {
