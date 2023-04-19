@@ -1,3 +1,12 @@
+/*
+ * @Author: weisheng
+ * @Date: 2023-04-18 21:48:30
+ * @LastEditTime: 2023-04-19 16:42:21
+ * @LastEditors: weisheng
+ * @Description: 
+ * @FilePath: \uniapp-vue3-fant-ts\koa-mock\app.js
+ * 记得注释
+ */
 const Koa = require('koa')
 const Router = require("koa-router");
 const app = new Koa()
@@ -35,11 +44,9 @@ const router = new Router({ prefix: "/api" });
 const routerMap = {}; // 存放 文件路径与路由 的 映射
 let content = '' // api/list 目录
 
-// console.log(index.routes,'index.routes');
 glob.sync('./api/**/*.json').forEach((item, i) => {
   let apiJsonPath = item && (item.replace(/\\/g, '/')).split("api")[1];
   let apiPath = apiJsonPath.replace(".json", "");
-
   content += apiPath + '\n'
   router.get('/list', (ctx, next)=> { // => /api/list/
     ctx.body = content
@@ -62,9 +69,10 @@ glob.sync('./api/**/*.json').forEach((item, i) => {
       ctx.throw("服务器错误: ", 500);
     }
   });
-  router.post(apiPath, (ctx, next) => {
+  router.post(apiPath, async (ctx, next) => {
     try {
       let jsonStr = fs.readFileSync(item).toString();
+      await new Promise(resolve => setTimeout(resolve, 500));
       ctx.body = {
         data: JSON.parse(jsonStr),
         code: 2000,

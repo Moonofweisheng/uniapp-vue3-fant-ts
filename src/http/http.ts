@@ -3,7 +3,7 @@ import { CommonUtil } from '@/uni_modules/fant-mini-plus'
 import axios from 'axios'
 import { uniAdapter } from 'fant-axios-adapter'
 
-axios.defaults.timeout = 60000
+axios.defaults.timeout = 30000
 export default class ApiClient {
   public static server() {
     // 可以在这里拦截
@@ -56,7 +56,7 @@ export default class ApiClient {
       (error) => {
         if (error.status !== 0 && !error.status) {
           const newError = error as any
-          newError.msg = '请检查网络设置'
+          newError.msg = newError.errMsg || '请检查网络设置'
           return Promise.reject(newError)
         }
         const pages = getCurrentPages() as any[]

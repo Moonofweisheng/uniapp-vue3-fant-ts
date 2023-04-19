@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-18 17:20:22
+ * @LastEditTime: 2023-04-19 16:49:35
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\login\Login.vue
@@ -64,7 +64,11 @@ function doLogin() {
       router.replaceAll({ name: 'home' })
     })
     .catch((error) => {
-      console.log(error)
+      loading.value?.hideLoading()
+      toast.value?.showToast({
+        title: error.msg,
+        icon: 'error'
+      })
     })
 }
 </script>

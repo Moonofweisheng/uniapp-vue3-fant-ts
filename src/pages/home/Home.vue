@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-18 21:00:50
+ * @LastEditTime: 2023-04-19 16:30:01
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\home\Home.vue
@@ -57,7 +57,11 @@ onMounted(() => {
       chanel.value = resp.data || []
     })
     .catch((error) => {
-      console.log(error)
+      loading.value?.hideLoading()
+      toast.value?.showToast({
+        title: error.msg,
+        icon: 'error'
+      })
     })
 })
 </script>
