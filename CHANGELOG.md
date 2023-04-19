@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.3...v1.0.4) (2023-04-19)
+
+
+### Bug Fixes
+
+* 🐛 更新fant-axios-adapter修复接口请求header未携带的问题 ([905f784](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/905f7848f4e710a162e036695ae375300765d078))
+
 ### [1.0.3](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.2...v1.0.3) (2023-04-19)
 
 ### [1.0.2](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.1...v1.0.2) (2023-04-19)
