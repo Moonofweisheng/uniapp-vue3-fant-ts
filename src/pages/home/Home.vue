@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-19 16:30:01
+ * @LastEditTime: 2023-04-20 16:46:25
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\home\Home.vue
@@ -31,6 +31,9 @@ import DemoApi from '@/api/DemoApi'
 import Chanel from '@/model/Chanel'
 import { Loading } from '@/uni_modules/fant-mini-plus/components/hd-loading/types'
 import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { onShow } from '@dcloudio/uni-app'
+import axios from 'axios'
+import { nextTick } from 'vue'
 import { onMounted, ref } from 'vue'
 const loading = ref<Loading>() // loading ref
 const toast = ref<Toast>() // toast ref
@@ -47,23 +50,36 @@ const swiperList = ref([
 ])
 
 const chanel = ref<Chanel[]>([])
-const rate = ref<number>(20)
 
-onMounted(() => {
+onShow(() => {
+  doInit()
+  setTimeout(() => {
+    doInit('same')
+  }, 400)
+})
+
+/**
+ * 初始化
+ */
+function doInit(abortRequest: 'same' | 'all' | 'none' = 'none') {
   loading.value?.showLoading({})
-  DemoApi.init()
+  DemoApi.init(abortRequest)
     .then((resp) => {
       loading.value?.hideLoading()
       chanel.value = resp.data || []
     })
     .catch((error) => {
       loading.value?.hideLoading()
+      // 判断如果是取消的请求则不提示
+      if (axios.isCancel(error)) {
+        return
+      }
       toast.value?.showToast({
         title: error.msg,
         icon: 'error'
       })
     })
-})
+}
 </script>
 
 <style lang="scss" scoped>

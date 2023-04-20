@@ -2,28 +2,44 @@ import { useAuthStore } from '@/store'
 import { CommonUtil } from '@/uni_modules/fant-mini-plus'
 import axios from 'axios'
 import { uniAdapter } from 'fant-axios-adapter'
-
+import AxiosCancelToken from './AxiosCancelToken'
+const axiosCancelToken = new AxiosCancelToken()
 axios.defaults.timeout = 30000
 export default class ApiClient {
-  public static server() {
+  /**
+   * 创建axios
+   * @param abortRequest 取消请求配置，可选值：same(取消相同请求)、all(取消所有请求)、none(不取消请求)
+   * @returns
+   */
+  public static server(abortRequest: 'same' | 'all' | 'none' = 'none') {
     // 可以在这里拦截
     const baseURL = import.meta.env.VITE_BASEURL
-    return ApiClient.create(baseURL)
+    return ApiClient.create(baseURL, abortRequest)
   }
 
-  public static create(baseURL: string) {
+  private static create(baseURL: string, abortRequest: 'same' | 'all' | 'none' = 'none') {
     const instance = axios.create({
       withCredentials: true,
       baseURL: baseURL,
       adapter: uniAdapter // 指定适配器
     })
-
     instance.interceptors.request.use(
       (request) => {
         // 设置conten-type
         request.headers['Content-Type'] = 'application/json'
         // 设置请求唯一标识（便于查询请求日志）
         request.headers.trace_id = CommonUtil.dateFormat(new Date().getTime(), 'yyyyMMddHHmmssSSS')
+        switch (abortRequest) {
+          case 'all':
+            axiosCancelToken.removeAllRequest()
+            break
+          case 'same':
+            axiosCancelToken.removeRequest(request)
+            break
+          default:
+            break
+        }
+        axiosCancelToken.addRequest(request)
         return request
       },
       (error) => {
@@ -33,9 +49,6 @@ export default class ApiClient {
 
     instance.interceptors.response.use(
       (response) => {
-        if (response.data instanceof ArrayBuffer) {
-          return response
-        }
         // 此处为前后端约定的接口成功的字段，旨在处理状态码为200的错误响应，开发者可自行调整
         if (response.data.success) {
           return response

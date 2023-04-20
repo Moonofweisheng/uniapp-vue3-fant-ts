@@ -11,10 +11,22 @@
 - 💪 引入lint-staged/husky/commitlint/commitizen/standard-version，统一代码提交规范，自动生成版本发布日志
 - 💪 使用pinia，并支持持久化存储
 - 💪 提供koa-mock本地mock服务
+- 💪 支持axios取消请求（基于requestTask.abort()实现）
+## 注意！！！
+>插件市场会将类似`.eslintrc.js`这种以`.`开头的文件忽略掉，故我将`.`改成了`_`上传。如果直接在插件市场下载，需要手动将`_`改为`.`，涉及文件及目录包含`_husky`、`_vscode`、`_env.development`、`_env.production`、`_eslintignore`、`_eslintrc.js`、`_git-cz.json`、`_gitignore`、`_prettierrc`。或者到[gitee](https://gitee.com/fant-mini/uniapp-vue3-fant-ts)上`clone`或`fork`
 
 
-#### 注意！！！
-插件市场会将类似`.eslintrc.js`这种以`.`开头的文件忽略掉，故我将`.`改成了`_`上传。如果直接在插件市场下载，需要手动将`_`改为`.`，涉及文件及目录包含`_husky`、`_vscode`、`_env.development`、`_env.production`、`_eslintignore`、`_eslintrc.js`、`_git-cz.json`、`_gitignore`、`_prettierrc`。或者到[gitee](https://gitee.com/fant-mini/uniapp-vue3-fant-ts)上`clone`或`fork`
+#### 项目依赖
+
+| 功能 | 依赖库 |
+| --- | --- |
+| 组件库 | [fant-mini-plus](https://ext.dcloud.net.cn/plugin?id=11489) |
+| 路由（name跳转和导航守卫） | [uni-mini-router](https://ext.dcloud.net.cn/plugin?id=11208) |
+| 网络请求（支持取消请求） | `axios`  [fant-axios-adapter](https://ext.dcloud.net.cn/plugin?id=11817) |
+| 代码规范 | `Eslint` `Prettier` |
+| 提交规范 | `lint-staged` `husky` `commitlint` `commitizen` |
+| 发布日志 | `standard-version` |
+| 状态管理 | `pinia`（自定义插件实现持久化） |
 
 #### 项目结构
 ```shell
@@ -59,7 +71,32 @@ uniapp-vue3-fant-ts
 └─ yarn.lock-----------------------------------------Yarn生成的锁文件，它用于记录在使用Yarn安装包时确切的依赖关系和版本号
 ```
 
-#### 安装依赖
+#### 开发步骤
+- 安装依赖  
+  - 安装前端项目依赖：`yarn `
+  - 安装mock项目依赖：`yarn mock:install`
+- 运行
+  - 运行前端项目：`yarn dev:h5` （其他平台命令在uni-app官网或者package.json中查看）
+  - 运行mock项目：`yarn mock:dev`
+- 提交代码
+  - 暂存准备提交的代码（举例添加当前目录下的所有文件到暂存区）：`git add .`
+  - 提交：`yarn commit`，输入之后回车，我们可以选择提交类型。
+- 发布版本（此处操作会使package.json中的version变更，可以此为版本号对显示）
+  - 大版本升级1.0.0->2.0.0：`yarn release-major`
+  - 中版本升级1.0.0->1.1.0：`yarn release-minor`
+  - 小版本升级（一般是补丁）1.0.0->1.0.1：`yarn release-patch`
+  - 注意：`执行完发布版本的命令之后需要将执行终端中打印的命令将生成的tag推送到git。此操作完成之后会自动生成版本发布日志，可以用于对外发布`
+
+
+#### 开发提示  
+- 使用typescript开发可以提高前后端交互的效率，提升前端项目的健壮性。在开发过程中需要做到尽量减少使用any。
+小程序样式变量统一定义在uni.scss中，作为规范，若设计稿上使用的颜色存在于uni.scss中，则使用uni.scss中的变量，如不存在则需要沟通是否新增变量。
+
+- 提交代码时，feat和fix类型的提交尽量将任务单号作为前缀方便追踪改动关联的需求，如：feat: TASK-1000 新增某个功能。
+- css原子化，如果有需要可以自行引入[UnoCSS](https://unocss.dev/)，本项目暂时不会使用。
+#### 主要命令
+
+##### 安装依赖
 ```
 yarn 
 ```
@@ -76,7 +113,7 @@ yarn mock:install
 npm run mock:install
 ```
 
-#### 运行
+##### 运行
 ```sh
 # 运行到h5
 yarn dev:h5
@@ -87,19 +124,19 @@ yarn mock:dev
 ```
 
 
-#### Lint and fix
+##### Lint and fix
 ```
 yarn lint
 ```
 
-#### 提交代码
+##### 提交代码
 ```sh
 git add .
 
 yarn commit
 ```
 
-#### 发布版本
+##### 发布版本
 
 
 ``` sh
@@ -113,9 +150,5 @@ yarn release-minor
 yarn release-patch
 ```
 
-#### 开发提示  
-- 使用typescript开发可以提高前后端交互的效率，提升前端项目的健壮性。在开发过程中需要做到尽量减少使用any。
-小程序样式变量统一定义在uni.scss中，作为规范，若设计稿上使用的颜色存在于uni.scss中，则使用uni.scss中的变量，如不存在则需要沟通是否新增变量。
 
-- 提交代码时，feat和fix类型的提交尽量将任务单号作为前缀方便追踪改动关联的需求，如：feat: TASK-1000 新增某个功能。
 
