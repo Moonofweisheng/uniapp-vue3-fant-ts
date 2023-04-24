@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.5...v1.0.6) (2023-04-24)
+
 ### [1.0.5](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.4...v1.0.5) (2023-04-20)
 
 
