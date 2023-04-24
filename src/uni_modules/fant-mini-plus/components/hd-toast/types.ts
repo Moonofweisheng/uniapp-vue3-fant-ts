@@ -1,8 +1,8 @@
 /*
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2022-12-14 19:34:38
  * @LastEditTime: 2023-03-23 13:12:01
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description:
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-toast\types.ts
  * 记得注释

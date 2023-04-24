@@ -1,8 +1,8 @@
 /*
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2023-03-14 19:06:18
  * @LastEditTime: 2023-03-21 21:54:06
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description:
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-notify\types.ts
  * 记得注释

@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2022-02-16 13:21:51
  * @LastEditTime: 2023-03-24 10:31:03
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: Progress 进度条
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-progress\hd-progress.vue
  * 记得注释

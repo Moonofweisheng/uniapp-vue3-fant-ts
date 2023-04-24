@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2021-12-31 13:26:22
  * @LastEditTime: 2023-03-28 11:39:23
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-collapse\hd-collapse.vue
  * 记得注释

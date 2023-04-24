@@ -2,7 +2,7 @@
  * @Author: 刘湘
  * @Date: 2021-05-13 17:11:59
  * @LastEditTime: 2023-02-23 19:38:22
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description:
  * @FilePath: \fant-mini\src\uni_modules\fant-mini\custom.d.ts
  * 记得注释

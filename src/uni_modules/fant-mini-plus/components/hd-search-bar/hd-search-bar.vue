@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2020-10-31 11:27:05
  * @LastEditTime: 2023-03-21 21:56:45
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 搜索框
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-search-bar\hd-search-bar.vue
  * @symbol_custom_string_obkoro1: 记得注释

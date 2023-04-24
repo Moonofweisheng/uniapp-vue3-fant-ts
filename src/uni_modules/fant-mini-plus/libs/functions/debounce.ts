@@ -3,10 +3,10 @@
 /*
  * @Author: weisheng
  * @Date: 2021-12-21 14:23:23
- * @LastEditTime: 2023-04-18 17:09:40
+ * @LastEditTime: 2023-03-24 11:29:01
  * @LastEditors: weisheng
  * @Description: 防抖函数
- * @FilePath: \uniapp-vue3-fant-ts\src\uni_modules\fant-mini-plus\libs\functions\debounce.ts
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\libs\functions\debounce.ts
  * 记得注释
  */
 
@@ -21,7 +21,7 @@ let timer: Nullable<number> | any = null
  * @return null
  */
 export function debounce(func: Function, wait: number = 500, immediate: boolean = false) {
-  function debouncefunc(...args: any) {
+  function debouncefunc() {
     // 清除定时器
     if (timer !== null) clearTimeout(timer)
     // 立即执行，此类情况一般用不到
@@ -30,11 +30,11 @@ export function debounce(func: Function, wait: number = 500, immediate: boolean 
       timer = setTimeout(() => {
         timer = null
       }, wait)
-      if (callNow) typeof func === 'function' && func(...args)
+      if (callNow) typeof func === 'function' && func(...arguments)
     } else {
       // 设置定时器，当最后一次操作后，timer不会再被清除，所以在延时wait毫秒后执行func回调方法
       timer = setTimeout(() => {
-        typeof func === 'function' && func(...args)
+        typeof func === 'function' && func(...arguments)
       }, wait)
     }
   }

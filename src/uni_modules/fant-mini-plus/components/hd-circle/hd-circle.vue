@@ -1,10 +1,10 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2022-02-16 13:21:51
- * @LastEditTime: 2023-03-24 15:34:18
- * @LastEditors: 徐庆凯
+ * @LastEditTime: 2023-04-07 17:14:38
+ * @LastEditors: weisheng
  * @Description: Circle 环形进度条
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-circle\hd-circle.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-circle\hd-circle.vue
  * 记得注释
 -->
 <template>

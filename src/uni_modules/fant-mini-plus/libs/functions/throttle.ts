@@ -3,10 +3,10 @@
 /*
  * @Author: weisheng
  * @Date: 2021-12-21 14:23:23
- * @LastEditTime: 2023-04-18 16:56:47
+ * @LastEditTime: 2023-03-21 22:11:54
  * @LastEditors: weisheng
  * @Description: 节流函数
- * @FilePath: \uniapp-vue3-fant-ts\src\uni_modules\fant-mini-plus\libs\functions\throttle.ts
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\libs\functions\throttle.ts
  * 记得注释
  */
 
@@ -23,12 +23,12 @@ let flag = false // 定时器是否结束
  * @return null
  */
 export function throttle(func: Function, wait: number = 500, immediate: boolean = true) {
-  function throttlefunc(...args: any) {
+  function throttlefunc() {
     if (immediate) {
       if (!flag) {
         flag = true
         // 如果是立即执行，则在wait毫秒内开始时执行
-        typeof func === 'function' && func(...args)
+        typeof func === 'function' && func(...arguments)
         timer = setTimeout(() => {
           flag = false
         }, wait)
@@ -38,7 +38,7 @@ export function throttle(func: Function, wait: number = 500, immediate: boolean 
       // 如果是非立即执行，则在wait毫秒内的结束处执行
       timer = setTimeout(() => {
         flag = false
-        typeof func === 'function' && func(...args)
+        typeof func === 'function' && func(...arguments)
       }, wait)
     }
   }

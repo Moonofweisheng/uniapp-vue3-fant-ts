@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2022-02-22 19:27:37
  * @LastEditTime: 2023-03-23 13:20:14
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: Notify 消息提示 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-notify\hd-notify.vue
  * 记得注释

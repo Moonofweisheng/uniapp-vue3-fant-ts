@@ -1,13 +1,21 @@
-## 0.0.7（2023-04-10）
-### 0.0.7 (2023-04-10)
+## 0.0.8（2023-04-23）
+### 0.0.8 (2023-04-23)
 
 
-### Bug Fixes
+### Features
 
-* 🐛 修复README中缺少演示小程序二维码的问题
+* ✨ Table表格组件支持自定义列模板并增加row-height行高属性
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.8](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.7...v0.0.8) (2023-04-23)
+
+
+### Features
+
+* ✨ 新增WaterMark水印组件 ([3d9ba3f](https://gitlab.hd123.com/vue/fant-mini-plus/commit/3d9ba3f658c2ce8de8eaec2a5c8bf64963e4f871))
+* ✨ Table表格组件支持自定义列模板并增加row-height行高属性 ([23866e2](https://gitlab.hd123.com/vue/fant-mini-plus/commit/23866e2f6ef8ef9a080824f3ebe720dd9755dca6))
 
 ### [0.0.7](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.6...v0.0.7) (2023-04-10)
 

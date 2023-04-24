@@ -1,55 +1,37 @@
 <template>
-  <view class="hd-table" :style="{ height: height }">
-    <slot></slot>
-    <scroll-view class="hd-table-header" :scroll-left="left" @scroll="scroll" scroll-x="true" :key="mainKey">
-      <view
-        class="header-column"
-        :style="{ width: column.width || '220rpx' }"
-        :class="[column.fixed ? 'fixed-column' : 'relative-column']"
-        v-for="(column, index) in columns"
-        :key="index"
-        @click="column.sortable && doSort(column, index)"
-      >
-        <view class="header-row" :style="{ width: column.width || '220rpx' }">
-          <text>{{ column.label }}</text>
-          <view class="sort" v-if="column.sortable">
-            <view :class="{ 'sort-up': true, 'sort--active': column.sortDirection === 'asc' }"></view>
-            <view :class="{ 'sort-down': true, 'sort--active': column.sortDirection === 'desc' }"></view>
+  <view class="hd-table" :style="rootStyle">
+    <scroll-view class="header" :scroll-left="left" @scroll="scroll" enable-flex="true" scroll-x="true">
+      <view class="header-container" :style="{ width: scrollWidth }">
+        <view
+          class="header-column"
+          :style="headerStyle(column.width)"
+          :class="['header-column', column.fixed ? 'header-column--fixed' : '']"
+          v-for="(column, index) in columns"
+          :key="index"
+          @click="column.sortable && doSort(column, index)"
+        >
+          <view class="header-row" :style="headerStyle(column.width)">
+            <text>{{ column.label }}</text>
+            <view class="sort" v-if="column.sortable">
+              <view :class="{ 'sort-up': true, 'sort--active': column.sortDirection === 'asc' }"></view>
+              <view :class="{ 'sort-down': true, 'sort--active': column.sortDirection === 'desc' }"></view>
+            </view>
           </view>
         </view>
       </view>
     </scroll-view>
-    <scroll-view
-      :key="mainKey"
-      :class="{ 'hd-table-body': true, 'hd-table-body--stripe': stripe }"
-      :scroll-left="left"
-      scroll-x="true"
-      enable-flex="true"
-      @scroll="scroll"
-    >
-      <!-- #ifndef MP-ALIPAY -->
-      <view style="display: flex">
-        <!-- #endif -->
-        <view
-          v-for="(data, i) in table"
-          :key="i"
-          :class="[data.fixed ? 'fixed-column' : 'relative-column', 'body-column']"
-          :style="{ width: data.width || '220rpx' }"
-        >
-          <view class="body-row" v-for="(row, j) in data.rows" :key="j" :style="{ width: data.width || '220rpx' }">
-            <text>{{ row }}</text>
-          </view>
-        </view>
-        <!-- #ifndef MP-ALIPAY -->
+    <scroll-view :class="{ body: true, 'body--stripe': stripe }" scroll-x="true" enable-flex="true" :scroll-left="left" @scroll="scroll">
+      <view style="display: flex" :style="{ width: scrollWidth }">
+        <slot></slot>
       </view>
-      <!-- #endif -->
     </scroll-view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, ref } from 'vue'
+import { computed, getCurrentInstance, onMounted, provide, ref } from 'vue'
 import { CommonUtil, debounce } from '../..'
+import { nextTick } from 'process'
 
 /**
  * Table 表格
@@ -62,6 +44,8 @@ interface Props {
   stripe: boolean
   // table高度
   height: string
+  // 行高
+  rowHeight: number | string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -70,46 +54,63 @@ const props = withDefaults(defineProps<Props>(), {
   // table行是否为斑马纹
   stripe: false,
   // table高度
-  height: '80vh'
+  height: '80vh',
+  // 行高
+  rowHeight: '80rpx'
+})
+
+const left = ref<number>(0) // scroll-view滚动距离
+const scrollWidth = ref<number | string>('auto') // 动态设置滚动宽度，兼容微信scroll-view中sticky失效的问题
+const columns = ref<Array<Record<string, any>>>([]) // 数据列
+provide('$dataSource', props.dataSource) // 表格数据provide
+provide('$stripe', props.stripe) // 斑马线provide
+provide('$rowHeight', props.rowHeight) // 行高provide
+const headerKey = ref<string>(CommonUtil.s4())
+const emit = defineEmits(['click', 'sort-method'])
+const scroll = debounce(doScroll, 100, false) // 滚动事件
+
+/**
+ * 根节点样式
+ */
+const rootStyle = computed(() => {
+  const style: Record<string, string | number> = {}
+  if (props.height && props.height.indexOf('px') > -1) {
+    // width存在且包含px则转成px
+    style['height'] = CommonUtil.addUnit(CommonUtil.getPx(props.height), 'px')
+  } else if (props.height) {
+    // width存在则直接使用
+    style['height'] = props.height
+  }
+  return CommonUtil.style(style)
 })
 
 /**
  * 根节点样式
  */
-// const rootStyle = computed(() => {
-//   const style: Record<string, string | number> = {
-//     top: CommonUtil.addUnit(CommonUtil.getPx(props.stickyTop), 'px')
-//   }
-//   return CommonUtil.style(style)
-// })
-
-// 表格数据
-const table = computed(() => {
-  const table: Record<string, any>[] = []
-  for (let i = 0; i < columns.value.length; i++) {
-    const rows: string[] = []
-    for (let j = 0; j < props.dataSource.length; j++) {
-      // eslint-disable-next-line no-prototype-builtins
-      if (props.dataSource[j].hasOwnProperty(columns.value[i].prop)) {
-        rows.push(props.dataSource[j][columns.value[i].prop])
-      } else {
-        rows.push('--')
-      }
+const headerStyle = computed(() => {
+  return (width: string | number) => {
+    const style: Record<string, string | number> = {}
+    if (width && width.toString().indexOf('px') > -1) {
+      // width存在且包含px则转成px
+      style['width'] = CommonUtil.addUnit(CommonUtil.getPx(width), 'px')
+    } else if (width) {
+      // width存在则直接使用
+      style['width'] = width
     }
-    table.push({ ...columns.value[i], rows: rows })
+
+    return CommonUtil.style(style)
   }
-  return table
 })
-
-const left = ref<number>(0)
-const columns = ref<Array<Record<string, any>>>([]) // 数据列
-provide('$columns', columns)
-const scroll = debounce(doScroll, 100, false) // 滚动事件
-
-const headerKey = ref<string>(CommonUtil.s4())
-const mainKey = ref<string>(CommonUtil.s4())
-
-const emit = defineEmits(['click', 'sort-method'])
+const { proxy } = getCurrentInstance() as any
+onMounted(() => {
+  nextTick(() => {
+    CommonUtil.getRect('.header-container', false, proxy).then((data: any) => {
+      if (data && data.width) {
+        scrollWidth.value = CommonUtil.addUnit(data.width, 'px')
+      }
+    })
+  })
+})
 
 /**
  * 设置列
@@ -118,7 +119,6 @@ const emit = defineEmits(['click', 'sort-method'])
 function setColumns(column: Record<string, any>) {
   columns.value = CommonUtil.deepClone([...columns.value, column])
   headerKey.value = CommonUtil.s4()
-  mainKey.value = CommonUtil.s4()
 }
 
 provide('setColumns', setColumns)
@@ -141,13 +141,33 @@ function doSort(column, index) {
  */
 function doScroll(event) {
   left.value = event.detail.scrollLeft
+  if (scrollWidth.value !== event.detail.scrollWidth) {
+    scrollWidth.value = CommonUtil.addUnit(event.detail.scrollWidth, 'px')
+  }
+}
+</script>
+<script module="swipe" lang="wxs">
+var scrollLeft = 0
+
+function touchstart(e, ins) {
+    //记录开始位置及动画状态
+  let pageX = e.touches[0].pageX
 }
 
-/**
- *行点击事件
- */
-function doSelected(i) {
-  emit('click', i)
+function touchmove(e, ownerInstance) {
+  scrollLeft = e.detail.scrollLeft
+  console.log(ownerInstance)
+}
+
+function touchend(e, ownerInstance) {
+  var instance = e.instance
+  var state = instance.getState()
+}
+module.exports= {
+  touchstart:touchstart,
+  touchmove:touchmove,
+  touchend:touchend,
+  scrollLeft:scrollLeft
 }
 </script>
 <style lang="scss" scoped>
@@ -157,18 +177,36 @@ function doSelected(i) {
   height: 80vh;
   overflow: auto;
   background: #ffffff;
-  &-header {
+  .header {
     position: sticky;
     z-index: 6;
     top: 0;
-    width: 750rpx;
+    width: 100%;
+    height: 80rpx;
+    display: flex;
     overflow-x: auto;
     white-space: nowrap;
-    width: 100%;
-    .header-column {
+    &-column {
       display: inline-block;
+      position: relative;
+      z-index: 1;
+      &--fixed {
+        position: sticky;
+        z-index: 3;
+        left: 0;
+        &::after {
+          content: ' ';
+          position: absolute;
+          height: 100%;
+          right: -30rpx;
+          top: 0;
+          width: 30rpx;
+          height: 100%;
+          background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.04) 100%);
+        }
+      }
     }
-    .header-row {
+    &-row {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -220,63 +258,11 @@ function doSelected(i) {
     }
   }
 
-  &-body {
-    // #ifndef MP-WEIXIN
+  .body {
     display: flex;
-    // #endif
-    overflow-x: auto;
+    overflow: auto;
     white-space: nowrap !important;
     width: 100%;
-    .body-column {
-      display: inline-block;
-    }
-    .body-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100rpx;
-      width: 220rpx;
-      font-size: 24rpx;
-      line-height: 36rpx;
-      font-family: PingFangSC-Medium, PingFang SC;
-      font-weight: 500;
-      background: #ffffff;
-      color: $color-text-fourth;
-      text {
-        width: 100%;
-        padding: 0 12rpx;
-        text-align: center;
-        @include ellipsis(2);
-      }
-    }
-  }
-  &-body--stripe {
-    .body-row:nth-child(2n + 2) {
-      background: #f5f9ff;
-    }
-  }
-
-  .relative-column {
-    position: relative;
-    z-index: 1;
-  }
-
-  .fixed-column {
-    // #ifndef MP-WEIXIN
-    position: sticky;
-    z-index: 3;
-    left: 0;
-    &::after {
-      content: ' ';
-      position: absolute;
-      height: 100%;
-      right: -30rpx;
-      top: 0;
-      width: 30rpx;
-      height: 100%;
-      background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.04) 100%);
-    }
-    // #endif
   }
 }
 

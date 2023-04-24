@@ -1,7 +1,7 @@
-{"id":"fant-mini-plus","name":"fant-mini-plus","displayName":"基于typescript+vue3的组件库，支持vue3 setup","version":"0.0.7","description":"fant-mini-plus，一款基于typescript+vue3.2开发的适用于 uni-app 平台前端UI框架","keywords":[
+{"id":"fant-mini-plus","name":"fant-mini-plus","displayName":"基于typescript+vue3的组件库，支持vue3 setup","version":"0.0.8","description":"fant-mini-plus，一款基于typescript+vue3.2开发的适用于 uni-app 平台的前端UI框架","keywords":[
         "vue3",
         "typescript",
-        "fant-mini",
-        "支付宝小程序",
-        "微信小程序"
-    ],"repository":"","typings":"index.d.ts","engines":{"HBuilderX":"^3.5.2"},"dcloudext":{"sale":{"regular":{"price":"0.00"},"sourcecode":{"price":"0.00"}},"contact":{"qq":""},"declaration":{"ads":"无","data":"插件不采集任何数据","permissions":"无"},"npmurl":"","type":"component-vue"},"uni_modules":{"dependencies":[],"encrypt":[],"platforms":{"cloud":{"tcb":"y","aliyun":"y"},"client":{"Vue":{"vue2":"n","vue3":"y"},"App":{"app-vue":"y","app-nvue":"n"},"H5-mobile":{"Safari":"y","Android Browser":"y","微信浏览器(Android)":"y","QQ浏览器(Android)":"y"},"H5-pc":{"Chrome":"u","IE":"u","Edge":"u","Firefox":"u","Safari":"u"},"小程序":{"微信":"y","阿里":"y","百度":"u","字节跳动":"u","QQ":"u"},"快应用":{"华为":"u","联盟":"u"}}}}}
+        "组件库",
+        "微信小程序",
+        "支付宝小程序"
+    ],"repository":"","typings":"index.d.ts","engines":{"HBuilderX":"^3.5.2"},"dcloudext":{"sale":{"regular":{"price":"0.00"},"sourcecode":{"price":"0.00"}},"contact":{"qq":""},"declaration":{"ads":"无","data":"插件不采集任何数据","permissions":"无"},"npmurl":"https://www.npmjs.com/package/fant-mini-plus","type":"component-vue"},"uni_modules":{"dependencies":[],"encrypt":[],"platforms":{"cloud":{"tcb":"y","aliyun":"y"},"client":{"Vue":{"vue2":"n","vue3":"y"},"App":{"app-vue":"y","app-nvue":"n"},"H5-mobile":{"Safari":"y","Android Browser":"y","微信浏览器(Android)":"y","QQ浏览器(Android)":"y"},"H5-pc":{"Chrome":"u","IE":"u","Edge":"u","Firefox":"u","Safari":"u"},"小程序":{"微信":"y","阿里":"y","百度":"u","字节跳动":"u","QQ":"u"},"快应用":{"华为":"u","联盟":"u"}}}}}

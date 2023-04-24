@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2023-03-14 19:06:18
  * @LastEditTime: 2023-03-23 16:59:01
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-divider\hd-divider.vue
  * 记得注释

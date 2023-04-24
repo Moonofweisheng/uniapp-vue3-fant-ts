@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2021-12-27 13:53:11
  * @LastEditTime: 2023-03-23 23:46:42
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-icon\hd-icon.vue
  * 记得注释
