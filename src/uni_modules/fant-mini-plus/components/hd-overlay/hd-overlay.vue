@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2023-02-13 10:07:50
  * @LastEditTime: 2023-03-29 18:11:20
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-overlay\hd-overlay.vue
  * 记得注释

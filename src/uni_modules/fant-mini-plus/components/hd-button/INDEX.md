@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2023-02-14 11:18:33
  * @LastEditTime: 2023-03-09 14:03:48
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description:
  * @FilePath: \fant-mini\src\uni_modules\fant-mini\components\hd-button\INDEX.md
  * 记得注释

@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2023-02-21 13:46:13
  * @LastEditTime: 2023-03-24 10:21:31
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\fan-loading\fan-loading.vue
  * 记得注释

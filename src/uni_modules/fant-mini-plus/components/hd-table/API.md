@@ -10,6 +10,9 @@ Table 表格
 |dataSource|table数据源|`Array`|`false`|[]|
 |stripe|是否为斑马纹|`Boolean`|`false`|false|
 |height|表格高度|`String`|`false`|默认值：'80vh'|
+|rowHeight|行高|`String`|`Number`|`false`|默认值：'80rpx'|
+
+
 
 <!-- @vuese:hd-table:props:end -->
 

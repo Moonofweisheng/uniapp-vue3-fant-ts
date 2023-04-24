@@ -2,7 +2,7 @@
  * @Author: 刘湘
  * @Date: 2021-05-25 16:34:27
  * @LastEditTime: 2023-03-24 10:36:42
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-toast\hd-toast.vue
  * 记得注释

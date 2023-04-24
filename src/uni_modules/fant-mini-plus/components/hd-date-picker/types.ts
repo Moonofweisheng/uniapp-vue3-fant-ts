@@ -1,8 +1,8 @@
 /*
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2022-12-15 14:47:47
  * @LastEditTime: 2023-03-21 21:45:28
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description:
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-date-picker\types.ts
  * 记得注释

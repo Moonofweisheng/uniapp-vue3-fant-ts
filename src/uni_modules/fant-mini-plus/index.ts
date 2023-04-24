@@ -1,8 +1,8 @@
 /*
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2021-12-21 14:22:03
  * @LastEditTime: 2023-03-21 22:08:45
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description:
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\index.ts
  * 记得注释

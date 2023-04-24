@@ -1,8 +1,8 @@
 /*
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2023-02-02 16:54:17
  * @LastEditTime: 2023-03-21 23:40:53
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description:
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-calendar\utils.ts
  * 记得注释

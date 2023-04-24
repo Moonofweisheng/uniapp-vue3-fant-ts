@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2020-12-25 10:30:02
  * @LastEditTime: 2023-03-21 22:04:14
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 标签组件
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-tag\hd-tag.vue
 -->

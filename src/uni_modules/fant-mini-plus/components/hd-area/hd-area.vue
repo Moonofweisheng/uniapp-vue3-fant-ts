@@ -1,8 +1,8 @@
 <!--
- * @Author: 徐庆凯
+ * @Author: weisheng
  * @Date: 2022-07-26 14:03:50
  * @LastEditTime: 2023-04-04 17:13:16
- * @LastEditors: 徐庆凯
+ * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-area\hd-area.vue
  * 记得注释
