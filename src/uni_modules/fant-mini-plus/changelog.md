@@ -1,13 +1,30 @@
-## 0.0.8（2023-04-23）
-### 0.0.8 (2023-04-23)
+## 0.0.9（2023-04-25）
+### 0.0.9 (2023-04-25)
 
 
 ### Features
 
-* ✨ Table表格组件支持自定义列模板并增加row-height行高属性
+* ✨ Table组件优化支持data-source响应式更新 
+
+
+### Bug Fixes
+
+* ✨ 修复Calendar组件在某些版本uni-app的H5端第一次打开无数据渲染的问题
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.9](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.8...v0.0.9) (2023-04-25)
+
+
+### Features
+
+* ✨ Table组件优化支持data-source响应式更新 ([4f4b451](https://gitlab.hd123.com/vue/fant-mini-plus/commit/4f4b4510f395f02f554e45958c40a10cde07ff93))
+
+
+### Bug Fixes
+
+* 🐛 修复Calendar组件在某些版本uni-app的H5端第一次打开无数据渲染的问题 ([2d2dd33](https://gitlab.hd123.com/vue/fant-mini-plus/commit/2d2dd337c2e29b774c8dedfa01917758b1283917))
 
 ### [0.0.8](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.7...v0.0.8) (2023-04-23)
 
