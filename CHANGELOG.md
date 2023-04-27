@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.6...v1.0.7) (2023-04-27)
+
+
+### Features
+
+* ✨ 新增路由使用方法的演示页面 ([452da84](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/452da84984afbe0e279900a3b900701f1f784405))
+
 ### [1.0.6](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.5...v1.0.6) (2023-04-24)
 
 ### [1.0.5](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.4...v1.0.5) (2023-04-20)
