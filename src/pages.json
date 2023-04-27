@@ -26,6 +26,22 @@
         "navigationBarTitleText": "",
         "navigationBarBackgroundColor": "#E7F0FF"
       }
+    },
+    {
+      "path": "pages/routerDemo/RouterDemo",
+      "name": "routerDemo",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#E7F0FF"
+      }
+    },
+    {
+      "path": "pages/routerDemo/RouterDemo1",
+      "name": "routerDemo1",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#E7F0FF"
+      }
     }
   ],
   "tabBar": {
