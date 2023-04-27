@@ -1,4 +1,4 @@
-{"id":"fant-mini-plus","name":"fant-mini-plus","displayName":"基于typescript+vue3的组件库，支持vue3 setup","version":"0.0.8","description":"fant-mini-plus，一款基于typescript+vue3.2开发的适用于 uni-app 平台的前端UI框架","keywords":[
+{"id":"fant-mini-plus","name":"fant-mini-plus","displayName":"基于typescript+vue3的组件库，支持script setup","version":"0.0.9","description":"fant-mini-plus，一款基于typescript+vue3.2开发的适用于 uni-app 平台的前端UI框架","keywords":[
         "vue3",
         "typescript",
         "组件库",

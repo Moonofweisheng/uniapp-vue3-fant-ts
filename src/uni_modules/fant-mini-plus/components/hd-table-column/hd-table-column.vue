@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2020-10-31 11:27:05
- * @LastEditTime: 2023-04-23 10:49:39
+ * @LastEditTime: 2023-04-25 14:18:58
  * @LastEditors: weisheng
  * @Description: 表格列
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-table-column\hd-table-column.vue
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, inject, onMounted } from 'vue'
+import { Ref, computed, inject, onMounted, watch, ref } from 'vue'
 import { CommonUtil } from '../../libs/utils/CommonUtil'
 
 interface Props {
@@ -52,9 +52,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const setColumns: Function = inject('setColumns') as Function // 设置列数据.
-const dataSource: Record<string, any>[] = inject('$dataSource') || [] // table数据
-const stripe: boolean = inject('$stripe') || false // 是否开启斑马纹
-const rowHeight: string | number = inject('$rowHeight') || '80rpx' // 自定义行高
+const $props = inject<Ref>('$props') || ref({}) // table数据
+
+// 是否开启斑马纹
+const stripe = computed(() => {
+  return $props.value.stripe || false
+})
 
 /**
  * 根节点样式
@@ -73,6 +76,7 @@ const rootStyle = computed(() => {
 })
 
 const rowStyle = computed(() => {
+  const rowHeight: string | number = $props.value.rowHeight || '80rpx' // 自定义行高
   const style: Record<string, string | number> = {}
   if (props.width && props.width.indexOf('px') > -1) {
     // width存在且包含px则转成px
@@ -95,13 +99,13 @@ const rowStyle = computed(() => {
 // 行完整数据
 const scope = computed(() => {
   return (index: number) => {
-    return dataSource[index] || {}
+    return $props.value.dataSource[index] || {}
   }
 })
 
 // 列数据
 const column = computed(() => {
-  let column: any[] = dataSource.map((item) => {
+  let column: any[] = $props.value.dataSource.map((item) => {
     return item[props.prop]
   })
 

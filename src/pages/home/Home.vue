@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-20 16:46:25
+ * @LastEditTime: 2023-04-27 14:59:37
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\home\Home.vue
@@ -17,7 +17,7 @@
     </view>
     <view class="main">
       <hd-grid :column-num="4">
-        <hd-grid-item use-slot v-for="(value, index) in chanel" :key="index">
+        <hd-grid-item use-slot v-for="(value, index) in chanel" :key="index" @click="doNavi">
           <image class="main-img" :src="value.image" />
           <text class="main-txt">{{ value.txt }}</text>
         </hd-grid-item>
@@ -33,10 +33,11 @@ import { Loading } from '@/uni_modules/fant-mini-plus/components/hd-loading/type
 import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
 import { onShow } from '@dcloudio/uni-app'
 import axios from 'axios'
-import { nextTick } from 'vue'
+import { useRouter } from 'uni-mini-router'
 import { onMounted, ref } from 'vue'
 const loading = ref<Loading>() // loading ref
 const toast = ref<Toast>() // toast ref
+const router = useRouter()
 const swiperList = ref([
   {
     img: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
@@ -57,6 +58,13 @@ onShow(() => {
     doInit('same')
   }, 400)
 })
+
+/**
+ * 跳转至路由演示页面
+ */
+function doNavi() {
+  router.push({ name: 'routerDemo' })
+}
 
 /**
  * 初始化

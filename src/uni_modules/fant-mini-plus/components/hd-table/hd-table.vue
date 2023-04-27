@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, getCurrentInstance, onMounted, provide, ref } from 'vue'
+import { computed, getCurrentInstance, onMounted, provide, ref, watch } from 'vue'
 import { CommonUtil, debounce } from '../..'
 import { nextTick } from 'process'
 
@@ -59,13 +59,20 @@ const props = withDefaults(defineProps<Props>(), {
   rowHeight: '80rpx'
 })
 
+// 监听数据源变化改变privide出去的$dataSource
+watch(
+  props,
+  () => {
+    $props.value = props
+  },
+  { deep: true }
+)
+
 const left = ref<number>(0) // scroll-view滚动距离
 const scrollWidth = ref<number | string>('auto') // 动态设置滚动宽度，兼容微信scroll-view中sticky失效的问题
 const columns = ref<Array<Record<string, any>>>([]) // 数据列
-provide('$dataSource', props.dataSource) // 表格数据provide
-provide('$stripe', props.stripe) // 斑马线provide
-provide('$rowHeight', props.rowHeight) // 行高provide
-const headerKey = ref<string>(CommonUtil.s4())
+const $props = ref<Props>(props)
+provide('$props', $props) // 行高provide
 const emit = defineEmits(['click', 'sort-method'])
 const scroll = debounce(doScroll, 100, false) // 滚动事件
 
@@ -101,6 +108,7 @@ const headerStyle = computed(() => {
     return CommonUtil.style(style)
   }
 })
+
 const { proxy } = getCurrentInstance() as any
 onMounted(() => {
   nextTick(() => {
@@ -118,7 +126,6 @@ onMounted(() => {
  */
 function setColumns(column: Record<string, any>) {
   columns.value = CommonUtil.deepClone([...columns.value, column])
-  headerKey.value = CommonUtil.s4()
 }
 
 provide('setColumns', setColumns)

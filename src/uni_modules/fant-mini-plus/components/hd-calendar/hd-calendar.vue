@@ -1,10 +1,10 @@
 <template>
   <view>
     <hd-toast ref="calendarToast"></hd-toast>
-    <hd-popup ref="calendarPop" type="bottom" @close="onClose" :maskClick="maskClick">
+    <hd-popup ref="calendarPop" type="bottom" :maskClick="maskClick" @transitionEnd="onClose">
       <view class="hd-calendar">
         <calendar-header @close="close" :title="title" :subtitle="subtitle" :showSubtitle="showSubtitle" :showTitle="showTitle"></calendar-header>
-        <scroll-view class="hd-calendar-body" @scroll="onScroll" :scroll-top="scrollTop" :scroll-with-animation="false" scroll-y>
+        <scroll-view class="hd-calendar-body" @scroll="onScroll" :scroll-top="scrollTop" :scroll-with-animation="false" v-if="months.length" scroll-y>
           <view v-for="(month, index) in months" :key="month" :id="`month-${month}`">
             <calendar-month
               class="calendar-month"
@@ -69,23 +69,12 @@
  *
  * @event {Function()} confirm 		点击确定按钮时触发		选择日期相关的返回参数
  * @event {Function()} close 		日历关闭时触发			可定义页面关闭时的回调事件
- * @example <hd-calendar  :defaultDate="defaultDateMultiple" :show="show" mode="multiple" @confirm="confirm"></hd-calendar>
+ * @example <hd-calendar  :defaultDate="defaultDateMultiple" mode="multiple" @confirm="confirm"></hd-calendar>
  *
  *  */
 import CalendarHeader from './header.vue'
 import CalendarMonth from './month.vue'
-import {
-  getPrevDay,
-  getNextDay,
-  getToday,
-  compareDay,
-  copyDates,
-  calcDateNum,
-  formatMonthTitle,
-  compareMonth,
-  getMonths,
-  getDayByOffset
-} from './utils'
+import { getPrevDay, getNextDay, getToday, compareDay, calcDateNum, formatMonthTitle, compareMonth, getMonths, getDayByOffset } from './utils'
 import { CommonUtil, RegUtil } from '../../index'
 import { computed, getCurrentInstance, onBeforeMount, ref, watch } from 'vue'
 import { Popup } from '../hd-popup/types'
@@ -200,17 +189,11 @@ const buttonCustomstyle = computed(() => {
 })
 
 watch(
-  () => props.mode,
+  [() => props.mode, () => props.defaultDate],
   () => {
     doReset()
-  }
-)
-
-watch(
-  () => props.defaultDate,
-  () => {
-    doReset()
-  }
+  },
+  { deep: true }
 )
 
 // 确定按钮是否禁用
@@ -239,7 +222,8 @@ onBeforeMount(() => {
  * 重置参数
  */
 function doReset() {
-  currentDate.value = getInitCurrentDate(props.defaultDate as number | number[])
+  const defaultDate: number | number[] | null = CommonUtil.deepClone(props.defaultDate)
+  currentDate.value = getInitCurrentDate(defaultDate)
 }
 
 /**
@@ -436,18 +420,16 @@ function onConfirm() {
   emit('confirm', currentDate.value)
   close()
 }
-// 弹层关闭时触发
+
+// 重置滚动并触发close事件
 function onClose() {
-  // 关闭弹出层时触发
+  // popup动画结束时触发
   emit('close')
-  const timer = setTimeout(() => {
-    scrollTop.value = 0
-    monthsInfo.value = []
-    clearTimeout(timer)
-  }, 300)
+  scrollTop.value = 0
+  monthsInfo.value = []
 }
 
-let calendarPop = ref<Popup>()
+let calendarPop = ref<Popup>() // popup
 
 // @vuese
 // 主动关闭
