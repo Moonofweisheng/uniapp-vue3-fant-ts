@@ -6787,15 +6787,15 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-uni-mini-router@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/uni-mini-router/-/uni-mini-router-0.0.7.tgz#b8fb0c429ca889fa42c9879c3ba0f0523239813d"
-  integrity sha512-h+6YnammUhsSvHUVt1YK7W7gsTaVPknaWW8hHhghlzzxQs3J+C7rj8j+QE5acKamwBqU5qgRuy8yBRmpQ5iuVg==
+uni-mini-router@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/uni-mini-router/-/uni-mini-router-0.0.9.tgz#f1752e45a5ea236b86515a02b28e24049e20cd6b"
+  integrity sha512-0L2aQyCsrSLR9h69l8c6+0s8ipuo9J2Wjji3xHJ1Lq2+s0Uxw8eA8f3QjliWGjvsIyxoJAu/zDDetyWGfzC4EA==
 
-uni-read-pages-vite@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.npmmirror.com/uni-read-pages-vite/-/uni-read-pages-vite-0.0.5.tgz#2a194ac6e73f43861d6c5d6e9dde8951a6e6ea79"
-  integrity sha512-FnZjpDxm2Q+9tIf+NORhS/0CsVdxx1WSXpA6G2sUZndkDpU6UEP3i+SjchzLPlVmR8B9fj8/uC6nil1WNNNwRw==
+uni-read-pages-vite@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/uni-read-pages-vite/-/uni-read-pages-vite-0.0.6.tgz#cb3f3d753acf30684a7707e80cf7eb2d8d5b17af"
+  integrity sha512-x86B6RcueeCKzLujbnv53WrzD/bTm2aQclXR7tXrLQzky0TKKihfWRgTS2qOC2ARXntoN07rD9jfZbGfYj28yQ==
 
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.0"
