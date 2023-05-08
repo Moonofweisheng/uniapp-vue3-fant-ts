@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.8...v1.0.9) (2023-05-08)
+
+
+### Features
+
+* ✨ 增加支持在导航守卫中改变跳转类型的示例 ([5c47eb5](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/5c47eb5b9a38e1d4439614e50958638d4932849a))
+
 ### [1.0.8](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.7...v1.0.8) (2023-05-06)
 
 ### [1.0.7](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.6...v1.0.7) (2023-04-27)
