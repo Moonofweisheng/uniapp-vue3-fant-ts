@@ -1,7 +1,7 @@
 /*
  * @Author: weisheng
  * @Date: 2021-10-13 11:15:00
- * @LastEditTime: 2023-05-08 15:10:02
+ * @LastEditTime: 2023-05-08 15:47:10
  * @LastEditors: weisheng
  * @Description:
  * @FilePath: \uniapp-vue3-fant-ts\src\router\index.ts
@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
     next({ name: 'login', navType: 'replaceAll' })
   } else if (authStore.$state.userInfo && to && to.name === 'login') {
     // 如果已经登录且目标页面是登录页面则跳转至首页
-    next({ name: 'home', navType: 'pushTab' })
+    next({ name: 'home', navType: 'replaceAll' })
   } else {
     next()
   }
