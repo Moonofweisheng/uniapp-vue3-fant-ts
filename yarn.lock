@@ -6787,10 +6787,10 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-uni-mini-router@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/uni-mini-router/-/uni-mini-router-0.0.9.tgz#f1752e45a5ea236b86515a02b28e24049e20cd6b"
-  integrity sha512-0L2aQyCsrSLR9h69l8c6+0s8ipuo9J2Wjji3xHJ1Lq2+s0Uxw8eA8f3QjliWGjvsIyxoJAu/zDDetyWGfzC4EA==
+uni-mini-router@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/uni-mini-router/-/uni-mini-router-0.0.10.tgz#77f11dc226c245bd4dcf6e702a9c53b9058d0db5"
+  integrity sha512-r5rWkTWZHpCTIDDEu0MSPT80yG9a9qlVwAZv7/Xj38PHC3SrO77Y/yEmCk1eVxnvMjOjaKasE2Ng2/Iow/ZCsA==
 
 uni-read-pages-vite@^0.0.6:
   version "0.0.6"

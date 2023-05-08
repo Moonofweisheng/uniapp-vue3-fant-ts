@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-27 14:59:37
+ * @LastEditTime: 2023-05-08 15:09:24
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\home\Home.vue
@@ -34,7 +34,7 @@ import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
 import { onShow } from '@dcloudio/uni-app'
 import axios from 'axios'
 import { useRouter } from 'uni-mini-router'
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 const loading = ref<Loading>() // loading ref
 const toast = ref<Toast>() // toast ref
 const router = useRouter()
