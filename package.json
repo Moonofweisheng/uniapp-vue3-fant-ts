@@ -1,6 +1,6 @@
 {
   "name": "uniapp-vue3-fant-ts",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "scripts": {
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
@@ -93,7 +93,7 @@
     "sass": "^1.59.3",
     "standard-version": "^9.5.0",
     "typescript": "^4.9.4",
-    "uni-mini-router": "^0.0.9",
+    "uni-mini-router": "0.0.11",
     "uni-read-pages-vite": "^0.0.6",
     "vite": "4.0.3",
     "vue-eslint-parser": "^9.1.0",
