@@ -1,6 +1,6 @@
 {
   "name": "uniapp-vue3-fant-ts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
