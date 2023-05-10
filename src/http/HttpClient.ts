@@ -25,7 +25,7 @@ export default class ApiClient {
     instance.interceptors.request.use(
       (request) => {
         // 设置conten-type
-        request.headers['Content-Type'] = 'application/json'
+        request.headers ? (request.headers['Content-Type'] = 'application/json') : (request.headers = { 'Content-Type': 'application/json' })
         // 设置请求唯一标识（便于查询请求日志）
         request.headers.trace_id = CommonUtil.dateFormat(new Date().getTime(), 'yyyyMMddHHmmssSSS')
         switch (abortRequest) {
