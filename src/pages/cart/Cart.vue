@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-05-08 15:15:02
+ * @LastEditTime: 2023-05-10 10:04:19
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\cart\Cart.vue
@@ -14,8 +14,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useAuthStore } from '@/store'
-import { useRouter } from 'uni-mini-router'
 const authStore = useAuthStore()
 /**
  * 登出

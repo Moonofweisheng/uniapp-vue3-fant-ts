@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2023-04-18 13:23:10
- * @LastEditTime: 2023-04-18 13:53:52
+ * @LastEditTime: 2023-05-09 20:56:17
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\login\cmp\LoginInput.vue
@@ -34,8 +34,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-
 interface Props {
   // 输入框值
   modelValue: string | number

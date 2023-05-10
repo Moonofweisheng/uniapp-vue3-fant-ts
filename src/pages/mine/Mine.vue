@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-18 18:37:37
+ * @LastEditTime: 2023-05-09 20:54:39
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\mine\Mine.vue
@@ -43,12 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useAuthStore } from '@/store'
 import { Modal } from '@/uni_modules/fant-mini-plus/components/hd-modal/types'
 import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
-import { storeToRefs } from 'pinia'
-import { useRouter } from 'uni-mini-router'
-import { ref } from 'vue'
 const modal = ref<Modal>() // modal ref
 const toast = ref<Toast>() // toast ref
 

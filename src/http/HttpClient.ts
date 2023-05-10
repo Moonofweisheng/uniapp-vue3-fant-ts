@@ -1,4 +1,3 @@
-import { useAuthStore } from '@/store'
 import { CommonUtil } from '@/uni_modules/fant-mini-plus'
 import axios from 'axios'
 import { uniAdapter } from 'fant-axios-adapter'

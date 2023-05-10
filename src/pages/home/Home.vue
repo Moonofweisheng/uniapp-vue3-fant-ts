@@ -31,9 +31,7 @@ import DemoApi from '@/api/DemoApi'
 import Chanel from '@/model/Chanel'
 import { Loading } from '@/uni_modules/fant-mini-plus/components/hd-loading/types'
 import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
-import { onShow } from '@dcloudio/uni-app'
 import axios from 'axios'
-import { useRouter } from 'uni-mini-router'
 import { ref } from 'vue'
 const loading = ref<Loading>() // loading ref
 const toast = ref<Toast>() // toast ref

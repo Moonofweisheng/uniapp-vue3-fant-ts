@@ -1,7 +1,7 @@
 /*
  * @Author: weisheng
  * @Date: 2023-03-14 16:06:21
- * @LastEditTime: 2023-04-13 22:21:20
+ * @LastEditTime: 2023-05-10 10:00:01
  * @LastEditors: weisheng
  * @Description:
  * @FilePath: \uniapp-vue3-fant-ts\.eslintrc.js
@@ -12,7 +12,13 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/vue3-essential',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    './.eslintrc-auto-import.json'
+  ],
   overrides: [],
   parser: 'vue-eslint-parser',
   parserOptions: {
