@@ -1,15 +1,12 @@
 /*
  * @Author: weisheng
  * @Date: 2021-10-13 11:15:00
- * @LastEditTime: 2023-05-08 15:47:10
+ * @LastEditTime: 2023-05-10 10:05:34
  * @LastEditors: weisheng
  * @Description:
  * @FilePath: \uniapp-vue3-fant-ts\src\router\index.ts
  * 记得注释
  */
-import { useAuthStore } from '@/store'
-import { createRouter } from 'uni-mini-router'
-
 const router = createRouter({
   routes: [...ROUTES]
 })

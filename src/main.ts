@@ -1,7 +1,7 @@
 /*
  * @Author: weisheng
  * @Date: 2023-03-09 19:23:03
- * @LastEditTime: 2023-04-18 16:09:53
+ * @LastEditTime: 2023-05-10 09:51:04
  * @LastEditors: weisheng
  * @Description:
  * @FilePath: \uniapp-vue3-fant-ts\src\main.ts
@@ -11,7 +11,6 @@ import { createSSRApp } from 'vue'
 import fantMiniPlus from '@/uni_modules/fant-mini-plus'
 import App from './App.vue'
 import router from './router'
-import { createPinia } from 'pinia'
 import { persist } from './store/persist'
 
 const pinia = createPinia()

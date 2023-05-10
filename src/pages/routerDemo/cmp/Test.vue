@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-27 15:50:09
+ * @LastEditTime: 2023-05-10 09:52:41
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\routerDemo\cmp\Test.vue
@@ -13,7 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'uni-mini-router'
 const route = useRoute()
 </script>
 

@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-27 14:59:54
+ * @LastEditTime: 2023-05-09 20:55:24
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\routerDemo\RouterDemo.vue
@@ -19,8 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'uni-mini-router'
-
 const router = useRouter()
 
 // 字符串路径

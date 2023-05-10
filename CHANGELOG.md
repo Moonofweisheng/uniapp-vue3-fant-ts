@@ -1,6 +1,12 @@
-# Changelog
+# 更新日志 
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [1.0.10](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.9...v1.0.10) (2023-05-10)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 🚀 引入unplugin-auto-import支持自动按需引入第三库API ([913e23f](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/913e23f37dff0018ccbca6700a74d20b9651e851))
 
 ### [1.0.9](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.8...v1.0.9) (2023-05-08)
 

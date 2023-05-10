@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-04-20 16:46:19
+ * @LastEditTime: 2023-05-10 10:05:18
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\login\Login.vue
@@ -29,14 +29,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useAuthStore } from '@/store'
-import { storeToRefs } from 'pinia'
 import { Loading } from '@/uni_modules/fant-mini-plus/components/hd-loading/types'
 import DemoApi from '@/api/DemoApi'
-import { computed, ref } from 'vue'
 import LoginInput from './cmp/LoginInput.vue'
 import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
-import { useRouter } from 'uni-mini-router'
 
 const username = ref<string>('') // 用户名
 const password = ref<string>('') // 密码

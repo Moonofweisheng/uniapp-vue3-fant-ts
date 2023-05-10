@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'uni-mini-router'
 import Test from './cmp/Test.vue'
 const router = useRouter()
 function back() {
