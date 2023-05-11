@@ -1,6 +1,18 @@
 # 更新日志 
 
 
+### [1.0.11](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.10...v1.0.11) (2023-05-11)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 🐛 修复飞书小程序引入axios@1.x报错的问题 ([86d92a2](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/86d92a2d321f6dcb8a647981821dd553094b1794))
+
+
+### ✏️ Documentation | 文档
+
+* ✏️  增加联系方式 ([89d4c77](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/89d4c775fb32522514b017b2222e845875a40637))
+
 ### [1.0.10](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.9...v1.0.10) (2023-05-10)
 
 
