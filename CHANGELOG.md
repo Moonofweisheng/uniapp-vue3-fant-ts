@@ -1,6 +1,8 @@
 # 更新日志 
 
 
+### [1.0.12](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.11...v1.0.12) (2023-05-15)
+
 ### [1.0.11](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.10...v1.0.11) (2023-05-11)
 
 

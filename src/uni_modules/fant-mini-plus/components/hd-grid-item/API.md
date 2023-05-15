@@ -11,7 +11,6 @@ GridItem 宫格布局项
 |iconColor|图标颜色|`String`|`false`|-|
 |iconPrefix|第三方图标前缀|`String`|`false`|fant-icon|
 |text|文字|`String`|`false`|-|
-|useSlot|使用slot|`Boolean`|`false`|false|
 |url|点击后跳转的链接地址|`String`|`false`|-|
 |linkType|链接跳转类型，可选值为 redirectTo switchTab reLaunch|`String`|`false`|`'redirectTo'` / `'switchTab'` / `'reLaunch'`|
 

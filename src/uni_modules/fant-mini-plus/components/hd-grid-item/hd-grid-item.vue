@@ -1,7 +1,7 @@
 <template>
   <view :class="rootClass" :style="rootStyle" @click="onClick">
     <view :class="contentClass" :style="contentStyle">
-      <block v-if="useSlot">
+      <block v-if="$slots.default">
         <slot />
       </block>
       <block v-else>
@@ -34,8 +34,6 @@ interface Props {
   iconPrefix?: string
   // 文字
   text?: string
-  // 使用slot
-  useSlot?: boolean
   // 点击后跳转的链接地址
   url?: string
   // 链接跳转类型，可选值为 redirectTo switchTab reLaunch

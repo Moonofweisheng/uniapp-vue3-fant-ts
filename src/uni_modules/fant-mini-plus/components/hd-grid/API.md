@@ -1,5 +1,5 @@
 # hd-grid
-默认单位为px
+
 Grid 宫格布局
 
 ## Props
