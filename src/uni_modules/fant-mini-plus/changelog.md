@@ -1,18 +1,28 @@
-## 0.0.9（2023-04-25）
-### 0.0.9 (2023-04-25)
+## 0.0.11（2023-05-15）
+### 0.0.11 (2023-05-15)
 
 
 ### Features
 
-* ✨ Table组件优化支持data-source响应式更新 
-
-
-### Bug Fixes
-
-* ✨ 修复Calendar组件在某些版本uni-app的H5端第一次打开无数据渲染的问题
+* ✨ Button组件自定义节点设置为虚拟节点去掉微信小程序自定义组件多出的最外层标签
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.11](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.10...v0.0.11) (2023-05-15)
+
+
+### Features
+
+* ✨ Button组件自定义节点设置为虚拟节点去掉微信小程序自定义组件多出的最外层标签 ([a877049](https://gitlab.hd123.com/vue/fant-mini-plus/commit/a87704996224269a9077ee380be72268c936cf82))
+
+### [0.0.10](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.9...v0.0.10) (2023-05-15)
+
+
+### Features
+
+* ✨ 新增 Image 和 WaterMark 组件 ([90a097e](https://gitlab.hd123.com/vue/fant-mini-plus/commit/90a097e83a7f612f9b76425e07de5f602ff39d3c))
+* ✨ 新增WaterMark水印组件 ([37a3979](https://gitlab.hd123.com/vue/fant-mini-plus/commit/37a39798f555d55394d33830256398452d5e7d35))
 
 ### [0.0.9](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.8...v0.0.9) (2023-04-25)
 

@@ -1,9 +1,8 @@
 @font-face {
   font-family: "fant-icon"; /* Project id 705786 */
-  /* Project id 705786 */
-  src: url('https://at.alicdn.com/t/font_705786_ny1lhcggi9m.woff2?t=1641813842392') format('woff2'),
-    url('https://at.alicdn.com/t/font_705786_ny1lhcggi9m.woff?t=1641813842392') format('woff'),
-    url('https://at.alicdn.com/t/font_705786_ny1lhcggi9m.ttf?t=1641813842392') format('truetype');
+  src: url('iconfont.woff2?t=1683877798304') format('woff2'),
+       url('iconfont.woff?t=1683877798304') format('woff'),
+       url('iconfont.ttf?t=1683877798304') format('truetype');
 }
 
 .fant-icon {
@@ -12,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ic_checkdisable_line:before {
+  content: "\e68d";
+}
+
+.img_default_image_load_failed:before {
+  content: "\e696";
+}
+
+.img_default_image_loading:before {
+  content: "\e695";
+}
+
+.ic_deletepic_fill:before {
+  content: "\e68f";
+}
+
+.ic_uploadpic_line:before {
+  content: "\e68e";
 }
 
 .ic_toastcheck_fill:before {
@@ -76,10 +95,6 @@
 
 .ic_deletekeyboard_fill:before {
   content: "\e65a";
-}
-
-.ic_checkdisable_line:before {
-  content: "\e68d";
 }
 
 .ic_tagup_fill:before {
@@ -353,3 +368,4 @@
 .ic_sort_line:before {
   content: "\e62e";
 }
+
