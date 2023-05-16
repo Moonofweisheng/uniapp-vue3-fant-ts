@@ -290,7 +290,7 @@ function closePopup() {
   &-center {
     display: inline-flex;
     width: auto;
-    flex: 0;
+    flex: 0 0 auto;
     justify-content: center;
   }
 

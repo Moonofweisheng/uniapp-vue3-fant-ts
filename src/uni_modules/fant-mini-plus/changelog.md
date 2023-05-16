@@ -1,13 +1,30 @@
-## 0.0.11（2023-05-15）
-### 0.0.11 (2023-05-15)
+## 0.0.12（2023-05-16）
+### 0.0.12 (2023-05-16)
 
 
 ### Features
 
-* ✨ Button组件自定义节点设置为虚拟节点去掉微信小程序自定义组件多出的最外层标签
+*  Transition组件在APP、微信、H5、支付宝、QQ平台使用wxs优化动画表现
+
+
+### Bug Fixes
+
+*  修复Popup组件从中心弹出时宽度异常的问题 
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.12](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.11...v0.0.12) (2023-05-16)
+
+
+### Features
+
+* ✨ Transition组件在APP、微信、H5、支付宝、QQ平台使用wxs优化动画表现 ([14806e0](https://gitlab.hd123.com/vue/fant-mini-plus/commit/14806e0d77ef5e0bf0e93d723861ef306c8c8b3e))
+
+
+### Bug Fixes
+
+* 🐛 修复Popup组件从中心弹出时宽度异常的问题 ([4fd41d4](https://gitlab.hd123.com/vue/fant-mini-plus/commit/4fd41d4b42c37cce1c939c57e6001d5b3afeafaf))
 
 ### [0.0.11](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.10...v0.0.11) (2023-05-15)
 

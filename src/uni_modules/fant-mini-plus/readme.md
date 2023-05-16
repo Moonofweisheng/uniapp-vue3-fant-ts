@@ -24,6 +24,9 @@ FANT-MINI-PLUS 是基于vue3的 uni-app 平台的移动端组件库，目前正�
 # 快速上手
 
 ## 使用文档:[地址](https://fant-mini-plus.top/fant-mini-plus/)
+
+## 演示项目:[Vue3-Uni-TS-Template基础模板](https://ext.dcloud.net.cn/plugin?id=11846)
+
 ## 介绍  
 通过本章节你可以了解到 `fant-mini-plus` 的安装方法和基本使用姿势。
 
@@ -39,6 +42,8 @@ fant-mini-plus 支持 uni_modules 规范，已经上架到 uni-app 的插件市�
 - uni_modules
 - - - fant-mini-plus 
 ```
+
+下载地址：<a href="https://ext.dcloud.net.cn/plugin?id=11489">fant-mini-plus</a>
 
 > Tips: 如果需要使用`Toast`和`Modal`组件，则需要安装<a href="https://ext.dcloud.net.cn/plugin?id=805"><span >mp-html</span></a>以支持富文本功能。
 
@@ -91,3 +96,14 @@ yarn add sass-loader -D
 ``` html
 <hd-loading ref="loading"></hd-loading>
 ```
+
+## 联系我
+
+有不明白或者建议可以扫码交流
+#### QQ群
+<img  src="https://fant-mini-plus.top/img/qq.jpg
+" width="220" height="auto">
+
+#### 微信群
+<img src="https://fant-mini-plus.top/img/weixin.png
+" width="220" height="auto">

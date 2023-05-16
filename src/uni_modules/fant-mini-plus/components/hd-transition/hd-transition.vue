@@ -1,5 +1,5 @@
 <template>
-  <!-- #ifdef MP-WEIXIN  -->
+  <!-- #ifdef MP-WEIXIN || MP-QQ || APP-PLUS || H5 || MP-ALIPAY -->
   <view style="display: none" :change:prop="animation.show" :prop="show"></view>
   <!-- #endif -->
   <view
@@ -15,10 +15,17 @@
     <slot v-if="destroy ? display : true" />
   </view>
 </template>
+<!-- #ifndef MP-WEIXIN  -->
+<!-- #ifndef MP-QQ  -->
+<script lang="ts" src="./hd-transition"></script>
+<!-- #endif -->
+<!-- #endif -->
+
+<!-- #ifdef MP-WEIXIN || MP-QQ -->
 <script lang="ts" setup>
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { CommonUtil, RegUtil } from '../..'
-
+// @ts-ignore
 type TransitionName =
   | 'fade'
   | 'fade-down'
@@ -131,9 +138,6 @@ function observeShow(value: boolean, old: boolean) {
   if (value === old) {
     return
   }
-  // #ifndef MP-WEIXIN
-  value ? enter() : leave()
-  // #endif
   // 如果duration无值则立即结束
   if (!props.duration) {
     onTransitionEnd()
@@ -176,14 +180,6 @@ function enter() {
   // 进入前触发
   emit('before-enter')
   status.value = 'enter'
-  // #ifndef MP-WEIXIN
-  $nextTick(() => {
-    doEnter()
-    CommonUtil.requestAnimationFrame(() => {
-      doEnterTo()
-    })
-  })
-  // #endif
 }
 
 /**
@@ -224,14 +220,6 @@ function leave() {
   emit('before-leave')
   status.value = 'leave'
   currentDuration.value = duration
-  // #ifndef MP-WEIXIN
-  $nextTick(() => {
-    doLeave()
-    $nextTick(() => {
-      doLeaveTo()
-    })
-  })
-  // #endif
 }
 
 function doLeave() {
@@ -321,10 +309,12 @@ defineExpose({
   doLeaveTo
 })
 </script>
-<!-- #ifdef MP-WEIXIN  -->
+<!-- #endif -->
+
+<!-- #ifdef MP-WEIXIN || MP-QQ || APP-PLUS || H5 -->
 <script module="animation" lang="wxs">
 
-function show(newValue, oldValue, ownerInstance){
+function show(newValue, oldValue, ownerInstance, instance){
   if (newValue===true&&oldValue===false) {
     createAnimation('enter',ownerInstance)
   }else if(newValue===false&&oldValue=== true){
@@ -373,12 +363,14 @@ function leaveAnimation(ownerInstance,index=0){
     ownerInstance.requestAnimationFrame(function() {leaveAnimation(ownerInstance,index)})
   }
 }
-
-
 module.exports= {
   show:show,
 }
 </script>
+<!-- #endif -->
+
+<!-- #ifdef MP-ALIPAY -->
+<script module="animation" lang="sjs" src="./animation.sjs"></script>
 <!-- #endif -->
 <style lang="scss" scoped>
 .hd-transition {
@@ -389,6 +381,7 @@ module.exports= {
 .hd-fade-leave-to {
   opacity: 0;
 }
+
 // .hd-fade-enter-to,
 // .hd-fade-leave {
 //   opacity: 1;
