@@ -30,7 +30,7 @@
 
 ```html
 <hd-grid :column-num="3" :border="false">
-  <hd-grid-item use-slot v-for="i in 3" :key="i">
+  <hd-grid-item v-for="i in 3" :key="i">
     <image style="width: 100%; height: 90px" :src="`https://img01.yzcdn.cn/vant/apple-${i + 1}.jpg`" />
   </hd-grid-item>
 </hd-grid>
