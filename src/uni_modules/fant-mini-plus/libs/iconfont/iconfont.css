@@ -1,8 +1,8 @@
 @font-face {
   font-family: "fant-icon"; /* Project id 705786 */
-  src: url('iconfont.woff2?t=1683877798304') format('woff2'),
-       url('iconfont.woff?t=1683877798304') format('woff'),
-       url('iconfont.ttf?t=1683877798304') format('truetype');
+  src: url('https://at.alicdn.com/t/c/font_705786_b0sy9iwbr29.woff2?t=1684376358152') format('woff2'),
+       url('https://at.alicdn.com/t/c/font_705786_b0sy9iwbr29.woff?t=1684376358152') format('woff'),
+       url('https://at.alicdn.com/t/c/font_705786_b0sy9iwbr29.ttf?t=1684376358152') format('truetype');
 }
 
 .fant-icon {
@@ -368,4 +368,3 @@
 .ic_sort_line:before {
   content: "\e62e";
 }
-

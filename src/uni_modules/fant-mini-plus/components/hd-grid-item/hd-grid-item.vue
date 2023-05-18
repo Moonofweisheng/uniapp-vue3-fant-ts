@@ -42,7 +42,6 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   iconPrefix: 'fant-icon',
-  useSlot: false,
   linkType: 'navigateTo'
 })
 

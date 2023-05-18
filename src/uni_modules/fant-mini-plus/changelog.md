@@ -1,18 +1,22 @@
-## 0.0.12（2023-05-16）
-### 0.0.12 (2023-05-16)
+## 0.0.13（2023-05-18）
+### 0.0.13 (2023-05-18)
 
 
 ### Features
 
-*  Transition组件在APP、微信、H5、支付宝、QQ平台使用wxs优化动画表现
-
-
-### Bug Fixes
-
-*  修复Popup组件从中心弹出时宽度异常的问题 
+* ✨ 字体文件改为引用线上文件 
+* ✨ Grid组件支持默认插槽  
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.13](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.12...v0.0.13) (2023-05-18)
+
+
+### Features
+
+* ✨ 字体文件改为引用线上文件 ([726dc11](https://gitlab.hd123.com/vue/fant-mini-plus/commit/726dc11f7d85c295f3ccf8714f629596cc78cd38))
+* ✨ Grid组件支持默认插槽 ([46c9825](https://gitlab.hd123.com/vue/fant-mini-plus/commit/46c9825105614d067946121ad4421aed15ce5009))
 
 ### [0.0.12](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.11...v0.0.12) (2023-05-16)
 
