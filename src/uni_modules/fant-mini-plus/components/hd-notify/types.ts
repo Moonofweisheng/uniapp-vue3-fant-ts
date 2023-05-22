@@ -1,10 +1,10 @@
 /*
  * @Author: weisheng
  * @Date: 2023-03-14 19:06:18
- * @LastEditTime: 2023-03-21 21:54:06
+ * @LastEditTime: 2023-05-19 15:03:18
  * @LastEditors: weisheng
  * @Description:
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-notify\types.ts
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-notify\types.ts
  * 记得注释
  */
 export type NotifyType = 'primary' | 'success' | 'error' | 'warning'
@@ -31,17 +31,9 @@ export type NotifyOptions = {
    */
   message: string
   /**
-   * 选择器的选择范围，可以传入自定义组件的 this 作为上下文
-   */
-  context?: any
-  /**
    * 展示时长(ms)，值为 0 时，notify 不会消失，默认值3000
    */
   duration?: number
-  /**
-   * 选择器
-   */
-  selector?: string
   /**
    * 自定义背景色
    */

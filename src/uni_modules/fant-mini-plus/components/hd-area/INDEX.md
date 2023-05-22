@@ -1,3 +1,4 @@
+
 ## 代码演示
 
 ### 基础用法
@@ -8,22 +9,20 @@
 ```yarn add @vant/area-data```
 
 ```html
-  <hd-area ref="area" :area-data="areaData" :area="areaSelect" @confirm="doConfirm"></hd-area>
+  <hd-area :area-data="areaData" :area="areaSelect" @confirm="doConfirm"></hd-area>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { Area } from '@/uni_modules/fant-mini-plus/components/hd-area/types'
 import { areaList } from '@vant/area-data'
 import { ref } from 'vue'
 
 const areaData = ref(areaList) // 位置信息数据
 const areaSelect = ref<Ucn[]>([]) // 已选省市区
-const area = ref<Area>() // ref
-
+const area = useArea()
 
 function onClick() {
-  area.value?.showArea()
+  area.showArea()
 }
 
 /**

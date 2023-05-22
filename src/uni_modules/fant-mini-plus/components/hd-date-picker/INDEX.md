@@ -3,24 +3,23 @@
 ### 选择年月日
 
 ```html
-<hd-date-picker ref="datePicker"></hd-date-picker>
+<hd-date-picker></hd-date-picker>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { DatePicker, DatePickerType } from '@/uni_modules/fant-mini-plus/components/hd-date-picker/types'
 import { ref } from 'vue'
-const datePicker = ref<DatePicker>()
+const datePicker = useDatePicker()
 cosnt date = ref<string|number>('')
 
 function onClick() {
   let currentDate: number | string = new Date().getTime()
-  datePicker.value?.showDatePicker({
+  datePicker.showDatePicker({
     type: 'date',
     currentDate: currentDate,
     success: (res) => {
       if (res.date) {
-        params.value.date = res.date
+        date.value = res.date
       }
     },
     fail: () => {
@@ -34,24 +33,24 @@ function onClick() {
 ### 选择时分秒
 
 ```html
-<hd-date-picker ref="datePicker"></hd-date-picker>
+<hd-date-picker></hd-date-picker>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { DatePicker, DatePickerType } from '@/uni_modules/fant-mini-plus/components/hd-date-picker/types'
+
 import { ref } from 'vue'
-const datePicker = ref<DatePicker>()
+const datePicker = useDatePicker()
 cosnt date = ref<string|number>('')
 
 function onClick() {
   let currentDate: number | string = new Date().getTime()
-  datePicker.value?.showDatePicker({
+  datePicker.showDatePicker({
     type: 'time',
     currentDate: currentDate,
     success: (res) => {
       if (res.date) {
-        date = res.date
+        date.value = res.date
       }
     },
     fail: () => {
@@ -65,24 +64,24 @@ function onClick() {
 ### 选择年月
 
 ```html
-<hd-date-picker ref="datePicker"></hd-date-picker>
+<hd-date-picker></hd-date-picker>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { DatePicker, DatePickerType } from '@/uni_modules/fant-mini-plus/components/hd-date-picker/types'
+
 import { ref } from 'vue'
-const datePicker = ref<DatePicker>()
+const datePicker = useDatePicker()
 cosnt date = ref<string|number>('')
 
 function onClick() {
   let currentDate: number | string = new Date().getTime()
-  datePicker.value?.showDatePicker({
+  datePicker.showDatePicker({
     type: 'year-month',
     currentDate: currentDate,
     success: (res) => {
       if (res.date) {
-        date = res.date
+        date.value = res.date
       }
     },
     fail: () => {
@@ -95,24 +94,24 @@ function onClick() {
 ### 日期时分
 
 ```html
-<hd-date-picker ref="datePicker"></hd-date-picker>
+<hd-date-picker></hd-date-picker>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { DatePicker, DatePickerType } from '@/uni_modules/fant-mini-plus/components/hd-date-picker/types'
+
 import { ref } from 'vue'
-const datePicker = ref<DatePicker>()
+const datePicker = useDatePicker()
 cosnt date = ref<string|number>('')
 
 function onClick() {
   let currentDate: number | string = new Date().getTime()
-  datePicker.value?.showDatePicker({
+  datePicker.showDatePicker({
     type: 'date-hour-minute',
     currentDate: currentDate,
     success: (res) => {
       if (res.date) {
-        date = res.date
+        date.value = res.date
       }
     },
     fail: () => {
@@ -125,23 +124,23 @@ function onClick() {
 ### 日期时间
 
 ```html
-<hd-date-picker ref="datePicker"></hd-date-picker>
+<hd-date-picker></hd-date-picker>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { DatePicker, DatePickerType } from '@/uni_modules/fant-mini-plus/components/hd-date-picker/types'
+
 import { ref } from 'vue'
-const datePicker = ref<DatePicker>()
+const datePicker = useDatePicker()
 cosnt date = ref<string|number>('')
 function onClick() {
   let currentDate: number | string = new Date().getTime()
-  datePicker.value?.showDatePicker({
+  datePicker.showDatePicker({
     type: 'date-time',
     currentDate: currentDate,
     success: (res) => {
       if (res.date) {
-        date = res.date
+        date.value = res.date
       }
     },
     fail: () => {

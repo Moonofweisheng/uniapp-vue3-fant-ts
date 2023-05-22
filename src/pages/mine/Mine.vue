@@ -8,8 +8,8 @@
  * 记得注释
 -->
 <template>
-  <hd-modal ref="modal"></hd-modal>
-  <hd-toast ref="toast"></hd-toast>
+  <hd-modal></hd-modal>
+  <hd-toast></hd-toast>
 
   <view class="mine">
     <view class="tools">
@@ -43,10 +43,9 @@
 </template>
 
 <script lang="ts" setup>
-import { Modal } from '@/uni_modules/fant-mini-plus/components/hd-modal/types'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
-const modal = ref<Modal>() // modal ref
-const toast = ref<Toast>() // toast ref
+import { useModal, useToast } from '@/uni_modules/fant-mini-plus'
+const modal = useModal()
+const toast = useToast()
 
 const { userInfo } = storeToRefs(useAuthStore()) // 解构pinia的store
 const router = useRouter()
@@ -66,7 +65,7 @@ function doScan() {
       // 扫码内容
       const code: string = res.result || ''
 
-      toast.value?.showToast(`扫码内容：${code}`)
+      toast.showToast(`扫码内容：${code}`)
     }
   })
 }
@@ -75,7 +74,7 @@ function doScan() {
  * 登出
  */
 function doLogout() {
-  modal.value?.showModal({
+  modal.showModal({
     title: '提示',
     content: '确认退出当前登录账号吗？',
     success: (action) => {

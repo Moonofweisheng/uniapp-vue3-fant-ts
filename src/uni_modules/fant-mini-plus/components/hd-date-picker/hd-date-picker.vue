@@ -1,5 +1,5 @@
 <template>
-  <hd-popup ref="datepickerPop" type="bottom" @close="onClose" :maskClick="true" destroy>
+  <hd-popup id="datepickerPop" type="bottom" @close="onClose" :maskClick="true" destroy>
     <view class="hd-date-picker">
       <view class="hd-date-content" @touchmove.stop.prevent catchtouchmove="true">
         <view class="header">
@@ -19,11 +19,19 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { CommonUtil, RegUtil } from '../..'
-import { DatePickerUtil } from '../../libs/utils/DatePicker'
-import { Popup } from '../hd-popup/types'
+import { computed, inject, ref, watch } from 'vue'
+import { CommonUtil, RegUtil, datePickerDefaultKey, datePickerDefaultOptionKey, getDefaultOptions, usePopup } from '../..'
 import { DatePickerType, DatePickerOptions } from './types'
+import { DatePickerUtil } from '../../libs/utils/DatePicker'
+
+interface Props {
+  // 日期选择器唯一标识
+  id?: string
+}
+const props = withDefaults(defineProps<Props>(), {
+  id: ''
+})
+
 /**
  * DatePicker 日期选择
  * @vuese:test 时12
@@ -46,7 +54,30 @@ const success = ref<Function | null>(null) // 成功的回调
 // eslint-disable-next-line @typescript-eslint/ban-types
 const fail = ref<Function | null>(null) // 失败的回调
 const columns = ref<Record<string, any>[]>([]) // 列
-const datepickerPop = ref<Popup>() // 弹出框
+const datepickerPop = usePopup('datepickerPop') // 弹出框
+
+const datePickerKey = props.id ? '__DATE_PICKER__' + props.id : datePickerDefaultKey
+const datePickerOptionKey = props.id ? '__DATE_PICKER_OPTION__' + props.id : datePickerDefaultOptionKey
+const datePickerShow = inject(datePickerKey) || ref<boolean>(false) // 是否展示datePicker组件
+const datePickerOption = inject(datePickerOptionKey) || ref<DatePickerOptions>(getDefaultOptions()) // datePicker选项
+
+// 监听函数式调用是否展示弹出框
+watch(
+  () => datePickerShow.value,
+  (newVal: boolean) => {
+    if (newVal) {
+      show()
+    }
+  }
+)
+
+// 监听options变化展示
+watch(
+  () => datePickerOption.value,
+  (newVal: DatePickerOptions) => {
+    reset(newVal)
+  }
+)
 
 /**
  * 自定义样式
@@ -63,11 +94,11 @@ const customStyle = computed(() => {
 
 // 打开
 function show() {
-  datepickerPop.value?.showPopup()
+  datepickerPop.showPopup()
 }
 // 关闭
 function hide() {
-  datepickerPop.value?.closePopup()
+  datepickerPop.closePopup()
 }
 /**
  * 重置参数
@@ -192,7 +223,7 @@ function padZero(val) {
   return `00${val}`.slice(-2)
 }
 function onClose() {
-  // showPicker.value = false
+  datePickerShow.value = false
 }
 function onCancel() {
   hide()
@@ -246,48 +277,6 @@ function onChange(e) {
   columns.value = getColumns()
   selectedValue.value = getSeletedValue()
 }
-
-function showDatePicker(option: DatePickerOptions) {
-  const currentYear = new Date().getFullYear() // 当前年份
-  const defaultOptions: DatePickerOptions = {
-    currentDate: new Date().getTime(), // 初始选择的日期时间，默认当前时间。
-    startDate: new Date(currentYear - 10, 0, 1).getTime(), // 最小日期时间。默认:十年前
-    endDate: new Date(currentYear + 10, 11, 31).getTime(), // 最大日期时间。默认:十年后
-    maxHour: 23, // 可选的最大小时，针对 time 类型
-    maxMinute: 59, // 可选的最大分钟，针对 time 类型
-    maxSecond: 59, // 可选的最大秒，针对 time 类型
-    minHour: 0, // 可选的最小小时，针对 time 类型
-    minMinute: 0, // 可选的最小分，针对 time 类型
-    minSecond: 0, // 可选的最小秒，针对 time 类型
-    type: 'date', // 类型，默认为date
-    themeColor: '#1C64FD' // 主题颜色
-  }
-  option = CommonUtil.deepMerge(defaultOptions, option) as DatePickerOptions
-  if (option.type === 'time') {
-    const { maxHour, maxMinute, maxSecond, minHour, minMinute, minSecond } = option
-    option.maxHour = Math.max(maxHour!, minHour!)
-    option.maxMinute = Math.max(maxMinute!, minMinute!)
-    option.maxSecond = Math.max(maxSecond!, minSecond!)
-    option.minHour = Math.min(maxHour!, minHour!)
-    option.minMinute = Math.min(maxMinute!, minMinute!)
-    option.minSecond = Math.min(maxSecond!, minSecond!)
-  } else {
-    const start = new Date(option.startDate!).getTime()
-    const end = new Date(option.endDate!).getTime()
-    const now = new Date(option.currentDate!).getTime()
-    option.startDate = Math.min(start, end)
-    option.endDate = Math.max(start, end)
-    option.currentDate = Math.min(Math.max(start, now), end)
-  }
-  reset(option)
-  show()
-}
-
-defineExpose({
-  reset,
-  show,
-  showDatePicker
-})
 </script>
 
 <style lang="scss" scoped>

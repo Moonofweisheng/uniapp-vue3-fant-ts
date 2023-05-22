@@ -29,12 +29,11 @@
 <script lang="ts" setup>
 import DemoApi from '@/api/DemoApi'
 import Chanel from '@/model/Chanel'
-import { Loading } from '@/uni_modules/fant-mini-plus/components/hd-loading/types'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useLoading, useToast } from '@/uni_modules/fant-mini-plus'
 import axios from 'axios'
 import { ref } from 'vue'
-const loading = ref<Loading>() // loading ref
-const toast = ref<Toast>() // toast ref
+const loading = useLoading()
+const toast = useToast()
 const router = useRouter()
 const swiperList = ref([
   {
@@ -68,19 +67,19 @@ function doNavi() {
  * 初始化
  */
 function doInit(abortRequest: 'same' | 'all' | 'none' = 'none') {
-  loading.value?.showLoading({})
+  loading.showLoading({})
   DemoApi.init(abortRequest)
     .then((resp) => {
-      loading.value?.hideLoading()
+      loading.hideLoading()
       chanel.value = resp.data || []
     })
     .catch((error) => {
-      loading.value?.hideLoading()
+      loading.hideLoading()
       // 判断如果是取消的请求则不提示
       if (axios.isCancel(error)) {
         return
       }
-      toast.value?.showToast({
+      toast.showToast({
         title: error.msg,
         icon: 'error'
       })

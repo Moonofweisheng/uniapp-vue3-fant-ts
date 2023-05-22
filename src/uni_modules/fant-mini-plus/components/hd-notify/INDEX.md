@@ -4,21 +4,17 @@
 
 ```html
 <!-- 在页面内添加对应的节点 -->
-<hd-notify ref="notify"></hd-notify>
+<hd-notify></hd-notify>
 ```
 
 ```ts
-// 函数式调用
-showNotify('哈喽啊，树先生！')
-
-
 <script lang="ts" setup>
-import { Notify } from '@/uni_modules/fant-mini-plus/components/hd-notify/types'
+
 import { ref, onMounted } from 'vue'
-const notify = ref<Notify>() // notify ref
+const notify = useNotify()
 
 onMounted(()=>{
-  notify.value?.showNotify('哈喽啊，树先生！')
+  notify.showNotify('哈喽啊，树先生！')
 })
 </script>
 
@@ -30,16 +26,16 @@ onMounted(()=>{
 
 ```ts
 // 主要通知
-notify.value?.showNotify({ type: 'primary', message: '哈喽啊，树先生！' })
+notify.showNotify({ type: 'primary', message: '哈喽啊，树先生！' })
 
 // 成功通知
-notify.value?.showNotify({ type: 'success', message: '哈喽啊，树先生！' })
+notify.showNotify({ type: 'success', message: '哈喽啊，树先生！' })
 
 // 危险通知
-notify.value?.showNotify({ type: 'error', message: '哈喽啊，树先生！' })
+notify.showNotify({ type: 'error', message: '哈喽啊，树先生！' })
 
 // 警告通知
-notify.value?.showNotify({ type: 'warning', message: '哈喽啊，树先生！' })
+notify.showNotify({ type: 'warning', message: '哈喽啊，树先生！' })
 ```
 
 ### 自定义通知
@@ -47,13 +43,13 @@ notify.value?.showNotify({ type: 'warning', message: '哈喽啊，树先生！' 
 自定义消息通知的颜色和展示时长。
 
 ```ts
-notify.value?.showNotify({
+notify.showNotify({
   message: '自定义颜色',
   color: '#AAEEBB',
   background: '#FFAAEE'
 })
 
-notify.value?.showNotify({
+notify.showNotify({
   message: '自定义时长',
   duration: 1500
 })

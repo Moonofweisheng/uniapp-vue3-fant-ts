@@ -14,6 +14,8 @@ Toast 轻提示
 |icon|toast图标 - success: 显示成功图标 - warning: 显示警告图标 - error: 显示错误图标 - none: 不显示图标|`'success'` / `'none'`/ `'warning'`/ `'error'`|`false`|默认值是：`none`|
 |image|toast自定义图片|`String`|`false`|-|
 |zIndex|自定义层级，默认值 1000|`Number`|`false`|1000|
+|id|组件唯一标识|`String`|`false`|-|
+
 
 <!-- @vuese:hd-toast:props:end -->
 

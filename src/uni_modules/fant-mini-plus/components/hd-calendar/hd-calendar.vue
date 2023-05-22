@@ -1,7 +1,7 @@
 <template>
   <view>
-    <hd-toast ref="calendarToast"></hd-toast>
-    <hd-popup ref="calendarPop" type="bottom" :maskClick="maskClick" @transitionEnd="onClose">
+    <hd-toast id="calendarToast"></hd-toast>
+    <hd-popup id="calendarPop" type="bottom" :maskClick="maskClick" @transitionEnd="onClose">
       <view class="hd-calendar">
         <calendar-header @close="close" :title="title" :subtitle="subtitle" :showSubtitle="showSubtitle" :showTitle="showTitle"></calendar-header>
         <scroll-view class="hd-calendar-body" @scroll="onScroll" :scroll-top="scrollTop" :scroll-with-animation="false" v-if="months.length" scroll-y>
@@ -75,10 +75,8 @@
 import CalendarHeader from './header.vue'
 import CalendarMonth from './month.vue'
 import { getPrevDay, getNextDay, getToday, compareDay, calcDateNum, formatMonthTitle, compareMonth, getMonths, getDayByOffset } from './utils'
-import { CommonUtil, RegUtil } from '../../index'
-import { computed, getCurrentInstance, onBeforeMount, ref, watch } from 'vue'
-import { Popup } from '../hd-popup/types'
-import { Toast } from '../hd-toast/types'
+import { CommonUtil, RegUtil, calendarDefaultKey, usePopup, useToast } from '../..'
+import { computed, getCurrentInstance, inject, onBeforeMount, ref, watch } from 'vue'
 
 type CalendarMode = 'single' | 'multiple' | 'range'
 
@@ -126,6 +124,8 @@ interface Props {
   allowSameDay?: boolean
   // 圆角值
   round?: boolean | string | number
+  // Calendar唯一标识
+  id?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -170,7 +170,9 @@ const props = withDefaults(defineProps<Props>(), {
   // 是否允许日期范围的起止时间为同一天，mode = range时有效
   allowSameDay: false,
   // 圆角值
-  round: 0
+  round: 0,
+  // Calendar唯一标识
+  id: ''
 })
 
 const months = ref<Array<number>>([]) // 需要显示的月份的数组
@@ -180,6 +182,9 @@ const currentDate = ref<number | Array<number> | null>(null) // 当前选中的�
 const scrollTop = ref<number>(0) // 滚动位置
 const emit = defineEmits(['unselect', 'select', 'confirm', 'close'])
 
+const calendarKey = props.id ? '__CALENDAR_' + props.id : calendarDefaultKey
+const calendarShow = inject(calendarKey) || ref<boolean>(false) // 函数式调用是否展示日历组件
+
 // 按钮自定义样式
 const buttonCustomstyle = computed(() => {
   const style: Record<string, string> = {
@@ -187,6 +192,18 @@ const buttonCustomstyle = computed(() => {
   }
   return CommonUtil.style(style)
 })
+
+// 监听函数式调用是否展示弹出框
+watch(
+  () => calendarShow.value,
+  (newVal: boolean) => {
+    if (newVal) {
+      open()
+    } else {
+      close()
+    }
+  }
+)
 
 watch(
   [() => props.mode, () => props.defaultDate],
@@ -299,14 +316,14 @@ function select(date: number | any[], complete: boolean = false) {
   }
 }
 
-let calendarToast = ref<Toast>() // toast
+let calendarToast = useToast('calendarToast') // toast
 /**
  * 校验最大选择日期数量是否在限制范围内
  */
 function checkRange(date: number | any[]) {
   if (props.maxRange && calcDateNum(date) > props.maxRange) {
     if (props.showRangePrompt) {
-      calendarToast.value?.showToast({
+      calendarToast.showToast({
         title: props.rangePrompt || `选择天数不能超过 ${props.maxRange} 天`
       })
     }
@@ -424,17 +441,19 @@ function onConfirm() {
 // 重置滚动并触发close事件
 function onClose() {
   // popup动画结束时触发
+  calendarShow.value = false
   emit('close')
   scrollTop.value = 0
   monthsInfo.value = []
 }
 
-let calendarPop = ref<Popup>() // popup
+let calendarPop = usePopup('calendarPop') // popup
 
 // @vuese
 // 主动关闭
 function close() {
-  calendarPop.value?.closePopup()
+  console.log(23223)
+  calendarPop.closePopup()
 }
 
 const { proxy } = getCurrentInstance() as any
@@ -442,7 +461,7 @@ const { proxy } = getCurrentInstance() as any
 // @vuese
 // 主动打开
 function open() {
-  calendarPop.value?.showPopup()
+  calendarPop.showPopup()
   doSetMonths()
   doReset()
   const timer = setTimeout(() => {
@@ -454,27 +473,6 @@ function open() {
     clearTimeout(timer)
   }, 300)
 }
-
-/**
- * 打开日历
- */
-function showCalendar() {
-  open()
-}
-
-/**
- * 关闭日历
- */
-function closeCalendar() {
-  close()
-}
-
-defineExpose({
-  close,
-  open,
-  showCalendar,
-  closeCalendar
-})
 </script>
 
 <style lang="scss" scoped>

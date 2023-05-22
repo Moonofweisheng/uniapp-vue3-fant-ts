@@ -28,6 +28,8 @@ Calendar 日历
 |showRangePrompt|范围选择超过最多可选天数时，是否展示提示文案，mode = range时有效|`Boolean`|`false`|true|
 |allowSameDay|是否允许日期范围的起止时间为同一天，mode = range时有效|`Boolean`|`false`|false|
 |round|圆角值|`Boolean` /  `String` /  `Number`|`false`|0|
+|id|组件唯一标识|`String`|`false`|-|
+
 
 <!-- @vuese:hd-calendar:props:end -->
 

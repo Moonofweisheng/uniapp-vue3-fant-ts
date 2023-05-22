@@ -1,16 +1,5 @@
-/*
- * @Author: weisheng
- * @Date: 2022-12-14 19:34:38
- * @LastEditTime: 2023-03-23 13:12:01
- * @LastEditors: weisheng
- * @Description:
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-toast\types.ts
- * 记得注释
- */
 export type ToastType = 'white' | 'black'
 export type ToastIconType = 'success' | 'none' | 'warning' | 'error'
-
-declare type ToastContext = Page.PageInstance
 
 export type ToastOptions = {
   /**
@@ -43,14 +32,6 @@ export type ToastOptions = {
    * 提示的持续时间，单位毫秒，默认：1500
    */
   duration?: number
-  /**
-   * 选择器
-   */
-  selector?: string
-  /**
-   * 上下文
-   */
-  context?: (() => ToastContext) | ToastContext
   /**
    * 点击时的回调函数
    */

@@ -6,17 +6,17 @@
 `title` 提示标题，`content` 提示内容。
 
 ```html
-<hd-modal ref="modal"></hd-modal>
+<hd-modal></hd-modal>
 <hd-button @click="open">打开对话框</hd-button>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { Modal } from '@/uni_modules/fant-mini-plus/components/hd-modal/types'
+import { useModal } from '@/uni_modules/fant-mini-plus'
 import { ref } from 'vue'
-const modal = ref<Modal>() // modal ref
+const modal = useModal()
 function open() {
-  modal.value?.showModal({
+  modal.showModal({
     title: '提示',
     content:'哈喽啊，树先生'
   })
@@ -29,17 +29,17 @@ function open() {
 `showCancel` 是否显示取消按钮，默认为 true，`cancelText` 取消按钮的文字，默认为"取消"，`cancelColor` 取消按钮的文字颜色，默认为"#000000"。
 
 ```html
-<hd-modal ref="modal"></hd-modal>
+<hd-modal></hd-modal>
 <hd-button @click="open">打开对话框</hd-button>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { Modal } from '@/uni_modules/fant-mini-plus/components/hd-modal/types'
+import { useModal } from '@/uni_modules/fant-mini-plus'
 import { ref } from 'vue'
-const modal = ref<Modal>() // modal ref
+const modal = useModal()
 function open() {
-  modal.value?.showModal({
+  modal.showModal({
       title: '提示',
       content: '哈喽啊，树先生',
       showCancel: true,
@@ -56,16 +56,16 @@ function open() {
 `confirmText` 确定按钮的文字，默认为"确定"，`confirmText` 确认按钮的文字颜色，默认为"#3CC51F"。
 
 ```html
-<hd-modal ref="modal"></hd-modal>
+<hd-modal></hd-modal>
 <hd-button @click="open">打开对话框</hd-button>
 ```
 ```ts
 <script lang="ts" setup>
-import { Modal } from '@/uni_modules/fant-mini-plus/components/hd-modal/types'
+import { useModal } from '@/uni_modules/fant-mini-plus'
 import { ref } from 'vue'
-const modal = ref<Modal>() // modal ref
+const modal = useModal()
 function open() {
-  modal.value?.showModal({
+  modal.showModal({
       title: '提示',
       content: '哈喽啊，树先生',
       confirmText: '提交',
@@ -80,17 +80,17 @@ function open() {
 `success` 调用成功的回调函数，`fail` 调用失败的回调函数，`complete` 调用结束的回调函数（调用成功、失败都会执行）。
 
 ```html
-<hd-modal ref="modal"></hd-modal>
+<hd-modal></hd-modal>
 <hd-button @click="open">打开对话框</hd-button>
 ```
 
 ```ts
 <script lang="ts" setup>
-import { Modal } from '@/uni_modules/fant-mini-plus/components/hd-modal/types'
+import { useModal } from '@/uni_modules/fant-mini-plus'
 import { ref } from 'vue'
-const modal = ref<Modal>() // modal ref
+const modal = useModal()
 function open() {
-  modal.value?.showModal({
+  modal.showModal({
         title: '提示',
         content: '哈喽啊，树先生',
         success: (action) => {

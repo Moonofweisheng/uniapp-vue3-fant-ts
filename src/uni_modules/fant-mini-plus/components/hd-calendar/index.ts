@@ -1,45 +1,43 @@
 /*
  * @Author: weisheng
  * @Date: 2022-12-14 17:33:21
- * @LastEditTime: 2023-03-21 21:41:00
+ * @LastEditTime: 2023-05-19 16:02:53
  * @LastEditors: weisheng
  * @Description:
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-calendar\index.ts
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-calendar\index.ts
  * 记得注释
  */
-import { getCurrentInstance } from 'vue'
+import { InjectionKey, Ref, nextTick, provide, ref } from 'vue'
 import type { Calendar } from './types'
 
-export function useCalendar(selector: string = 'calendar'): Calendar {
-  const { proxy } = getCurrentInstance() as any
+/**
+ * useCalendar 用到的key
+ *
+ * @internal
+ */
+export const calendarDefaultKey = Symbol('__CALENDAR_') as InjectionKey<Ref<boolean>>
+
+export function useCalendar(selector: string = ''): Calendar {
+  const calendarShow = ref<boolean>(false) // 是否展示calendar
+  const calendarKey = selector ? '__CALENDAR_' + selector : calendarDefaultKey
+  provide(calendarKey, calendarShow)
   const showCalendar = () => {
-    const calendar = getCalendar(proxy, selector)
-    if (calendar) {
-      calendar.open()
+    if (calendarShow.value) {
+      calendarShow.value = false
+      nextTick(() => {
+        calendarShow.value = true
+      })
     } else {
-      console.error('未找到 hd-calendar 节点，请确认 selector 是否正确')
+      calendarShow.value = true
     }
   }
 
   const closeCalendar = () => {
-    const calendar = getCalendar(proxy, selector)
-    if (calendar) {
-      calendar.close()
-    } else {
-      console.error('未找到 hd-calendar 节点，请确认 selector 是否正确')
-    }
+    calendarShow.value = false
   }
 
   return {
     showCalendar,
     closeCalendar
-  }
-}
-
-function getCalendar(proxy, selector: string) {
-  if (proxy && proxy.$refs && proxy.$refs[selector]) {
-    return proxy.$refs[selector]
-  } else {
-    return null
   }
 }

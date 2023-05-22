@@ -16,6 +16,8 @@ Notify 消息提示
 |zIndex|层级|`Number`|`false`|110|
 |safeAreaInsetTop|是否留出顶部安全距离（状态栏高度，自定义导航条时使用）|`Boolean`|`false`|false|
 |top|距离顶部长度|—|`false`|-|
+|id|组件唯一标识|`String`|`false`|-|
+
 
 <!-- @vuese:hd-notify:props:end -->
 

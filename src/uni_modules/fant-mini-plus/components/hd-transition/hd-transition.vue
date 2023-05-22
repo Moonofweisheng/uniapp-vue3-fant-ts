@@ -1,5 +1,5 @@
 <template>
-  <!-- #ifdef MP-WEIXIN || MP-QQ || APP-PLUS || H5 || MP-ALIPAY -->
+  <!-- #ifdef MP-WEIXIN || MP-QQ || H5 || MP-ALIPAY -->
   <view style="display: none" :change:prop="animation.show" :prop="show"></view>
   <!-- #endif -->
   <view
@@ -15,17 +15,10 @@
     <slot v-if="destroy ? display : true" />
   </view>
 </template>
-<!-- #ifndef MP-WEIXIN  -->
-<!-- #ifndef MP-QQ  -->
-<script lang="ts" src="./hd-transition"></script>
-<!-- #endif -->
-<!-- #endif -->
 
-<!-- #ifdef MP-WEIXIN || MP-QQ -->
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { CommonUtil, RegUtil } from '../..'
-// @ts-ignore
 type TransitionName =
   | 'fade'
   | 'fade-down'
@@ -106,6 +99,13 @@ let transitionEnded = ref<boolean>(false)
 // 动画结束定时器
 const timer = ref<Nullable<number> | any>(null)
 
+const canIUseWxs = ref<boolean>(false) // 是否可以使用wxs响应事件
+// #ifdef MP-ALIPAY || MP-WEIXIN || MP-QQ || H5
+// #ifndef MP-DINGTALK
+canIUseWxs.value = true
+// #endif
+// #endif
+
 onMounted(() => {
   inited.value = true
 })
@@ -138,6 +138,9 @@ function observeShow(value: boolean, old: boolean) {
   if (value === old) {
     return
   }
+  if (!canIUseWxs.value) {
+    value ? enter() : leave()
+  }
   // 如果duration无值则立即结束
   if (!props.duration) {
     onTransitionEnd()
@@ -157,17 +160,11 @@ function onClick() {
 }
 
 function $nextTick(cb) {
-  // #ifdef MP-WEIXIN
-  nextTick(() => {
-    cb()
-  })
-  // #endif
-  // #ifndef MP-WEIXIN
   CommonUtil.requestAnimationFrame(() => {
     cb()
   })
-  // #endif
 }
+
 /**
  * 进入
  */
@@ -180,6 +177,14 @@ function enter() {
   // 进入前触发
   emit('before-enter')
   status.value = 'enter'
+  if (!canIUseWxs.value) {
+    $nextTick(() => {
+      doEnter()
+      $nextTick(() => {
+        doEnterTo()
+      })
+    })
+  }
 }
 
 /**
@@ -220,6 +225,14 @@ function leave() {
   emit('before-leave')
   status.value = 'leave'
   currentDuration.value = duration
+  if (!canIUseWxs.value) {
+    $nextTick(() => {
+      doLeave()
+      $nextTick(() => {
+        doLeaveTo()
+      })
+    })
+  }
 }
 
 function doLeave() {
@@ -293,10 +306,6 @@ function onTransitionEnd() {
   }
   if (!props.show && display.value) {
     display.value = false
-    // classes.value = ''
-    // status.value = ''
-    // currentDuration.value = 300
-    // transitionEnded.value = false
   }
 }
 
@@ -309,12 +318,11 @@ defineExpose({
   doLeaveTo
 })
 </script>
-<!-- #endif -->
 
-<!-- #ifdef MP-WEIXIN || MP-QQ || APP-PLUS || H5 -->
+<!-- #ifdef MP-WEIXIN || MP-QQ || H5 -->
 <script module="animation" lang="wxs">
 
-function show(newValue, oldValue, ownerInstance, instance){
+function show(newValue, oldValue, ownerInstance){
   if (newValue===true&&oldValue===false) {
     createAnimation('enter',ownerInstance)
   }else if(newValue===false&&oldValue=== true){
@@ -323,6 +331,11 @@ function show(newValue, oldValue, ownerInstance, instance){
 }
 
 function createAnimation(type,ownerInstance){
+  //  #ifdef H5
+  if (ownerInstance.$vm._&&ownerInstance.$vm._.exposed) {
+    ownerInstance.$vm = {...ownerInstance.$vm,...ownerInstance.$vm._.exposed}
+  }
+  //  #endif
   if (type==='enter') {
     ownerInstance.requestAnimationFrame(function(){enterAnimation(ownerInstance)})
   }else{

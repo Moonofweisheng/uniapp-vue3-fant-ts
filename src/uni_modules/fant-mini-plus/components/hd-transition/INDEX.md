@@ -172,7 +172,7 @@ function onAfterLeave() {
 ```
 
 ```css
-.custom-class {
+:deep(.custom-class) {
   position: fixed;
   z-index: 999;
   top: 50%;
@@ -182,13 +182,12 @@ function onAfterLeave() {
   margin: -50px 0 0 -50px;
   background-color: #1989fa;
 }
-.custom-enter-active-class,
-.custom-leave-active-class {
+
+:deep(.custom-enter-active-class, .custom-leave-active-class) {
   transition-property: background-color, transform;
 }
 
-.custom-enter-class,
-.custom-leave-to-class {
+:deep(.custom-enter-class, .custom-leave-to-class) {
   background-color: red;
   transform: rotate(-360deg) translate3d(-100%, -100%, 0);
 }

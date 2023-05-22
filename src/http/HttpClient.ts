@@ -89,7 +89,7 @@ export default class ApiClient {
             // 如果当前页面不是登录页面则跳转至登录页面
             if (
               !pages[pages.length - 1].$page ||
-              (pages[pages.length - 1].$page && pages[pages.length - 1].$page.fullPath !== '/pagesOther/login/Login')
+              (pages[pages.length - 1].$page && pages[pages.length - 1].$page.fullPath !== '/pages/login/Login')
             ) {
               uni.reLaunch({ url: '/pagesOther/login/Login' })
             }

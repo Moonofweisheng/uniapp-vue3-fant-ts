@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.0.15](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.14...v1.0.15) (2023-05-22)
+
+
+### ✨ Features | 新功能
+
+* ✨ 更新fant-mini-plus@0.1.0版本 ([34343b3](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/34343b329d21f63021f80b526e05c6ba4c94a713))
+
 ### [1.0.14](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.13...v1.0.14) (2023-05-18)
 
 
