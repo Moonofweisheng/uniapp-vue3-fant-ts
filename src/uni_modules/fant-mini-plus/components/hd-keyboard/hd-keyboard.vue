@@ -1,14 +1,14 @@
 <!--
  * @Author: weisheng
  * @Date: 2022-09-27 15:33:29
- * @LastEditTime: 2023-03-23 12:52:53
+ * @LastEditTime: 2023-05-19 11:41:11
  * @LastEditors: weisheng
  * @Description: 
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-keyboard\hd-keyboard.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-keyboard\hd-keyboard.vue
  * 记得注释
 -->
 <template>
-  <hd-popup type="bottom" ref="keyboardPop" @change="doPopChange">
+  <hd-popup type="bottom" id="keyboardPop" @change="doPopChange">
     <view class="keyboard" @click="doKeyboardClick">
       <view class="keyboard-content" v-if="$slots.content">
         <view v-if="$slots.content" @click.stop.prevent>
@@ -43,8 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-import { watch, ref } from 'vue'
-import { Popup } from '../hd-popup/types'
+import { watch } from 'vue'
+import { usePopup } from '../..'
 
 // 键盘类型
 type KeyboardType = 'number'
@@ -72,7 +72,7 @@ const props = withDefaults(defineProps<Props>(), {
   show: false
 })
 
-const keyboardPop = ref<Popup>() // 弹出框
+const keyboardPop = usePopup('keyboardPop') // 弹出框
 
 /**
  * 监听是否打开
@@ -92,14 +92,14 @@ watch(
  * 打开
  */
 function open() {
-  keyboardPop.value?.showPopup()
+  keyboardPop.showPopup()
 }
 
 /**
  * 关闭
  */
 function close() {
-  keyboardPop.value?.closePopup()
+  keyboardPop.closePopup()
 }
 
 const emit = defineEmits(['blur', 'confirm', 'backspace', 'update:modelValue', 'change'])

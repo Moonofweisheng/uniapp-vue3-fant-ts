@@ -5,7 +5,7 @@
 
 ```html
 <!-- 在页面内添加对应的节点 -->
-<hd-toast ref="toast"></hd-toast>
+<hd-toast></hd-toast>
 
 <button type="primary" @click="open">开启toast</button>
 ```
@@ -13,12 +13,13 @@
 ``` ts
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useToast } from '@/uni_modules/fant-mini-plus'
 
-const toast = ref<Toast>() // toast ref
+const toast = useToast()
+
 
 function open() {
-  toast.value?.showToast({
+  toast.showToast({
     title: '打开了',
     onClose() {
       console.log('关闭了')
@@ -36,18 +37,19 @@ function open() {
 
 ```html
 <button type="primary" @click="open">开启toast</button>
-<hd-toast ref="toast"></hd-toast>
+<hd-toast></hd-toast>
 ```
 
 ``` ts
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useToast } from '@/uni_modules/fant-mini-plus'
 
-const toast = ref<Toast>() // toast ref
+const toast = useToast()
+
 
 function open() {
-  toast.value?.showToast({
+  toast.showToast({
     title: '打开了',
     type: 'white',
     onClose() {
@@ -66,18 +68,18 @@ function open() {
 
 ```html
 <button type="primary" @click="open">开启toast</button>
-<hd-toast ref="toast"></hd-toast>
+<hd-toast ></hd-toast>
 ```
 
 ``` ts
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useToast } from '@/uni_modules/fant-mini-plus'
 
-const toast = ref<Toast>() // toast ref
+const toast = useToast()
 
 function open() {
-  toast.value?.showToast({
+  toast.showToast({
     title: '这里是提示内容',
     onClose() {
       console.log('关闭了')
@@ -94,18 +96,18 @@ function open() {
 
 ```html
 <button type="primary" @click="open">开启toast</button>
-<hd-toast ref="toast"></hd-toast>
+<hd-toast ></hd-toast>
 ```
 
 ``` ts
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useToast } from '@/uni_modules/fant-mini-plus'
 
-const toast = ref<Toast>() // toast ref
+const toast = useToast()
 
 function open() {
-  toast.value?.showToast({
+  toast.showToast({
     title: '这里是提示内容',
     icon: 'error',
     onClose() {
@@ -124,18 +126,18 @@ function open() {
 
 ```html
 <button type="primary" @click="open">开启toast</button>
-<hd-toast ref="toast"></hd-toast>
+<hd-toast ></hd-toast>
 ```
 
 ``` ts
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useToast } from '@/uni_modules/fant-mini-plus'
 
-const toast = ref<Toast>() // toast ref
+const toast = useToast()
 
 function open() {
-  toast.value?.showToast({
+  toast.showToast({
     title: '这里是提示内容', icon: 'error', image: '' ,
     onClose() {
       console.log('关闭了')
@@ -152,18 +154,18 @@ function open() {
 
 ```html
 <button type="primary" @click="open">开启toast</button>
-<hd-toast ref="toast"></hd-toast>
+<hd-toast ></hd-toast>
 ```
 
 ``` ts
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useToast } from '@/uni_modules/fant-mini-plus'
 
-const toast = ref<Toast>() // toast ref
+const toast = useToast()
 
 function open() {
-  toast.value?.showToast({
+  toast.showToast({
     title: '这里是提示内容', icon: 'error', duration: 2000,
     onClose() {
       console.log('关闭了')

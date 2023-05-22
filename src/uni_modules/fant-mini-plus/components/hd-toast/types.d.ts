@@ -1,7 +1,5 @@
-/// <reference types="@dcloudio/types" />
 export type ToastType = 'white' | 'black'
 export type ToastIconType = 'success' | 'none' | 'warning' | 'error'
-declare type ToastContext = Page.PageInstance
 export type ToastOptions = {
   /**
    * 底色类型
@@ -34,14 +32,6 @@ export type ToastOptions = {
    */
   duration?: number
   /**
-   * 选择器
-   */
-  selector?: string
-  /**
-   * 上下文
-   */
-  context?: (() => ToastContext) | ToastContext
-  /**
    * 点击时的回调函数
    */
   onClick?: () => void
@@ -58,4 +48,3 @@ export interface Toast {
   showToast(toastOptions: ToastOptions | string): void
   hideToast(): void
 }
-export {}

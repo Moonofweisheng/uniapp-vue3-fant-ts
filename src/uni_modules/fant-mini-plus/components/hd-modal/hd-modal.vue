@@ -31,9 +31,17 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, nextTick } from 'vue'
-import { RegUtil, CommonUtil, defaultModalOptions } from '../../index'
+import { ref, computed, nextTick, inject, watch } from 'vue'
+import { RegUtil, CommonUtil, defaultModalOptions, modalDefaultKey, modalDefaultOptionKey } from '../../index'
 import { ModalOptions } from './types'
+
+interface Props {
+  // Modal唯一标识
+  id?: string
+}
+const props = withDefaults(defineProps<Props>(), {
+  id: ''
+})
 
 const visiable = ref<boolean>(false) // 是否展示modal
 const showTrans = ref<boolean>(false) // 是否展示过渡动画
@@ -47,6 +55,29 @@ const confirmText = ref<string>('确定') // 确定按钮文字
 const confirmColor = ref<string>('1C64FD') // 确定按钮的颜色
 // eslint-disable-next-line @typescript-eslint/ban-types
 const success = ref<Function | null>(null) // 成功的回调
+
+const modalKey = props.id ? '__MODAL__' + props.id : modalDefaultKey
+const modalOptionKey = props.id ? '__MODAL_OPTION__' + props.id : modalDefaultOptionKey
+const modalShow = inject(modalKey) || ref<boolean>(false) // 函数式调用是否展示modal组件
+const modalOption = inject(modalOptionKey) || ref<ModalOptions>(defaultModalOptions) // modal选项
+
+// 监听options变化展示
+watch(
+  () => modalOption.value,
+  (newVal: ModalOptions) => {
+    reset(newVal)
+  }
+)
+
+// 监听函数式调用showModal的调用
+watch(
+  () => modalShow.value,
+  (newVal) => {
+    if (newVal) {
+      show()
+    }
+  }
+)
 
 // 遮罩样式
 const maskStyle = computed(() => {
@@ -91,6 +122,7 @@ function hide() {
   const timer = setTimeout(() => {
     clearTimeout(timer)
     visiable.value = false
+    modalShow.value = false
     reset({
       title: '提示',
       content: '',
@@ -118,9 +150,6 @@ function reset(option) {
     success.value = RegUtil.isDef(option.success) ? option.success : success.value
   }
 }
-function closeModal() {
-  hide()
-}
 function clickBtn(res) {
   hide()
   if (success.value) {
@@ -134,24 +163,6 @@ function clickBtn(res) {
     })
   }
 }
-
-/**
- * 打开Modal
- * @param option Modal选项
- */
-function showModal(option: ModalOptions) {
-  option = CommonUtil.deepMerge(defaultModalOptions, option) as ModalOptions
-  reset(option)
-  show()
-}
-
-defineExpose({
-  reset,
-  show,
-  showModal
-})
-
-// Modal 模态框
 </script>
 
 <style lang="scss">

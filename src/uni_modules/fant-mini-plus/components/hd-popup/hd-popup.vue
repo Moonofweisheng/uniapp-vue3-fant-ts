@@ -27,8 +27,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, ref } from 'vue'
-import { CommonUtil } from '../../index'
+import { computed, inject, nextTick, ref, watch } from 'vue'
+import { CommonUtil, popupDefaultKey } from '../../index'
 
 /**
  * PopUp 弹出层
@@ -70,6 +70,8 @@ interface Props {
   overlayOpacity?: number
   // 自定义层级
   zIndex?: number
+  // popup唯一标识
+  id?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -90,22 +92,34 @@ const props = withDefaults(defineProps<Props>(), {
   // 遮罩的透明度，0-1之间
   overlayOpacity: 0.4,
   // 自定义层级
-  zIndex: 999
+  zIndex: 999,
+  // popup唯一标识
+  id: ''
 })
 
 const emit = defineEmits(['change', 'maskClick', 'close', 'click', 'transitionEnd'])
-defineExpose({
-  open,
-  close,
-  showPopup,
-  closePopup
-})
+
+const popupKey = props.id ? '__POPUP_' + props.id : popupDefaultKey
+const popupShow = inject(popupKey) || ref<boolean>(false) // 是否展示popup组件
+
 // 是否展示popup
 const show = ref<boolean>(false)
 // 是否展示动画
 const showTrans = ref<boolean>(true)
 // 定时器
 const timer = ref<any>(null)
+
+// 监听函数式调用是否展示弹出框
+watch(
+  () => popupShow.value,
+  (newVal: boolean) => {
+    if (newVal) {
+      open()
+    } else {
+      close()
+    }
+  }
+)
 
 const bg = computed(() => {
   if (props.backgroundColor === '' || props.backgroundColor === 'none') {
@@ -263,20 +277,6 @@ function clickHandler() {
 // 空操作
 function noop(event) {
   event && typeof event.stopPropagation === 'function' && event.stopPropagation()
-}
-
-/**
- * 打开popup
- */
-function showPopup() {
-  open()
-}
-
-/**
- * 关闭popup
- */
-function closePopup() {
-  close()
 }
 </script>
 <style lang="scss" scoped>

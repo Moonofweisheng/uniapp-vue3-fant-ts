@@ -6,15 +6,15 @@
 
 ```html
 <hd-cell title="选择单个日期" :value="date" @click="showCalendar" isLink />
-<hd-calendar ref="calendar" mode="single" @confirm="onConfirm" />
+<hd-calendar mode="single" @confirm="onConfirm" />
 ```
 
 ```ts
 <script lang="ts" setup>
-const calendar = ref<Calendar>()
+const calendar = useCalendar()
 const date = ref<number>(new Date().getTime())
 function showCalendar(){
-  calendar.value?.showCalendar()
+  calendar.showCalendar()
 }
 function onConfirm(e) {
   date.value =CommonUtil.deepClone(e)
@@ -28,15 +28,15 @@ function onConfirm(e) {
 
 ```html
 <hd-cell title="选择多个日期" :value="date" @click="showCalendar" isLink />
-<hd-calendar ref="calendar" mode="multiple" @confirm="onConfirm" />
+<hd-calendar mode="multiple" @confirm="onConfirm" />
 ```
 
 ```ts
 <script lang="ts" setup>
-const calendar = ref<Calendar>()
+const calendar = useCalendar()
 const date = ref<number>([])
 function showCalendar(){
-  calendar.value?.showCalendar()
+  calendar.showCalendar()
 }
 function onConfirm(e) {
   date.value =CommonUtil.deepClone(e)
@@ -50,15 +50,15 @@ function onConfirm(e) {
 
 ```html
 <hd-cell title="选择日期区间" :value="date" @click="showCalendar" isLink />
-<hd-calendar ref="calendar" mode="range" @confirm="onConfirm" />
+<hd-calendar mode="range" @confirm="onConfirm" />
 ```
 
 ```ts
 <script lang="ts" setup>
-const calendar = ref<Calendar>()
+const calendar = useCalendar()
 const date = ref<number>([])
 function showCalendar(){
-  calendar.value?.showCalendar()
+  calendar.showCalendar()
 }
 function onConfirm(e) {
   date.value =CommonUtil.deepClone(e)
@@ -78,10 +78,10 @@ function onConfirm(e) {
 
 ```ts
 <script lang="ts" setup>
-const calendar = ref<Calendar>()
+const calendar = useCalendar()
 const date = ref<number>(new Date().getTime())
 function showCalendar(){
-  calendar.value?.showCalendar()
+  calendar.showCalendar()
 }
 function onConfirm(e) {
   date.value =CommonUtil.deepClone(e)

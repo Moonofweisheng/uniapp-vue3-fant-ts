@@ -94,7 +94,7 @@ yarn add sass-loader -D
 #### 5. 使用
 完成前四步之后就可以开始使用fant-mini-plus了。fant-mini-plus的组件支持easycom规范，故可以直接在.vue中使用，无需在页面内import，也不需要在components内声明，即可在任意页面使用。值得注意的是，uni-app平台不支持全局挂载组件，故```Loading```、```Toast```、```Modal```、```DatePicker```等组件仍需在SFC中显式使用，例如:
 ``` html
-<hd-loading ref="loading"></hd-loading>
+<hd-loading></hd-loading>
 ```
 
 ## 联系我

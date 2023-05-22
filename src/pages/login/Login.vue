@@ -1,15 +1,15 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-05-10 10:05:18
+ * @LastEditTime: 2023-05-22 16:12:41
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\login\Login.vue
  * 记得注释
 -->
 <template>
-  <hd-loading ref="loading"></hd-loading>
-  <hd-toast ref="toast"></hd-toast>
+  <hd-loading></hd-loading>
+  <hd-toast></hd-toast>
   <view class="login">
     <view class="login-main">
       <text class="login-main-title">欢迎登陆</text>
@@ -29,15 +29,14 @@
 </template>
 
 <script lang="ts" setup>
-import { Loading } from '@/uni_modules/fant-mini-plus/components/hd-loading/types'
 import DemoApi from '@/api/DemoApi'
 import LoginInput from './cmp/LoginInput.vue'
-import { Toast } from '@/uni_modules/fant-mini-plus/components/hd-toast/types'
+import { useLoading, useToast } from '@/uni_modules/fant-mini-plus'
 
 const username = ref<string>('') // 用户名
 const password = ref<string>('') // 密码
-const loading = ref<Loading>() // loading ref
-const toast = ref<Toast>() // toast ref
+const loading = useLoading()
+const toast = useToast()
 const { userInfo } = storeToRefs(useAuthStore()) // 解构pinia的store
 const router = useRouter() // 路由
 
@@ -48,11 +47,11 @@ const disabled = computed(() => {
 
 // 登录接口
 function doLogin() {
-  loading.value?.showLoading({})
+  loading.showLoading({})
   DemoApi.login()
     .then((resp) => {
-      loading.value?.hideLoading()
-      toast.value?.showToast({
+      loading.hideLoading()
+      toast.showToast({
         title: '登录成功',
         icon: 'success'
       })
@@ -60,8 +59,8 @@ function doLogin() {
       router.replaceAll({ name: 'home' })
     })
     .catch((error) => {
-      loading.value?.hideLoading()
-      toast.value?.showToast({
+      loading.hideLoading()
+      toast.showToast({
         title: error.msg,
         icon: 'error'
       })

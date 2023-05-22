@@ -1,14 +1,28 @@
-## 0.0.13（2023-05-18）
-### 0.0.13 (2023-05-18)
+## 0.1.0（2023-05-22）
+## 0.1.0 (2023-05-22)
 
+## 注意这次是破坏性更新，影响到Toast、Popup、Notify、Modal、DatePicker、Calendar和Area组件的调用方法。请仔细阅读文档后更新。
 
 ### Features
 
-* ✨ 字体文件改为引用线上文件 
-* ✨ Grid组件支持默认插槽  
+*  新增组合式组件API支持组件函数式调用，优化调用体验。
+*  Field输入框组件支持禁用状态显示placeholder 
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.1.0](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.13...v0.1.0) (2023-05-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* 🧨 不支持ref调用
+
+### Features
+
+* ✨ 新增组合式组件API支持组件函数式调用，优化调用体验。 ([a4bc5dd](https://gitlab.hd123.com/vue/fant-mini-plus/commit/a4bc5dde89af9273457b956b9276aeeceb919a98))
+* ✨ Field输入框组件支持禁用状态显示placeholder ([ac624db](https://gitlab.hd123.com/vue/fant-mini-plus/commit/ac624db34d881b45a53d26db9a52816acf8c3762))
 
 ### [0.0.13](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.12...v0.0.13) (2023-05-18)
 

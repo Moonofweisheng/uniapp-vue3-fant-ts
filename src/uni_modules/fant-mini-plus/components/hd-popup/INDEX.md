@@ -5,7 +5,7 @@
 
 ``` html
 <button type="primary" @click="openPop">开启弹出框</button>
-<hd-popup ref="popup">
+<hd-popup>
   <view>
     这是一个简单的弹出框
   </view>
@@ -13,17 +13,15 @@
 ```
 ```ts
 <script lang="ts" setup>
-import { Popup } from '@/uni_modules/fant-mini-plus/components/hd-popup/types'
 import { ref } from 'vue'
-
-const popup = ref<Popup>()
+const popup = usePopup()
 
 function openPop() {
-  popup.value?.showPopup()
+  popup.showPopup()
 }
 
 function closePop() {
-  popup.value?.closePopup()
+  popup.closePopup()
 }
 </script>
 
@@ -35,7 +33,7 @@ function closePop() {
 
 ``` html
 <button type="primary" @click="openPop" :type="type">开启弹出框</button>
-<hd-popup ref="popup">
+<hd-popup>
   <view>
     这是一个简单的弹出框
   </view>
@@ -43,17 +41,15 @@ function closePop() {
 ```
 ```ts
 <script lang="ts" setup>
-import { Popup } from '@/uni_modules/fant-mini-plus/components/hd-popup/types'
 import { ref } from 'vue'
-
-const popup = ref<Popup>()
+const popup = usePopup()
 
 function openPop() {
-  popup.value?.showPopup()
+  popup.showPopup()
 }
 
 function closePop() {
-  popup.value?.closePopup()
+  popup.closePopup()
 }
 </script>
 
@@ -64,7 +60,7 @@ function closePop() {
 通过`maskClick`属性控制点击蒙层是否关闭弹出框，默认允许点击蒙层关闭(`maskClick`为`true`)，当不允许点击蒙层关闭时，可以手动关闭弹出框。
 
 ``` html
-<hd-popup ref="popup" :maskClick="maskClick">
+<hd-popup :maskClick="maskClick">
   <view>
     这是一个简单的弹出框
     <view v-if="!maskClick" @click="onClose">
@@ -77,19 +73,19 @@ function closePop() {
 
 ```ts
 <script lang="ts" setup>
-import { Popup } from '@/uni_modules/fant-mini-plus/components/hd-popup/types'
+
 import { ref } from 'vue'
 
-const popup = ref<Popup>() 
+const popup = usePopup() 
 
 const maskClick = ref<boolean>(false)
 
 function openPop() {
-  popup.value?.showPopup()
+  popup.showPopup()
 }
 
 function closePop() {
-  popup.value?.closePopup()
+  popup.closePopup()
 }
 </script>
 

@@ -10,19 +10,22 @@
 import type { App } from 'vue'
 
 // Toast
-export * from './components/hd-toast/index'
+export * from './components/hd-toast'
 // Notify
-export * from './components/hd-notify/index'
+export * from './components/hd-notify'
 // Loading
-export * from './components/hd-loading/index'
+export * from './components/hd-loading'
 // Modal
-export * from './components/hd-modal/index'
+export * from './components/hd-modal'
 // DatePicker
-export * from './components/hd-date-picker/index'
+export * from './components/hd-date-picker'
 // Calendar
-export * from './components/hd-calendar/index'
+export * from './components/hd-calendar'
 // Popup
-export * from './components/hd-popup/index'
+export * from './components/hd-popup'
+
+// Area
+export * from './components/hd-area'
 
 // 颜色转换
 export * from './libs/functions/colorExchanghe'

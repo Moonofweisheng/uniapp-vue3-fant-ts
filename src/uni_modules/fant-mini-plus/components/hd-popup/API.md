@@ -15,6 +15,8 @@ PopUp 弹出层
 |duration|动画时长，单位ms|`Number`|`false`|300|
 |overlayOpacity|遮罩的透明度，0-1之间|`Number`|`false`|0.4|
 |zIndex|自定义层级|`Number`|`false`|999|
+|id|组件唯一标识|`String`|`false`|-|
+
 
 <!-- @vuese:hd-popup:props:end -->
 

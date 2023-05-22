@@ -35,7 +35,7 @@ function getDeepObj(p: Array<object>, o: string) {
  */
 function getRect(selector: string, all: boolean, scope?: any) {
   return new Promise((resolve) => {
-    let query: any = {}
+    let query: UniNamespace.SelectorQuery | null = null
     // #ifndef MP-ALIPAY
     query = uni.createSelectorQuery().in(scope)
     // #endif

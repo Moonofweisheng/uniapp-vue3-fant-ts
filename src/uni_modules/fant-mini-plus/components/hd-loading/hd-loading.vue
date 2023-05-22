@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, ref, watch } from 'vue'
-import { CommonUtil, defaultLoadingOptions, RegUtil } from '../../index'
+import { inject, nextTick, ref, watch } from 'vue'
+import { defaultLoadingOptions, loadingDefaultKey, loadingDefaultOptionKey, RegUtil } from '../../index'
 import { LoadingOptions, LoadingType } from './types'
 // Loading 加载
 
@@ -35,6 +35,10 @@ interface Props {
    * 延时展示时间，默认0，单位毫秒
    */
   delayTime?: number
+  /**
+   * loading唯一标识
+   */
+  id?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -51,7 +55,11 @@ const props = withDefaults(defineProps<Props>(), {
   /**
    * 延时展示时间，默认0，单位毫秒
    */
-  delayTime: 0
+  delayTime: 0,
+  /**
+   * loading唯一标识
+   */
+  id: ''
 })
 
 const acitve = ref<boolean>(false) // loading是否激活
@@ -66,6 +74,31 @@ const innerTitle = ref<string>('') // loading提示内容
 const innerType = ref<LoadingType>('flower') // loading动画类型
 const innerBackground = ref<boolean>(true) // loading是否显示黑色底色，默认：true
 const innerdelayTime = ref<number>(0) // loading延时展示时间
+
+const loadingKey = props.id ? '__LOADING__' + props.id : loadingDefaultKey
+const loadingOptionKey = props.id ? '__LOADING_OPTION__' + props.id : loadingDefaultOptionKey
+const loadingShow = inject(loadingKey) || ref<boolean>(false) // 是否展示loading组件
+const loadingOption = inject(loadingOptionKey) || ref<LoadingOptions>(defaultLoadingOptions) // loading选项
+
+// 监听options变化展示
+watch(
+  () => loadingOption.value,
+  (newVal: LoadingOptions) => {
+    reset(newVal)
+  }
+)
+
+// 监听函数式调用是否打开
+watch(
+  () => loadingShow.value,
+  (newVal) => {
+    if (newVal) {
+      show()
+    } else {
+      hide()
+    }
+  }
+)
 
 watch(
   () => props.modelValue,
@@ -124,6 +157,7 @@ function change(show) {
 function hide() {
   visiable.value = false
   acitve.value = false
+  loadingShow.value = false
   change(visiable.value)
   reset({
     background: true,
@@ -152,25 +186,6 @@ function click(event) {
     onClick.value(event.detail)
   }
 }
-
-function showLoading(option: LoadingOptions) {
-  option = CommonUtil.deepMerge(defaultLoadingOptions, option) as LoadingOptions
-  reset(option)
-  show()
-}
-
-function hideLoading() {
-  reset(defaultLoadingOptions)
-  hide()
-}
-
-defineExpose({
-  reset,
-  show,
-  hide,
-  showLoading,
-  hideLoading
-})
 </script>
 
 <style lang="scss" scoped>

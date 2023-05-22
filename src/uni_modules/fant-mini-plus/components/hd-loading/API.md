@@ -12,6 +12,8 @@ Loading 加载
 |type|动画类型|`'flower'` / `'dot'`|`false`|默认值:`flower`|
 |background|是否显示黑色底色，默认：true|`Boolean`|`false`|默认值:`true`|
 |delayTime|延时展示时间，默认0，单位毫秒|`Number`|`false`|0|
+|id|组件唯一标识|`String`|`false`|-|
+
 
 <!-- @vuese:hd-loading:props:end -->
 

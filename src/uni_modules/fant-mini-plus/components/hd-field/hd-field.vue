@@ -19,7 +19,7 @@
         placeholder-style="font-size: 28rpx; color: $color-text-secondary;"
         :class="[password ? 'password-input' : 'password-input', disabled ? 'input-body-inp--disabled' : 'input-body-inp']"
       />
-      <view v-else class="input-body-inp--disabled text-disabled">{{ modelValue }}</view>
+      <view v-else class="input-body-inp--disabled text-disabled">{{ modelValue || placeholder }}</view>
 
       <view
         :class="[password && modelValue && modelValue.length ? 'before-icon' : 'after-icon']"
@@ -209,8 +209,7 @@ function doClear() {
     }
 
     .field-title-txt--disabled {
-      // color: rgba(148, 150, 154, 1);
-      color: $color-text-primary;
+      color: $color-text-fourth;
     }
   }
 
@@ -225,8 +224,7 @@ function doClear() {
 
     .input-body-inp--disabled {
       font-size: 28rpx;
-      // color: rgba(204, 204, 204, 1);
-      color: $color-text-secondary;
+      color: $color-text-fourth;
     }
 
     .after-icon {

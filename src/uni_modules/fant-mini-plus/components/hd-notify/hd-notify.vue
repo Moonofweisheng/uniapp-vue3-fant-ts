@@ -1,14 +1,14 @@
 <!--
  * @Author: weisheng
  * @Date: 2022-02-22 19:27:37
- * @LastEditTime: 2023-03-23 13:20:14
+ * @LastEditTime: 2023-05-19 15:05:12
  * @LastEditors: weisheng
  * @Description: Notify 消息提示 
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-notify\hd-notify.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-notify\hd-notify.vue
  * 记得注释
 -->
 <template>
-  <hd-transition key="hd-notify" name="slide-down" :customStyle="`position:fixed;top: ${innertop};z-index: ${innerzIndex}`" :show="visiable">
+  <hd-transition key="hd-notify" name="slide-down" :customStyle="transitionStyle" :show="visiable">
     <view class="hd-notify" :class="['hd-notify', 'hd-notify-' + innerType]" :style="style" @click="onTap">
       <slot />
       <view v-if="innersafeAreaInsetTop" :style="{ height: innerStatusBarHeight + 'px' }" />
@@ -18,8 +18,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, getCurrentInstance, nextTick, ref, watch } from 'vue'
-import { CommonUtil, defaultNotifyOptions, RegUtil } from '../../index'
+import { computed, getCurrentInstance, inject, nextTick, ref, watch } from 'vue'
+import { CommonUtil, defaultNotifyOptions, notifyDefaultKey, notifyDefaultOptionKey, RegUtil } from '../../index'
 import { NotifyOptions } from './types'
 /**
  * Notify 消息提示
@@ -40,27 +40,29 @@ interface Props {
   /**
    * 底色类型
    */
-  type: NotifyType
+  type?: NotifyType
   /**
    * 文字颜色
    */
-  color: string
+  color?: string
   /**
    * 展示时长(ms)，值为 0 时，notify 不会消失，默认值3000
    */
-  duration: number
+  duration?: number
   /**
    * 层级
    */
-  zIndex: number
+  zIndex?: number
   /**
    * 是否留出顶部安全距离（状态栏高度，自定义导航条时使用）
    */
-  safeAreaInsetTop: boolean
+  safeAreaInsetTop?: boolean
   /**
    * 距离顶部长度
    */
-  top: Nullable<number>
+  top?: Nullable<number>
+  // notify唯一标识
+  id?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -85,10 +87,11 @@ const props = withDefaults(defineProps<Props>(), {
   /**
    * 距离顶部长度
    */
-  top: null
+  top: null,
+  // notify唯一标识
+  id: ''
 })
 
-const visiable = ref<boolean>(false) // 展示
 const timer = ref<any>(null) // 定时器
 // eslint-disable-next-line @typescript-eslint/ban-types
 const onOpened = ref<Nullable<Function>>(null) // 打开时触发
@@ -104,6 +107,34 @@ const innerduration = ref<number>(3000)
 const innerzIndex = ref<number>(110)
 const innersafeAreaInsetTop = ref<boolean>(false)
 const innertop = ref<Nullable<number>>(null)
+
+const notifyKey = props.id ? '__NOTIFY__' + props.id : notifyDefaultKey
+const notifyOptionKey = props.id ? '__NOTIFY_OPTION__' + props.id : notifyDefaultOptionKey
+const notifyShow = inject(notifyKey) || ref<boolean>(false) // 函数式调用是否展示notify组件
+const notifyOption = inject(notifyOptionKey) || ref<NotifyOptions>(defaultNotifyOptions) // notify选项
+const visiable = ref<boolean>(false) // 展示
+
+// 监听options变化展示
+watch(
+  () => notifyOption.value,
+  (newVal: NotifyOptions) => {
+    reset(newVal)
+  }
+)
+
+// 监听函数式调用showNotify的调用
+watch(
+  () => notifyShow.value,
+  (newVal) => {
+    if (newVal) {
+      show()
+    } else {
+      hide()
+    }
+  }
+)
+
+// 监听组件式调用是否打开
 watch(
   () => props.modelValue,
   (newVal) => {
@@ -115,7 +146,12 @@ watch(
     }
   }
 )
+// 动画样式
+const transitionStyle = computed(() => {
+  return `position:fixed;top: ${CommonUtil.addUnit(innertop.value || 0, 'px')};z-index: ${innerzIndex.value}`
+})
 
+// Notify样式
 const style = computed(() => {
   return `color:${innerColor.value};background:${innerBackground.value};`
 })
@@ -153,6 +189,7 @@ function show() {
 function hide() {
   timer.value && clearTimeout(timer.value)
   visiable.value = false
+  notifyShow.value = false
   emit('update:modelValue', visiable.value)
   nextTick(() => {
     onClose.value && onClose.value()
@@ -165,37 +202,21 @@ function onTap(event) {
 /**
  * 重置参数
  */
-function reset(option) {
+function reset(option: NotifyOptions | Record<string, any>) {
   if (option) {
     innerMessage.value = RegUtil.isDef(option.message) ? option.message : props.message
-    innerBackground.value = RegUtil.isDef(option.background) ? option.background : props.background
-    innerType.value = RegUtil.isDef(option.type) ? option.type : props.type
-    innerColor.value = RegUtil.isDef(option.color) ? option.color : props.color
-    innerduration.value = RegUtil.isDef(option.duration) ? option.duration : props.duration
-    innerzIndex.value = RegUtil.isDef(option.zIndex) ? option.zIndex : props.zIndex
-    innersafeAreaInsetTop.value = RegUtil.isDef(option.safeAreaInsetTop) ? option.safeAreaInsetTop : props.safeAreaInsetTop
-    innertop.value = RegUtil.isDef(option.top) ? option.top : props.top
-    onOpened.value = RegUtil.isDef(option.onOpened) ? option.onOpened : onOpened.value
-    onClose.value = RegUtil.isDef(option.onClose) ? option.onClose : onClose.value
-    onClick.value = RegUtil.isDef(option.onClick) ? option.onClick : onClick.value
+    innerBackground.value = RegUtil.isDef(option.background) ? option.background! : props.background!
+    innerType.value = RegUtil.isDef(option.type) ? option.type! : props.type
+    innerColor.value = RegUtil.isDef(option.color) ? option.color! : props.color!
+    innerduration.value = RegUtil.isDef(option.duration) ? option.duration! : props.duration!
+    innerzIndex.value = RegUtil.isDef(option.zIndex) ? option.zIndex! : props.zIndex
+    innersafeAreaInsetTop.value = RegUtil.isDef(option.safeAreaInsetTop) ? option.safeAreaInsetTop! : props.safeAreaInsetTop
+    innertop.value = RegUtil.isDef(option.top) || RegUtil.isDef(props.top) ? Number(option.top! || props.top) : innertop.value
+    onOpened.value = RegUtil.isDef(option.onOpened) ? option.onOpened! : onOpened.value
+    onClose.value = RegUtil.isDef(option.onClose) ? option.onClose! : onClose.value
+    onClick.value = RegUtil.isDef(option.onClick) ? option.onClick! : onClick.value
   }
 }
-
-/**
- * 打开Notify
- * @param option Notify选项
- */
-function showNotify(option: NotifyOptions | string) {
-  option = CommonUtil.deepMerge(defaultNotifyOptions, typeof option === 'string' ? { message: option } : option) as NotifyOptions
-  reset(option)
-  show()
-}
-
-defineExpose({
-  reset,
-  show,
-  showNotify
-})
 </script>
 
 <style lang="scss" scoped>

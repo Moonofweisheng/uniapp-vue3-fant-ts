@@ -1,15 +1,23 @@
 /*
  * @Author: weisheng
  * @Date: 2022-12-14 17:33:21
- * @LastEditTime: 2023-03-22 14:58:48
+ * @LastEditTime: 2023-05-19 16:44:07
  * @LastEditors: weisheng
  * @Description:
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-loading\index.ts
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-loading\index.ts
  * 记得注释
  */
-import { getCurrentInstance } from 'vue'
+import { InjectionKey, Ref, nextTick, provide, ref } from 'vue'
 import { CommonUtil } from '../../index'
 import type { Loading, LoadingOptions } from './types'
+
+/**
+ * useLoading 用到的key
+ *
+ * @internal
+ */
+export const loadingDefaultKey = Symbol('__LOADING__') as InjectionKey<Ref<boolean>>
+export const loadingDefaultOptionKey = Symbol('__LOADING_OPTION__') as InjectionKey<Ref<LoadingOptions>>
 
 /**
  * 默认参数
@@ -21,39 +29,32 @@ export const defaultLoadingOptions: LoadingOptions = {
   type: 'flower'
 }
 
-export function useLoading(selector: string = 'hd-loading'): Loading {
-  const { proxy } = getCurrentInstance() as any
+export function useLoading(selector: string = ''): Loading {
+  const loadingShow = ref<boolean>(false) // 是否展示loading
+  const loadingOption = ref<LoadingOptions>(defaultLoadingOptions) // Loading选项
+  const loadingKey = selector ? '__LOADING__' + selector : loadingDefaultKey
+  const loadingOptionKey = selector ? '__LOADING_OPTION__' + selector : loadingDefaultOptionKey
+  provide(loadingOptionKey, loadingOption)
+  provide(loadingKey, loadingShow)
 
   const showLoading = (option: LoadingOptions) => {
-    const loading = getLoading(proxy, selector)
-    option = CommonUtil.deepMerge(defaultLoadingOptions, option) as LoadingOptions
-    if (loading) {
-      loading.reset(option)
-      loading.show()
+    loadingOption.value = CommonUtil.deepMerge(defaultLoadingOptions, option) as LoadingOptions
+    if (loadingShow.value) {
+      loadingShow.value = false
+      nextTick(() => {
+        loadingShow.value = true
+      })
     } else {
-      console.error('未找到 hd-loading 节点，请确认 selector 是否正确')
+      loadingShow.value = true
     }
   }
 
   const hideLoading = () => {
-    const loading = getLoading(proxy, selector)
-    if (loading) {
-      loading.reset(defaultLoadingOptions)
-      loading.hide()
-    } else {
-      console.error('未找到 hd-loading 节点，请确认 selector 是否正确')
-    }
+    loadingOption.value = defaultLoadingOptions
+    loadingShow.value = false
   }
   return {
     showLoading,
     hideLoading
-  }
-}
-
-function getLoading(proxy, selector: string) {
-  if (proxy && proxy.$refs && proxy.$refs[selector]) {
-    return proxy.$refs[selector]
-  } else {
-    return null
   }
 }

@@ -1,10 +1,10 @@
 <!--
  * @Author: 刘湘
  * @Date: 2021-05-25 16:34:27
- * @LastEditTime: 2023-03-24 10:36:42
+ * @LastEditTime: 2023-05-19 16:41:17
  * @LastEditors: weisheng
  * @Description: 
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-toast\hd-toast.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-toast\hd-toast.vue
  * 记得注释
 -->
 <template>
@@ -22,9 +22,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import { CommonUtil, defaultToastOptions, RegUtil } from '../../index'
+import { computed, ref, watch, inject } from 'vue'
+import { CommonUtil, defaultToastOptions, RegUtil, toastDefaultKey, toastDefaultOptionKey } from '../..'
 import { ToastOptions } from './types'
+
 interface Props {
   // toast是否展示
   visible?: boolean
@@ -53,6 +54,8 @@ interface Props {
   image?: string
   // 自定义层级，默认值 1000
   zIndex?: number
+  // toast唯一标识
+  id?: string
 }
 
 let props = withDefaults(defineProps<Props>(), {
@@ -62,7 +65,8 @@ let props = withDefaults(defineProps<Props>(), {
   type: 'black',
   icon: 'none',
   image: '',
-  zIndex: 1000
+  zIndex: 1000,
+  id: ''
 })
 
 let innerData = ref<Props>({
@@ -76,18 +80,27 @@ let innerData = ref<Props>({
 })
 
 const emit = defineEmits(['update:visible', 'click'])
+const toastKey = props.id ? '__TOAST__' + props.id : toastDefaultKey
+const toastOptionKey = props.id ? '__TOAST_OPTION__' + props.id : toastDefaultOptionKey
+const toastShow = inject(toastKey) || ref<boolean>(false) // 是否展示toast组件
+const toastOption = inject(toastOptionKey) || ref<ToastOptions>(defaultToastOptions) // toast选项
 
-// 监听是否展示
+// 监听options变化展示
 watch(
-  () => props.visible,
-  (newVal: boolean) => {
-    if (newVal) {
-      show()
-    } else {
-      hide()
-    }
+  () => toastOption.value,
+  (newVal: ToastOptions) => {
+    reset(newVal)
   }
 )
+
+// 监听是否visible
+watch([() => props.visible, () => toastShow.value], () => {
+  if (props.visible || toastShow.value) {
+    show()
+  } else {
+    hide()
+  }
+})
 
 /**
  * 根节点样式
@@ -145,9 +158,12 @@ function show() {
 
 // 关闭
 function hide() {
-  innerData.value.visible = false
-  timer.value && clearTimeout(timer.value)
-  emit('update:visible', false)
+  if (innerData.value.visible) {
+    emit('update:visible', false)
+    innerData.value.visible = false
+    toastShow.value = false
+    timer.value && clearTimeout(timer.value)
+  }
 }
 
 /**
@@ -177,32 +193,6 @@ function click() {
 function afterLeave() {
   reset(defaultToastOptions)
 }
-
-/**
- * 打开toast选项
- * @param option 选项
- */
-function showToast(option: ToastOptions | string) {
-  option = CommonUtil.deepMerge(defaultToastOptions, typeof option === 'string' ? { title: option } : option) as ToastOptions
-  reset(option)
-  show()
-}
-
-/**
- * 关闭toast
- */
-function hideToast() {
-  reset(defaultToastOptions)
-  hide()
-}
-
-defineExpose({
-  reset,
-  hide,
-  show,
-  hideToast,
-  showToast
-})
 </script>
 
 <style lang="scss" scoped>

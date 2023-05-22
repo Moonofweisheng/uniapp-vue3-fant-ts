@@ -1,14 +1,14 @@
 <!--
  * @Author: weisheng
  * @Date: 2022-07-26 14:03:50
- * @LastEditTime: 2023-04-04 17:13:16
+ * @LastEditTime: 2023-05-19 15:26:21
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-area\hd-area.vue
  * 记得注释
 -->
 <template>
-  <hd-popup type="bottom" ref="areapop" :maskClick="true" @onTap="doMaskClick">
+  <hd-popup type="bottom" id="areapop" :maskClick="true" @onTap="doMaskClick">
     <view class="hd-area">
       <view class="title">
         请选择所在地区
@@ -55,9 +55,9 @@
   </hd-popup>
 </template>
 <script lang="ts" setup>
-import { computed, nextTick, ref, watch } from 'vue'
-import { CommonUtil } from '../../libs/utils/CommonUtil'
-import { Popup } from '../hd-popup/types'
+import { computed, inject, nextTick, ref, watch } from 'vue'
+import { usePopup } from '../hd-popup'
+import { CommonUtil, areaDefaultKey } from '../..'
 interface AreaList {
   province_list: Record<number, string>
   city_list: Record<number, string>
@@ -68,11 +68,12 @@ interface Props {
   areaData: AreaList
   // 当前选中的省市区
   area: Ucn[]
+  id?: string
 }
 
 type AreaType = 'province' | 'city' | 'district' // 区域类型
 
-const areapop = ref<Popup>() // 弹出框
+const areapop = usePopup('areapop') // 弹出框
 
 const props = withDefaults(defineProps<Props>(), {
   areaData: () => {
@@ -82,7 +83,8 @@ const props = withDefaults(defineProps<Props>(), {
       county_list: {}
     }
   },
-  area: () => []
+  area: () => [],
+  id: ''
 })
 
 let innerProvince = ref<Nullable<Ucn>>(null) // 选择的省
@@ -92,7 +94,22 @@ let init = ref<boolean>(false) // 页面初始化完成
 let activeType = ref<AreaType>('province') // 当前所选的area类型
 const mainKey = ref<string>(CommonUtil.s4()) // scroll-view键
 const viewId = ref<string | null>(null) //  应当展示在视图中的节点id
+const areaKey = props.id ? '__AREA__' + props.id : areaDefaultKey
+const areaShow = inject(areaKey) || ref<boolean>(false) // 是否展示popup组件
+
 const emit = defineEmits(['close', 'confirm']) // 事件
+
+// 监听函数式调用是否展示弹出框
+watch(
+  () => areaShow.value,
+  (newVal: boolean) => {
+    if (newVal) {
+      open()
+    } else {
+      close()
+    }
+  }
+)
 
 watch(activeType, (newVal) => {
   mainKey.value = CommonUtil.s4()
@@ -217,7 +234,7 @@ function setViewId() {
  */
 function open() {
   doInit()
-  areapop.value?.showPopup()
+  areapop.showPopup()
   let timer = setTimeout(() => {
     init.value = true
     clearTimeout(timer)
@@ -229,7 +246,7 @@ function open() {
  * 关闭
  */
 function close() {
-  areapop.value?.closePopup()
+  areapop.closePopup()
   doReset()
   nextTick(() => {
     init.value = false
@@ -349,26 +366,6 @@ function doSelect(item: Ucn) {
       break
   }
 }
-
-/**
- * 打开area
- */
-function showArea() {
-  open()
-}
-/**
- * 关闭area
- */
-function closeArea() {
-  close()
-}
-
-defineExpose({
-  close,
-  open,
-  showArea,
-  closeArea
-})
 </script>
 
 <style lang="scss" scoped>

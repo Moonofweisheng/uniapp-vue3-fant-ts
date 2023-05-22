@@ -9,6 +9,8 @@ Area 省市区选择
 |---|---|---|---|---|
 |areaData|省市区数据|`Object`|`false`|-|
 |area|当前选中的省市区|`Array`|`false`|[]|
+|id|组件唯一标识|`String`|`false`|-|
+
 
 <!-- @vuese:hd-area:props:end -->
 
