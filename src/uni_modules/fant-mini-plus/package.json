@@ -1,4 +1,4 @@
-{"id":"fant-mini-plus","name":"fant-mini-plus","displayName":"fant-mini-plus基于Vue3和TypeScript的高效UI组件库","version":"0.1.0","description":"fant-mini-plus是一个基于Vue3和TypeScript的uni-app高效UI组件库，提供丰富的组件和样式，帮助开发者快速构建高质量的移动应用。","keywords":[
+{"id":"fant-mini-plus","name":"fant-mini-plus","displayName":"fant-mini-plus基于Vue3和TypeScript的高效UI组件库","version":"0.1.2","description":"fant-mini-plus是一个基于Vue3和TypeScript的uni-app高效UI组件库，提供丰富的组件和样式，帮助开发者快速构建高质量的移动应用。","keywords":[
         "vue3",
         "typescript",
         "组件库",

@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2022-09-27 15:33:29
- * @LastEditTime: 2023-05-19 11:41:11
+ * @LastEditTime: 2023-05-23 15:49:23
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-keyboard\hd-keyboard.vue
@@ -61,7 +61,7 @@ interface Props {
   // 数量
   modelValue: string | number
   // 是否打开
-  show: boolean
+  show?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

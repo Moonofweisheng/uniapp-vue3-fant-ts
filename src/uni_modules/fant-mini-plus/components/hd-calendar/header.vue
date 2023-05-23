@@ -28,13 +28,13 @@ import { CommonUtil } from '../../libs/utils/CommonUtil'
 
 interface Props {
   // 标题
-  title: string
+  title?: string
   // 副标题
-  subtitle: string
+  subtitle?: string
   // 是否显示标题
   showTitle?: boolean
   // 是否显示副标题
-  showSubtitle: boolean
+  showSubtitle?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

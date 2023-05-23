@@ -29,13 +29,13 @@ interface Props {
   // 徽标数值
   count: number
   // 徽标数值最大值（超出显示maxCount+）
-  maxCount: number
+  maxCount?: number
   // 是否为异形徽标
-  alien: boolean
+  alien?: boolean
   // 是否为圆点徽标
-  dot: boolean
+  dot?: boolean
   // 徽标背景色
-  bgColor: string
+  bgColor?: string
 }
 
 let props = withDefaults(defineProps<Props>(), {

@@ -11,7 +11,7 @@ CollapseItem 折叠面板子项
 |value|标题栏右侧内容|`String`|`false`|-|
 |label|标题栏描述信息|`String`|`false`|-|
 |border|是否显示内边框|`Boolean`|`false`|默认值是：`false`|
-|isLink|是否展示标题栏右侧箭头并开启点击反馈|`Boolean`|`false`|默认值是：`false`|
+|isLink|是否展示标题栏右侧箭头并开启点击反馈|`Boolean`|`false`|默认值是：`true`|
 |clickable|是否开启点击反馈|`Boolean`|`false`|默认值是：`false`|
 |disabled|是否禁用面板|`Boolean`|`false`|默认值是：`false`|
 |icon|标题栏左侧图标名称或图片链接，可选值见 Icon 组件|`String`|`false`|-|

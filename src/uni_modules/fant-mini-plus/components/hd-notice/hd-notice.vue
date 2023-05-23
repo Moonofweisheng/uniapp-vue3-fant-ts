@@ -55,23 +55,23 @@ interface Props {
   // 标题名称
   title: string
   // 类型
-  type: NoticeType
+  type?: NoticeType
   // 背景色
-  backgroundColor: string
+  backgroundColor?: string
   // 文字滚动的速度px/s
-  speed: number
+  speed?: number
   // 左侧icon
-  leftIcon: string
+  leftIcon?: string
   // 是否单行
-  single: boolean
+  single?: boolean
   // 是否滚动，添加后控制单行效果取消
-  scrollable: boolean
+  scrollable?: boolean
   // 消息数量
-  count: number
+  count?: number
   // 右侧icon
-  rightIcon: string
+  rightIcon?: string
   // 是否显示右侧icon
-  showRightIcon: boolean
+  showRightIcon?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

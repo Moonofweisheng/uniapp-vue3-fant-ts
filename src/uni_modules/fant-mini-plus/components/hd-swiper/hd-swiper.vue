@@ -79,106 +79,106 @@ interface Props {
   /**
    * 是否自动播放视频
    */
-  videoAutoplay: boolean
+  videoAutoplay?: boolean
   /**
    * 视频映射的键(字段名)
    */
-  videoKey: string
+  videoKey?: string
   /**
    * 图片映射的键(字段名)
    */
-  imageKey: string
+  imageKey?: string
   /**
    * 文字说明映射的键(字段名)
    */
-  textKey: string
+  textKey?: string
 
   /**
    * 是否展示图片文字说明
    */
-  showTextTip: boolean
+  showTextTip?: boolean
   /**
    * 图片文字大小
    */
-  textStyleSize: number
+  textStyleSize?: number
   /**
    * 图片文字底部距离
    */
-  textStyleBottom: number
+  textStyleBottom?: number
   /**
    * 图片文字右侧距离
    */
-  textStyleRight: number
+  textStyleRight?: number
   /**
    * 图片文字颜色
    */
-  textStyleColor: string
+  textStyleColor?: string
   /**
    * 图片文字背景色
    */
-  textStyleBgcolor: string
+  textStyleBgcolor?: string
   /**
    * 宽高比 推荐 w/h => 2
    */
-  rate: number
+  rate?: number
   /**
    * 是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息
    * App、微信小程序支持
    */
-  skipHiddenItemLayout: boolean
+  skipHiddenItemLayout?: boolean
   /**
    * 同时显示的滑块数量
    * 支付宝钉钉不支持
    */
-  displayMultipleItems: number
+  displayMultipleItems?: number
   /**
    * 后边距，可用于露出后一项的一小部分，接受 px 和 rpx 值 app-nvue、字节跳动小程序、飞书小程序不支持
    */
-  nextMargin: string
+  nextMargin?: string
   /**
    * 前边距，可用于露出前一项的一小部分，接受 px 和 rpx 值 app-nvue、字节跳动小程序、飞书小程序不支持
    */
-  previousMargin: string
+  previousMargin?: string
   /**
    * 滑动方向是否为纵向 卡牌  不支持纵向以及同时显示的2块以上滑块数量
    */
-  vertical: boolean
+  vertical?: boolean
   /**
    * 是否采用衔接滑动
    */
-  circular: boolean
+  circular?: boolean
   /**
    * 滑动动画时长
    */
-  duration: number
+  duration?: number
   /**
    * 自动切换时间间隔
    */
-  interval: number
+  interval?: number
   /**
    * 当前所在滑块的下标
    */
-  current: number
+  current?: number
   /**
    * 是否自动切换
    */
-  autoplay: boolean
+  autoplay?: boolean
   /**
    * 指示点颜色
    */
-  indicatorColor: string
+  indicatorColor?: string
   /**
    * 当前选中的指示点颜色
    */
-  indicatorActiveColor: string
+  indicatorActiveColor?: string
   /**
    * 是否显示面板指示点
    */
-  indicatorDots: boolean
+  indicatorDots?: boolean
   /**
    * 是否卡片样式
    */
-  card: boolean
+  card?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
