@@ -9,7 +9,13 @@
 
 <p align="center">一个适用于 uni-app 平台的基于 vue3 的前端UI框架</p>
 
-FANT-MINI-PLUS 是基于vue3的 uni-app 平台的移动端组件库，目前正在有计划地持续迭代中。
+FANT-MINI-PLUS 是基于vue3的 uni-app 平台的移动端组件库，目前正在有计划地持续迭代中。 
+
+## [官方文档：https://fant-mini-plus.top](https://fant-mini-plus.top/fant-mini-plus/)
+
+## [开发计划（规划中）](https://docs.qq.com/sheet/DSVZOdkhOalFPd2NZ?tab=BB08J2&u=60ccbc87e7b04883b8c01ab07165a577)
+
+关于开发计划的问题或者建议请先到[Gitee](https://gitee.com/fant-mini/uniapp-vue3-fant-ts)或者[Github](https://github.com/Moonofweisheng/uniapp-vue3-fant-ts)提出issue，或者在评论区发表评论，方便我记录问题以及安排后续的开发计划。（组件或者模板使用上有什么问题，希望增加什么组件或者模板页面都可以提）
 
 ### 预览
 
@@ -22,8 +28,6 @@ FANT-MINI-PLUS 是基于vue3的 uni-app 平台的移动端组件库，目前正�
 
 
 # 快速上手
-
-## 使用文档:[地址](https://fant-mini-plus.top/fant-mini-plus/)
 
 ## 演示项目:[Vue3-Uni-TS-Template基础模板](https://ext.dcloud.net.cn/plugin?id=11846)
 
@@ -99,7 +103,11 @@ yarn add sass-loader -D
 
 ## 联系我
 
-有不明白或者建议可以扫码交流
+有问题或者建议请先到[Gitee](https://gitee.com/fant-mini/uniapp-vue3-fant-ts)或者[Github](https://github.com/Moonofweisheng/uniapp-vue3-fant-ts)提出issue，或者在评论区发表评论，方便我记录问题以及安排后续的开发计划。（组件or模板使用上有什么问题，希望增加什么组件or模板页面都可以提）
+
+### 联系方式
+
+组件及模板有不明白或者建议可以扫码交流
 #### QQ群
 <img  src="https://fant-mini-plus.top/img/qq.jpg
 " width="220" height="auto">

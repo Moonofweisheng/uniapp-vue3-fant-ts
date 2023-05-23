@@ -1,10 +1,10 @@
 <!--
  * @Author: weisheng
  * @Date: 2023-03-21 22:52:15
- * @LastEditTime: 2023-03-28 14:00:35
+ * @LastEditTime: 2023-05-23 15:47:25
  * @LastEditors: weisheng
  * @Description: 
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-section\hd-section.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-section\hd-section.vue
  * 记得注释
 -->
 <template>
@@ -37,23 +37,23 @@ interface Props {
   // 当前激活项的下标
   current: number
   // 激活项的颜色
-  activeColor: string
+  activeColor?: string
   // 模式
-  mode: SectionMode
+  mode?: SectionMode
   // 字体大小，单位px
-  fontSize: number | string
+  fontSize?: number | string
   // 是否开启动画效果
-  animation: boolean
+  animation?: boolean
   // 组件的高度，单位px
-  height: number | string
+  height?: number | string
   // 激活项的字体是否加粗
-  bold: boolean
+  bold?: boolean
   // 组件背景颜色（ mode=button时生效）
-  bgColor: string
+  bgColor?: string
   // 滑块背景颜色（ mode=button时生效）
-  buttonColor: string
+  buttonColor?: string
   // 切换选项时是否振动
-  vibrateShort: boolean
+  vibrateShort?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
   // 数据集合

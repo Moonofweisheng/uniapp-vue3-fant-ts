@@ -27,21 +27,21 @@ function format(rate) {
 
 interface Props {
   // 是否置灰
-  inactive: boolean
+  inactive?: boolean
   // 进度百分比，推荐使用v-model方式
   modelValue: number
   // 是否显示进度文字
-  showText: boolean
+  showText?: boolean
   // 进度条文字
-  text: string
+  text?: string
   // 进度文字颜色
-  textColor: string
+  textColor?: string
   // 进度条颜色
-  color: string
+  color?: string
   // 进度条底色
-  layerColor: string
+  layerColor?: string
   // 进度条粗细，默认单位为px
-  strokeWidth: number | string
+  strokeWidth?: number | string
 }
 
 const props = withDefaults(defineProps<Props>(), {

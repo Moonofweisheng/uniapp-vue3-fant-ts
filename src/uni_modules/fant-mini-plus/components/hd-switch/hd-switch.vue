@@ -27,23 +27,23 @@ import { CommonUtil } from '../..'
  */
 interface Props {
   // 是否禁用
-  disabled: boolean
+  disabled?: boolean
   // 开关尺寸，单位px
-  size: number
+  size?: number
   // 打开时的背景颜色
-  activeColor: string
+  activeColor?: string
   // 关闭时的背景颜色
-  inactiveColor: string
+  inactiveColor?: string
   // 通过v-model双向绑定的值
   modelValue: boolean | string | number
   // 打开选择器时的值
-  activeValue: string | number | boolean
+  activeValue?: string | number | boolean
   // 关闭选择器时的值
-  inactiveValue: string | number | boolean
+  inactiveValue?: string | number | boolean
   // 是否开启异步变更，开启后需要手动控制输入值
-  asyncChange: boolean
+  asyncChange?: boolean
   // 圆点与外边框的距离
-  space: number
+  space?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {

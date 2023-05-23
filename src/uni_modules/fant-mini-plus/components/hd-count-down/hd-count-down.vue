@@ -60,19 +60,19 @@ import { onBeforeMount, onBeforeUnmount, ref } from 'vue'
 
 interface Props {
   // 控制展示天
-  showDay: boolean
+  showDay?: boolean
   // 是否展示分隔符
-  showColon: boolean
+  showColon?: boolean
   // 背景色
-  backgroundColor: string
+  backgroundColor?: string
   // 边框颜色
-  borderColor: string
+  borderColor?: string
   // 字体颜色
-  color: string
+  color?: string
   // 分隔符颜色
-  splitorColor: string
+  splitorColor?: string
   // 日
-  day: number
+  day?: number
   // 时
   hour: number
   // 分

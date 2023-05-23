@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2020-10-31 11:27:05
- * @LastEditTime: 2023-04-25 14:18:58
+ * @LastEditTime: 2023-05-22 22:42:42
  * @LastEditors: weisheng
  * @Description: 表格列
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-table-column\hd-table-column.vue
@@ -26,8 +26,8 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { Ref, computed, inject, onMounted, watch, ref } from 'vue'
-import { CommonUtil } from '../../libs/utils/CommonUtil'
+import { Ref, computed, inject, onMounted, ref } from 'vue'
+import { CommonUtil } from '../..'
 
 interface Props {
   // 列对应字段

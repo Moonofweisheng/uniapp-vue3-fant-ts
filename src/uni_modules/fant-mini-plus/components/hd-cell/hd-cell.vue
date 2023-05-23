@@ -1,10 +1,5 @@
 <template>
-  <view
-    :class="['hd-cell', isLink ? 'hd-cell--clickable' : '', hasLine ? 'hd-cell--hasline' : '']"
-    :hover-class="isLink ? 'hd-cell--active' : ''"
-    data-eventsync="true"
-    @click="onClick"
-  >
+  <view :class="rootClass" :hover-class="hoverClass" data-eventsync="true" hover-stay-time="70" @click="onClick">
     <view class="hd-cell-left-icon" v-if="icon">
       <hd-icon size="36rpx" color="#A1A1A1" :name="icon"></hd-icon>
     </view>
@@ -39,7 +34,7 @@ import { CommonUtil } from '../..'
 type CellAlign = 'left' | 'right'
 interface Props {
   // 左侧图标名称，等同于 `Icon` 组件的 name 属性
-  icon: string
+  icon?: string
   // 左侧标题
   title: string
   // 右侧内容
@@ -47,17 +42,19 @@ interface Props {
   // 标题下方的描述信息
   label: string
   // 右侧内容的对齐方式，可选值为 "left" | "right"
-  align: CellAlign
-  // 是否为链接
-  isLink: boolean
+  align?: CellAlign
+  // 是否展示右侧箭头并开启点击反馈
+  isLink?: boolean
+  // 是否开启点击反馈
+  clickable?: boolean
   // 是否有下划线
-  hasLine: boolean
+  hasLine?: boolean
   // 是否超出省略
-  ellipsis: boolean
+  ellipsis?: boolean
   // 占位文字
-  placeholder: string
+  placeholder?: string
   // 是否显示表单必填星号
-  required: boolean
+  required?: boolean
 }
 
 let props = withDefaults(defineProps<Props>(), {
@@ -73,6 +70,8 @@ let props = withDefaults(defineProps<Props>(), {
   align: 'left',
   // 是否为链接
   isLink: false,
+  // 是否展示右侧箭头并开启点击反馈
+  clickable: false,
   // 是否有下划线
   hasLine: false,
   // 是否超出省略
@@ -81,6 +80,31 @@ let props = withDefaults(defineProps<Props>(), {
   placeholder: '',
   // 是否显示表单必填星号
   required: false
+})
+
+/**
+ * 根节点类
+ */
+const rootClass = computed(() => {
+  const rootClass = ['hd-cell']
+  if (props.isLink || props.clickable) {
+    rootClass.push('hd-cell--clickable')
+  }
+  if (props.hasLine) {
+    rootClass.push('hd-cell--hasline')
+  }
+  return rootClass
+})
+
+/**
+ * 点击样式类
+ */
+const hoverClass = computed(() => {
+  let hoverClass = ''
+  if (props.isLink || props.clickable) {
+    hoverClass = 'hd-cell--active'
+  }
+  return hoverClass
 })
 
 /**
@@ -122,10 +146,7 @@ const emit = defineEmits(['click'])
 
 // 点击单元格事件
 function onClick() {
-  if (props.isLink) {
-    // 单元格被点击时触发，仅在isLink为true的情况下生效
-    emit('click')
-  }
+  emit('click')
 }
 // Cell 单元格
 </script>

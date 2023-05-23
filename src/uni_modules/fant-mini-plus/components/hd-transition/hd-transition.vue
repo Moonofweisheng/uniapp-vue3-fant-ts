@@ -35,7 +35,7 @@ interface Props {
   // 是否展示组件
   show: boolean
   // 是否销毁子节点
-  destroy: boolean
+  destroy?: boolean
   // 动画类型
   name?: TransitionName
   // 动画时长，单位为毫秒

@@ -1,10 +1,10 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-31 13:26:22
- * @LastEditTime: 2023-03-28 11:39:23
+ * @LastEditTime: 2023-05-23 15:50:50
  * @LastEditors: weisheng
  * @Description: 
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-collapse\hd-collapse.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-collapse\hd-collapse.vue
  * 记得注释
 -->
 <template>
@@ -27,9 +27,9 @@ interface Props {
   // 展开的选项
   modelValue: string | Array<string>
   // 是否开启手风琴模式
-  accordion: boolean
+  accordion?: boolean
   // 是否显示外边框
-  border: boolean
+  border?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

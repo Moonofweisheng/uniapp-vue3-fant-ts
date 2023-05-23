@@ -57,7 +57,7 @@ interface Props {
   // `'top（ 顶部弹出层）'` / `'bottom（底部弹出层）'` / `'left（左侧弹出层）'`/ `'right（右侧弹出层）'`/ `'center（全屏弹出层）'`
   type?: PopupType
   // 是否销毁子节点
-  destroy: boolean
+  destroy?: boolean
   // 是否显示遮罩
   overlay?: boolean
   // 是否允许点击蒙层关闭

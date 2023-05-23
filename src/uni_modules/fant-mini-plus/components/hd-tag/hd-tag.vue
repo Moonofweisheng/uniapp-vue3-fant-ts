@@ -1,10 +1,10 @@
 <!--
  * @Author: weisheng
  * @Date: 2020-12-25 10:30:02
- * @LastEditTime: 2023-03-21 22:04:14
+ * @LastEditTime: 2023-05-23 15:36:32
  * @LastEditors: weisheng
  * @Description: 标签组件
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-tag\hd-tag.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-tag\hd-tag.vue
 -->
 <template>
   <view class="hd-tag">
@@ -36,13 +36,13 @@ interface Props {
   // 标签内容
   value: string
   // 标签类型
-  type: TagType
+  type?: TagType
   // 标签主题
-  theme: TagTheme
+  theme?: TagTheme
   // 标签大小
-  size: TagSize
+  size?: TagSize
   // 标签形状
-  shape: TagShape
+  shape?: TagShape
 }
 
 let props = withDefaults(defineProps<Props>(), {

@@ -41,19 +41,19 @@ interface Props {
   /**
    * tab选中颜色
    */
-  activeColor: string
+  activeColor?: string
   /**
    * 选中项下划线颜色
    */
-  lineColor: string
+  lineColor?: string
   /**
    * 下划线长度
    */
-  lineWidth: number
+  lineWidth?: number
   /**
    * 是否展示下划线动画
    */
-  lineAnimated: boolean
+  lineAnimated?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

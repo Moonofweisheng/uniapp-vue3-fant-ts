@@ -1,16 +1,36 @@
-## 0.1.0（2023-05-22）
-## 0.1.0 (2023-05-22)
+## 0.1.2（2023-05-23）
+### 0.1.2 (2023-05-23)
 
-## 注意这次是破坏性更新，影响到Toast、Popup、Notify、Modal、DatePicker、Calendar和Area组件的调用方法。请仔细阅读文档后更新。
 
-### Features
+### Bug Fixes
 
-*  新增组合式组件API支持组件函数式调用，优化调用体验。
-*  Field输入框组件支持禁用状态显示placeholder 
+*  修复部分组件抛出属性必填的警告的问题 
+*  修复折叠面板组件clickable不生效的问题
 
+### 0.1.1 (2023-05-23)
+
+
+### Bug Fixes
+
+*  修复table组件nextTick使用错误的问题 
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.2](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.1...v0.1.2) (2023-05-23)
+
+
+### Bug Fixes
+
+* 🐛 修复部分组件抛出属性必填的警告的问题 ([7dd231c](https://gitlab.hd123.com/vue/fant-mini-plus/commit/7dd231c7733e39b3f1845288398ce11abcf51a4e))
+* 🐛 修复折叠面板组件clickable不生效的问题 ([78beddd](https://gitlab.hd123.com/vue/fant-mini-plus/commit/78bedddb5165bf02e2057c85a663552c2de7273c))
+
+### [0.1.1](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.0...v0.1.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* 🐛 修复table组件nextTick使用错误的问题 ([07bddb8](https://gitlab.hd123.com/vue/fant-mini-plus/commit/07bddb81c126cc5e0f23f77ab93e1cbbd5491f98))
 
 ## [0.1.0](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.0.13...v0.1.0) (2023-05-22)
 

@@ -44,24 +44,24 @@ interface Props {
   // 月份数据
   date: number
   // 日期选择类型
-  mode: CalendarMode
+  mode?: CalendarMode
   // 日期行高
-  rowHeight: string | number
+  rowHeight?: string | number
   // 当前选中的日期
-  currentDate: Array<number> | number | null
+  currentDate?: Array<number> | number | null
   // 最小的可选日期
-  minDate: string | number
+  minDate?: string | number
   // 最大可选日期
-  maxDate: string | number
+  maxDate?: string | number
   // 是否为只读状态，只读状态下禁止选择日期
   readonly?: boolean
   // 是否允许日期范围的起止时间为同一天，mode = range时有效
-  allowSameDay: boolean
+  allowSameDay?: boolean
   // 是否展示月份标题
-  showMonthTitle: boolean
+  showMonthTitle?: boolean
   // 日期格式化函数
   // eslint-disable-next-line @typescript-eslint/ban-types
-  formatter: Nullable<Function>
+  formatter?: Nullable<Function>
 }
 
 const props = withDefaults(defineProps<Props>(), {

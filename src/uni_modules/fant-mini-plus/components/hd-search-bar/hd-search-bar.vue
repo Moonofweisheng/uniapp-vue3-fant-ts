@@ -1,10 +1,10 @@
 <!--
  * @Author: weisheng
  * @Date: 2020-10-31 11:27:05
- * @LastEditTime: 2023-03-21 21:56:45
+ * @LastEditTime: 2023-05-23 15:47:42
  * @LastEditors: weisheng
  * @Description: 搜索框
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\hd-search-bar\hd-search-bar.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-search-bar\hd-search-bar.vue
  * @symbol_custom_string_obkoro1: 记得注释
 -->
 <template>
@@ -51,13 +51,13 @@ interface Props {
   // 输入框的值
   modelValue: string
   // 占位文字
-  placeholder: string
+  placeholder?: string
   // 是否禁用输入框
-  disabled: boolean
+  disabled?: boolean
   // 是否显示返回
-  showCancel: boolean
+  showCancel?: boolean
   // 是否可清空
-  clearable: boolean
+  clearable?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
   // 输入框的值

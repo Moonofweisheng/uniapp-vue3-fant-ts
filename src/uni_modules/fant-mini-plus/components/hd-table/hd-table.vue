@@ -29,9 +29,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, getCurrentInstance, onMounted, provide, ref, watch } from 'vue'
+import { computed, getCurrentInstance, nextTick, onMounted, provide, ref, watch } from 'vue'
 import { CommonUtil, debounce } from '../..'
-import { nextTick } from 'process'
 
 /**
  * Table 表格
@@ -41,11 +40,11 @@ interface Props {
   // table数据源
   dataSource: Array<any>
   // table行是否为斑马纹
-  stripe: boolean
+  stripe?: boolean
   // table高度
-  height: string
+  height?: string
   // 行高
-  rowHeight: number | string
+  rowHeight?: number | string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -151,30 +150,6 @@ function doScroll(event) {
   if (scrollWidth.value !== event.detail.scrollWidth) {
     scrollWidth.value = CommonUtil.addUnit(event.detail.scrollWidth, 'px')
   }
-}
-</script>
-<script module="swipe" lang="wxs">
-var scrollLeft = 0
-
-function touchstart(e, ins) {
-    //记录开始位置及动画状态
-  let pageX = e.touches[0].pageX
-}
-
-function touchmove(e, ownerInstance) {
-  scrollLeft = e.detail.scrollLeft
-  console.log(ownerInstance)
-}
-
-function touchend(e, ownerInstance) {
-  var instance = e.instance
-  var state = instance.getState()
-}
-module.exports= {
-  touchstart:touchstart,
-  touchmove:touchmove,
-  touchend:touchend,
-  scrollLeft:scrollLeft
 }
 </script>
 <style lang="scss" scoped>

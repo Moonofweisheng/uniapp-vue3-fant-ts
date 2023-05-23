@@ -18,9 +18,9 @@ interface Props {
   // 验证码倒计时秒数（单位s）
   second: number
   // 主题类型
-  type: VerificationType
+  type?: VerificationType
   // 是否自动开启倒计时
-  autoCountDown: boolean
+  autoCountDown?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
