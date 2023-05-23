@@ -1,4 +1,10 @@
-# uniapp-vue3-fant-ts
+# Vue3-Uni-TS-Template基础模板
+
+## [官方文档：https://fant-mini-plus.top](https://fant-mini-plus.top/fant-mini-plus/)
+
+## [开发计划（规划中）](https://docs.qq.com/sheet/DSVZOdkhOalFPd2NZ?tab=csws7k&u=60ccbc87e7b04883b8c01ab07165a577)
+
+关于开发计划的问题或者建议请先到[Gitee](https://gitee.com/fant-mini/uniapp-vue3-fant-ts)或者[Github](https://github.com/Moonofweisheng/uniapp-vue3-fant-ts)提出issue，或者在评论区发表评论，方便我记录问题以及安排后续的开发计划。（组件或者模板使用上有什么问题，希望增加什么组件或者模板页面都可以提）
 
 #### 介绍
 基于uni-app和fant-mini-plus的vue3项目基础模板，使用vue3、vite4、[fant-mini-plus](https://ext.dcloud.net.cn/plugin?id=11489)、pinia、[uni-mini-router](https://ext.dcloud.net.cn/plugin?id=11208)、axios、[fant-axios-adapter](https://ext.dcloud.net.cn/plugin?id=11817)开发，基于koa实现mock功能
