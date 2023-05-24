@@ -1,21 +1,28 @@
-## 0.1.2（2023-05-23）
-### 0.1.2 (2023-05-23)
+## 0.1.4（2023-05-24）
+### [0.1.4] (2023-05-24)
 
 
 ### Bug Fixes
 
-*  修复部分组件抛出属性必填的警告的问题 
-*  修复折叠面板组件clickable不生效的问题
-
-### 0.1.1 (2023-05-23)
-
-
-### Bug Fixes
-
-*  修复table组件nextTick使用错误的问题 
+* 🐛 修复Circle组件strokeWidth默认值不对的问题  
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.4](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.3...v0.1.4) (2023-05-24)
+
+
+### Bug Fixes
+
+* 🐛 修复Circle组件strokeWidth默认值不对的问题 ([0757d15](https://gitlab.hd123.com/vue/fant-mini-plus/commit/0757d1563c8cb74a580e4680b6006525e6517f7a))
+
+### [0.1.3](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.2...v0.1.3) (2023-05-23)
+
+
+### Bug Fixes
+
+* 🐛 修复Circle组件在APP端无法同时渲染多个的问题 ([f638f1f](https://gitlab.hd123.com/vue/fant-mini-plus/commit/f638f1f7f73dceb0bc50815d3e65f7e17b8e6e2d))
+* 🐛 修复Transition组件在H5平台抛出警告的问题 ([315c092](https://gitlab.hd123.com/vue/fant-mini-plus/commit/315c092002ec623a41013e768e6d9c6b8f8bbfca))
 
 ### [0.1.2](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.1...v0.1.2) (2023-05-23)
 
