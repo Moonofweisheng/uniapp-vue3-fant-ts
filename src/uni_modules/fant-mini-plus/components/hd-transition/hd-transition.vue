@@ -330,12 +330,25 @@ function show(newValue, oldValue, ownerInstance){
   }
 }
 
-function createAnimation(type,ownerInstance){
-  //  #ifdef H5
-  if (ownerInstance.$vm._&&ownerInstance.$vm._.exposed) {
-    ownerInstance.$vm = {...ownerInstance.$vm,...ownerInstance.$vm._.exposed}
+/**
+ * H5调用逻辑层方法
+ * @param instance 组件实例
+ * @param funcName 方法名
+ */
+// #ifdef H5
+function callMethod(instance,funcName){
+  if (instance.$vm[funcName] && typeof instance.$vm[funcName] === 'function') {
+    return instance.callMethod(funcName)
+  }else if(instance.$vm._&&instance.$vm._.exposed&&instance.$vm._.exposed[funcName]&&typeof instance.$vm._.exposed[funcName] ==='function'){
+    const func = instance.$vm._.exposed[funcName]
+    func();
   }
-  //  #endif
+}
+// #endif
+
+
+
+function createAnimation(type,ownerInstance){
   if (type==='enter') {
     ownerInstance.requestAnimationFrame(function(){enterAnimation(ownerInstance)})
   }else{
@@ -344,16 +357,33 @@ function createAnimation(type,ownerInstance){
 }
 
 function enterAnimation(ownerInstance,index=0){
+
   if (index === 0) {
+    //  #ifdef H5
+    callMethod(ownerInstance,'enter')
+    //  #endif
+    //  #ifndef H5
     ownerInstance.callMethod('enter')
+    //  #endif
     index +=1
     ownerInstance.requestAnimationFrame(function() {enterAnimation(ownerInstance,index)})
   }else if (index === 1) {
+    //  #ifdef H5
+    callMethod(ownerInstance,'doEnter')
+    //  #endif
+    //  #ifndef H5
     ownerInstance.callMethod('doEnter')
+    //  #endif
+
     index +=1
     ownerInstance.requestAnimationFrame(function() {enterAnimation(ownerInstance,index)})
   } else if(index === 4) {
+    //  #ifdef H5
+    callMethod(ownerInstance,'doEnterTo')
+    //  #endif
+    //  #ifndef H5
     ownerInstance.callMethod('doEnterTo')
+    //  #endif
   }else if (index<4) {
     index +=1
     ownerInstance.requestAnimationFrame(function() {enterAnimation(ownerInstance,index)})
@@ -362,15 +392,31 @@ function enterAnimation(ownerInstance,index=0){
 
 function leaveAnimation(ownerInstance,index=0){
   if (index === 0) {
+
+    //  #ifdef H5
+    callMethod(ownerInstance,'leave')
+    //  #endif
+    //  #ifndef H5
     ownerInstance.callMethod('leave')
+    //  #endif
     index +=1
     ownerInstance.requestAnimationFrame(function(){leaveAnimation(ownerInstance,index)})
   }else if (index === 1) {
+    //  #ifdef H5
+    callMethod(ownerInstance,'doLeave')
+    //  #endif
+    //  #ifndef H5
     ownerInstance.callMethod('doLeave')
+    //  #endif
     index +=1
     ownerInstance.requestAnimationFrame(function(){leaveAnimation(ownerInstance,index)})
   } else if(index === 2) {
+    //  #ifdef H5
+    callMethod(ownerInstance,'doLeaveTo')
+    //  #endif
+    //  #ifndef H5
     ownerInstance.callMethod('doLeaveTo')
+    //  #endif
   }else if (index<2) {
     index +=1
     ownerInstance.requestAnimationFrame(function() {leaveAnimation(ownerInstance,index)})

@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2022-02-16 13:21:51
- * @LastEditTime: 2023-04-07 17:14:38
+ * @LastEditTime: 2023-05-24 10:02:30
  * @LastEditors: weisheng
  * @Description: Circle 环形进度条
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-circle\hd-circle.vue
@@ -9,7 +9,7 @@
 -->
 <template>
   <view class="hd-circle" :style="style">
-    <canvas :width="canvasHeight" :height="canvasHeight" class="hd-circle-canvas" :style="style" id="hd-circle" canvas-id="hd-circle"></canvas>
+    <canvas :width="canvasHeight" :height="canvasHeight" class="hd-circle-canvas" :style="style" :id="canvasId" :canvas-id="canvasId"></canvas>
     <view v-if="!text" class="hd-circle-text">
       <!-- 自定义提示内容 -->
       <slot></slot>
@@ -85,7 +85,7 @@ const props = withDefaults(defineProps<Props>(), {
   // 动画速度（单位为 rate/s）
   speed: 50,
   // 进度条宽度 默认单位px
-  strokeWidth: 'rpx',
+  strokeWidth: '20rpx',
   // 进度条端点的形状
   strokeLinecap: 'round',
   // 是否顺时针增加
@@ -96,12 +96,14 @@ const progressColor = ref<string | Record<string, string>>('') // 进度条颜�
 const pixel = ref<number>(1) // 设备像素比
 const currentValue = ref<number>(0) // 当前值
 const interval = ref<any>(null) // 定时器
+const canvasId = ref<string>(CommonUtil.s4()) // canvasId
 
 // canvas渲染大小
 const canvasHeight = computed(() => {
   const canvasHeight = CommonUtil.getPx(props.size) as number
   return canvasHeight * pixel.value
 })
+
 // Circle 样式
 const style = computed(() => {
   const style = {
@@ -188,7 +190,7 @@ const { proxy } = getCurrentInstance() as any
  * 获取canvas上下文
  */
 function doGetContext() {
-  const ctx = uni.createCanvasContext('hd-circle', proxy)
+  const ctx = uni.createCanvasContext(canvasId.value, proxy)
   return Promise.resolve(ctx)
 }
 
