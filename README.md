@@ -156,6 +156,20 @@ yarn release-minor
 yarn release-patch
 ```
 
+##### 持续集成
+
+```sh
+
+# 上传到微信小程序
+yarn upload:mp-weixin  
+
+# 上传到支付宝小程序
+yarn upload:mp-alipay
+
+# 上传到钉钉小程序
+yarn upload:mp-dingtalk
+```
+
 
 ## 联系我
 
