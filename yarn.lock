@@ -11579,10 +11579,10 @@ unescape@^1.0.1:
   dependencies:
     extend-shallow "^2.0.1"
 
-uni-mini-ci@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/uni-mini-ci/-/uni-mini-ci-0.0.4.tgz#4e5d0d715f76c5ea4363cecd250f40ed5e85916f"
-  integrity sha512-u5wl6rUj70fvrSpP+5wRkGSckUea6+mrFiUf+kNsWfEsxl9OlyN+uAlBKl1Bm3nYIAZHQIIMH1qJjmRnJn6oiQ==
+uni-mini-ci@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/uni-mini-ci/-/uni-mini-ci-0.0.6.tgz#ac4916ca9f7a07883e06faf7d0aecaf510ea6a17"
+  integrity sha512-HxyCgq4yIU3hL1vU+xdwBxWpr+r1QR6mx52bd3K+5l8TlrC0tgWkxmuujAKCM/tAYQ1O/PmNBcrfmhYUM2fiWA==
   dependencies:
     dingtalk-miniapp-opensdk "^1.0.8"
     fs-extra "^11.1.1"
