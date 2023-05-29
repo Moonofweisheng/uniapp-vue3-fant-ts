@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.0.18](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.17...v1.0.18) (2023-05-29)
+
+
+### ✨ Features | 新功能
+
+* ✨ 集成小程序端构建后支持 CI（持续集成）的插件 uni-mini-ci ([2c5caad](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/2c5caad7c0b9e6dab4d661808a21186f3bdbf7ec))
+
 ### [1.0.17](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.16...v1.0.17) (2023-05-24)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "uniapp-vue3-fant-ts",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "scripts": {
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
@@ -42,7 +42,10 @@
     "release-minor": "standard-version --release-as minor",
     "release-patch": "standard-version --release-as patch",
     "mock:install": "cd koa-mock && npm install",
-    "mock:dev": "cd koa-mock && npm run start"
+    "mock:dev": "cd koa-mock && npm run start",
+    "upload:mp-weixin": "uni build -p mp-weixin && minici --platform weixin",
+    "upload:mp-alipay": "uni build -p mp-alipay && minici --platform alipay",
+    "upload:mp-dingtalk": "uni build -p mp-dingtalk && minici --platform dd"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-alpha-3080120230428001",
@@ -93,6 +96,7 @@
     "sass": "^1.59.3",
     "standard-version": "^9.5.0",
     "typescript": "^4.9.4",
+    "uni-mini-ci": "^0.0.7",
     "uni-mini-router": "^0.0.12",
     "uni-read-pages-vite": "^0.0.6",
     "unplugin-auto-import": "^0.15.3",
