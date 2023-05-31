@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.0.19](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.18...v1.0.19) (2023-05-31)
+
+
+### ✨ Features | 新功能
+
+* ✨ 优化路由管理，支持路由表信息热更新 ([01b78c8](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/01b78c8e2b3c5dd8500ee5d8cee099589bd659ff))
+
 ### [1.0.18](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.17...v1.0.18) (2023-05-29)
 
 
