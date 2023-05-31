@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-05-09 20:55:24
+ * @LastEditTime: 2023-05-31 17:41:19
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\routerDemo\RouterDemo.vue
@@ -9,6 +9,7 @@
 -->
 <template>
   <view class="router-demo">
+    <test></test>
     <hd-button size="large" type="primary" @click="nav1">字符串路径</hd-button>
     <hd-button size="large" type="primary" @click="nav2">带有路径的对象</hd-button>
     <hd-button size="large" type="primary" @click="nav3">命名的路由</hd-button>
@@ -19,6 +20,12 @@
 </template>
 
 <script lang="ts" setup>
+import Test from './cmp/Test.vue'
+
+onShow(() => {
+  console.log(2323)
+})
+
 const router = useRouter()
 
 // 字符串路径
