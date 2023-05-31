@@ -16,6 +16,10 @@
 
 <script lang="ts" setup>
 import Test from './cmp/Test.vue'
+onShow(() => {
+  console.log(2323322232)
+})
+
 const router = useRouter()
 function back() {
   router.back()

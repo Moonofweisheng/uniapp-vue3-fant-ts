@@ -1,17 +1,16 @@
 <!--
  * @Author: weisheng
  * @Date: 2021-12-22 15:19:08
- * @LastEditTime: 2023-05-08 15:09:24
+ * @LastEditTime: 2023-05-31 14:38:57
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\home\Home.vue
  * 记得注释
 -->
 <template>
-  <hd-loading ref="loading"></hd-loading>
-  <hd-toast ref="toast"></hd-toast>
+  <hd-loading></hd-loading>
+  <hd-toast></hd-toast>
   <view class="home">
-    <hd-toast ref="toast"></hd-toast>
     <view class="header">
       <hd-swiper :swiperList="swiperList" card :vertical="false" previousMargin="50rpx" nextMargin="50rpx"></hd-swiper>
     </view>
