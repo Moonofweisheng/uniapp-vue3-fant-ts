@@ -1,13 +1,34 @@
-## 0.1.4（2023-05-24）
-### [0.1.4] (2023-05-24)
+## 0.1.7（2023-06-05）
+### [0.1.7](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.6...v0.1.7) (2023-06-05)
 
 
-### Bug Fixes
+### Features
 
-* 🐛 修复Circle组件strokeWidth默认值不对的问题  
+* ✨ Table 组件支持取消排序 ([a39f232](https://gitlab.hd123.com/vue/fant-mini-plus/commit/a39f232bcf8c369e9feab860ce100df7440826b5))
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.7](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.6...v0.1.7) (2023-06-05)
+
+
+### Features
+
+* ✨ Table 组件支持取消排序 ([a39f232](https://gitlab.hd123.com/vue/fant-mini-plus/commit/a39f232bcf8c369e9feab860ce100df7440826b5))
+
+### [0.1.6](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.5...v0.1.6) (2023-06-05)
+
+
+### Features
+
+* ✨ Collapse 折叠面板组件支持异步更新 ([066581b](https://gitlab.hd123.com/vue/fant-mini-plus/commit/066581bd51a6bfd6f5e696a8bafc728033123494))
+
+### [0.1.5](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.4...v0.1.5) (2023-06-02)
+
+
+### Features
+
+* ✨ 水印、表格、步进器组件文档优化 ([35e91c6](https://gitlab.hd123.com/vue/fant-mini-plus/commit/35e91c651e06c9ea81a3122622ed07b5bce1fec6))
 
 ### [0.1.4](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.3...v0.1.4) (2023-05-24)
 

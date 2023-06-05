@@ -157,8 +157,8 @@ function isArray(value: any) {
 /**
  * 是否对象
  */
-function isObject(value: any) {
-  return Object.prototype.toString.call(value) === '[object Object]'
+function isObject(value: any): value is Record<any, any> {
+  return typeof value === 'object' && value !== null
 }
 
 /** 是否图片格式
@@ -182,7 +182,7 @@ function isVideo(value: string) {
  * 是否函数方法
  * @param {Object} value
  */
-function func(value): boolean {
+function isFunction(value): boolean {
   return typeof value === 'function'
 }
 
@@ -200,7 +200,16 @@ function isDef(value: any): boolean {
  * @returns
  */
 function isValidDate(date: number | string | undefined) {
-  return RegUtil.isDef(date) && !isNaN(new Date(date!).getTime())
+  return isDef(date) && !isNaN(new Date(date!).getTime())
+}
+
+/**
+ * 是否为promise
+ * @param value 函数
+ * @returns
+ */
+function isPromise(value: any): value is Promise<any> {
+  return Boolean(value) && isObject(value) && isFunction(value.then) && isFunction(value.catch)
 }
 
 export const RegUtil = {
@@ -222,7 +231,8 @@ export const RegUtil = {
   isVideo,
   isImage,
   string,
-  func,
+  isFunction,
   isDef,
-  isValidDate
+  isValidDate,
+  isPromise
 }

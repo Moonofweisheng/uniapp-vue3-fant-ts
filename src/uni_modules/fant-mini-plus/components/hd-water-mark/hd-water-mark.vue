@@ -29,9 +29,9 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch, nextTick } from 'vue'
 import { CommonUtil } from '../..'
-import { nextTick } from 'process'
+
 /**
  * WaterMark 水印
  */

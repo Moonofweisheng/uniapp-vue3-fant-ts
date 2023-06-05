@@ -136,10 +136,15 @@ function doSort(column, index) {
   if (column.sortDirection === 'asc') {
     columns.value[index].sortDirection = 'desc'
   } else if (columns.value[index].sortDirection === 'desc') {
-    columns.value[index].sortDirection = 'asc'
+    columns.value[index].sortDirection = ''
   } else {
     columns.value[index].sortDirection = 'asc'
   }
+  columns.value.forEach((col, i) => {
+    if (index != i) {
+      col.sortDirection = ''
+    }
+  })
   emit('sort-method', columns.value[index])
 }
 /**

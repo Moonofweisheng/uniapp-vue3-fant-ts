@@ -38,7 +38,7 @@
 
 <script lang="ts" setup>
 import { computed, nextTick, onBeforeMount, ref, watch } from 'vue'
-import { RegUtil } from '../../libs/functions/reg'
+import { RegUtil } from '../..'
 
 // 加法
 function add(num1, num2) {
