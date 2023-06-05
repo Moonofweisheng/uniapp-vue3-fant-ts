@@ -6,7 +6,7 @@
 将 WaterMark 组件放在页面中，可以通过`content`字段设置水印显示内容，通过`width`和`height`设置单个水印的高度与宽度，展示一个全屏的水印。
 
 ```html
-<hd-water-mark content="fant-mini-plus" width="130" height="130"></hd-water-mark>
+<hd-water-mark content="fant-mini-plus" :width="130" :height="130"></hd-water-mark>
 ```
 
 ### 图片水印

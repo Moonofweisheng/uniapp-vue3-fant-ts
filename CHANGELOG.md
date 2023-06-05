@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.0.20](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.19...v1.0.20) (2023-06-05)
+
+
+### ✨ Features | 新功能
+
+* ✨ 更新fant-mini-plus@0.1.7 支持Collapse异步更新、Table组件取消排序 ([dddb2fd](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/dddb2fd70d6cbf01fd0f36e45d589b2ad91af6d5))
+
 ### [1.0.19](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.18...v1.0.19) (2023-05-31)
 
 

@@ -44,6 +44,9 @@ interface Props {
   disabled?: boolean
   // 标题栏左侧图标名称或图片链接，可选值见 Icon 组件
   icon?: string
+  // 打开前的回调函数，返回 false 可以阻止打开，支持返回 Promise
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  beforeExpend?: Function
   // 唯一标识符
   name: number | string
   // 标识当前为第几个
@@ -74,8 +77,10 @@ watch(
     const name = props.name || String(props.index)
     if (RegUtil.isDef(newVal)) {
       if (typeof newVal === 'string' && newVal === name) {
+        doResetHeight()
         expanded.value = true
       } else if (RegUtil.isArray(newVal) && newVal.indexOf(name as string) >= 0) {
+        doResetHeight()
         expanded.value = true
       } else {
         expanded.value = false
@@ -118,12 +123,19 @@ const { proxy } = getCurrentInstance() as any
  * 初始化将组件信息注入父组件
  */
 function init() {
-  CommonUtil.getRect('.hd-collapse-item-content', false, proxy).then((data: any) => {
-    contentHeight.value = data.height
-  })
+  doResetHeight()
   updateExpended()
   let name = props.name || String(props.index)
   setChild && setChild({ name: name, expanded: expanded.value })
+}
+
+/**
+ * 重置高度
+ */
+function doResetHeight() {
+  CommonUtil.getRect('.hd-collapse-item-content', false, proxy).then((data: any) => {
+    contentHeight.value = data.height
+  })
 }
 
 /**
@@ -148,7 +160,26 @@ function updateExpended() {
 function onClick() {
   if (props.disabled) return
   let name = props.name || String(props.index)
-  change && change({ name: name, expanded: !expanded.value })
+  const nexExpanded = !expanded.value // 执行后展开状态
+  if (nexExpanded) {
+    if (props.beforeExpend) {
+      const response: any = props.beforeExpend(name, props.index)
+      if (!response) {
+        return
+      }
+      if (RegUtil.isPromise(response)) {
+        response.then(() => {
+          change && change({ name: name, expanded: !expanded.value })
+        })
+      } else {
+        change && change({ name: name, expanded: !expanded.value })
+      }
+    } else {
+      change && change({ name: name, expanded: !expanded.value })
+    }
+  } else {
+    change && change({ name: name, expanded: !expanded.value })
+  }
 }
 </script>
 

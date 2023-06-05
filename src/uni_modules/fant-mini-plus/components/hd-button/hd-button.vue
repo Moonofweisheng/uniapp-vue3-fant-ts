@@ -386,7 +386,6 @@ function chooseAvatar(res) {
     border-color: $color-black;
   }
 
-  // reset weapp default border
   &::after {
     border-width: 0;
   }
