@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.0.22](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.21...v1.0.22) (2023-07-07)
+
+
+### ✨ Features | 新功能
+
+* ✨ 更新uni-mini-router@0.1.3，修复前置导航守卫失效的问题 ([e52faed](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/e52faed8c3be49c5fd7f757549dc7ea510cecb7a))
+
 ### [1.0.21](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.20...v1.0.21) (2023-07-06)
 
 ### [1.0.20](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.19...v1.0.20) (2023-06-05)
