@@ -7,7 +7,7 @@
 <!-- 在页面内添加对应的节点 -->
 <hd-loading></hd-loading>
 
-<hd-button @click="onClick">打开loading(2s后自动关闭)</hd-button>
+<hd-button @click="open">打开loading(2s后自动关闭)</hd-button>
 ```
 
 ```ts
@@ -15,7 +15,7 @@
 
 import { ref } from 'vue'
 const loading = useLoading() 
-function onClick() {
+function open() {
   loading.showLoading({})
   setTimeout(() => {
     loading.hideLoading()
@@ -30,7 +30,7 @@ function onClick() {
 
 ```html
 <hd-loading></hd-loading>
-<hd-button @click="onClick">打开loading(2s后自动关闭)</hd-button>
+<hd-button @click="open">打开loading(2s后自动关闭)</hd-button>
 ```
 
 ```ts
@@ -38,7 +38,7 @@ function onClick() {
 
 import { ref } from 'vue'
 const loading = useLoading() 
-function onClick() {
+function open() {
   loading.showLoading({
     title: '加载中...',
   })
@@ -56,7 +56,7 @@ function onClick() {
 
 ```html
 <hd-loading></hd-loading>
-<hd-button @click="onClick">打开loading(2s后自动关闭)</hd-button>
+<hd-button @click="open">打开loading(2s后自动关闭)</hd-button>
 ```
 
 ```ts
@@ -64,7 +64,7 @@ function onClick() {
 
 import { ref } from 'vue'
 const loading = useLoading() 
-function onClick() {
+function open() {
   loading.showLoading({
      type: 'dot'
   })
@@ -82,7 +82,7 @@ function onClick() {
 
 ```html
 <hd-loading></hd-loading>
-<hd-button @click="onClick">打开loading(2s后自动关闭)</hd-button>
+<hd-button @click="open">打开loading(2s后自动关闭)</hd-button>
 ```
 
 ```ts
@@ -90,7 +90,7 @@ function onClick() {
 
 import { ref } from 'vue'
 const loading = useLoading() 
-function onClick() {
+function open() {
   loading.showLoading({
      background: false
   })
@@ -108,7 +108,7 @@ function onClick() {
 
 ```html
 <hd-loading></hd-loading>
-<hd-button @click="onClick">打开loading(2s后自动关闭)</hd-button>
+<hd-button @click="open">打开loading(2s后自动关闭)</hd-button>
 ```
 
 ```ts
@@ -116,7 +116,7 @@ function onClick() {
 
 import { ref } from 'vue'
 const loading = useLoading() 
-function onClick() {
+function open() {
   loading.showLoading({
      delayTime: 500
   })
@@ -147,6 +147,6 @@ function onClick() {
 | type       | 动画类型，可选值:`flower` `dot`。    | `LoadingType` | `false`  | `flower` |
 | background | 是否黑色底色。                       | `Boolean`     | `false`  | `true`   |
 | delayTime  | 延迟展延时展示时间，默认 0，单位毫秒 | `Number`      | `false`  | `0`      |
-| onClick    | 点击时的回调函数                     | `Function`    | `false`  | `-`      |
+| open    | 点击时的回调函数                     | `Function`    | `false`  | `-`      |
 | onOpened   | 完全展示后的回调函数                 | `Function`    | `false`  | `-`      |
 | onClose    | 关闭时的回调函数                     | `Function`    | `false`  | `-`      |

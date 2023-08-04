@@ -21,7 +21,7 @@
 
 ```ts
 <script lang="ts" setup>
-import { useSwipeAction } from '@/uni_modules/fant-mini-plus/components/hd-swipe-action'
+import { useSwipeAction } from '@/uni_modules/fant-mini-plus'
 import { computed } from 'vue'
 
 const swipeAction = useSwipeAction()

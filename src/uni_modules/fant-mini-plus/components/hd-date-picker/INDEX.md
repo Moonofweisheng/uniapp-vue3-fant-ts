@@ -1,3 +1,4 @@
+
 ## 代码演示
 
 ### 选择年月日
@@ -10,9 +11,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 const datePicker = useDatePicker()
-cosnt date = ref<string|number>('')
+const date = ref<string|number>('')
 
-function onClick() {
+function open() {
   let currentDate: number | string = new Date().getTime()
   datePicker.showDatePicker({
     type: 'date',
@@ -41,9 +42,9 @@ function onClick() {
 
 import { ref } from 'vue'
 const datePicker = useDatePicker()
-cosnt date = ref<string|number>('')
+const date = ref<string|number>('')
 
-function onClick() {
+function open() {
   let currentDate: number | string = new Date().getTime()
   datePicker.showDatePicker({
     type: 'time',
@@ -72,9 +73,9 @@ function onClick() {
 
 import { ref } from 'vue'
 const datePicker = useDatePicker()
-cosnt date = ref<string|number>('')
+const date = ref<string|number>('')
 
-function onClick() {
+function open() {
   let currentDate: number | string = new Date().getTime()
   datePicker.showDatePicker({
     type: 'year-month',
@@ -102,9 +103,9 @@ function onClick() {
 
 import { ref } from 'vue'
 const datePicker = useDatePicker()
-cosnt date = ref<string|number>('')
+const date = ref<string|number>('')
 
-function onClick() {
+function open() {
   let currentDate: number | string = new Date().getTime()
   datePicker.showDatePicker({
     type: 'date-hour-minute',
@@ -132,8 +133,8 @@ function onClick() {
 
 import { ref } from 'vue'
 const datePicker = useDatePicker()
-cosnt date = ref<string|number>('')
-function onClick() {
+const date = ref<string|number>('')
+function open() {
   let currentDate: number | string = new Date().getTime()
   datePicker.showDatePicker({
     type: 'date-time',

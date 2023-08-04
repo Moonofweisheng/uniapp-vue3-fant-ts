@@ -168,7 +168,7 @@ function doSetDays() {
 function getDayStyle(index: number, type: string, day: number) {
   const style = new Object()
   if (index === 0) {
-    style['margin-left'] = `${((day - 1) / 7) * 100}%`
+    style['margin-left'] = `${((day % 7) / 7) * 100}%`
   }
   if (props.rowHeight !== ROW_HEIGHT && props.rowHeight) {
     style['height'] = CommonUtil.addUnit(props.rowHeight)

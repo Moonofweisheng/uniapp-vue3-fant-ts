@@ -1,13 +1,36 @@
-## 0.1.7（2023-06-05）
-### [0.1.7](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.6...v0.1.7) (2023-06-05)
+## 0.1.11（2023-08-03）
+### [0.1.11] (2023-08-03)
+
+
+### Bug Fixes
+
+*  修复Calendar组件在允许选择同一天且选择了日期范围内最大值复现无法选中同一天的问题
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.11](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.10...v0.1.11) (2023-08-03)
+
+
+### Bug Fixes
+
+* 🐛 修复Calendar组件在允许选择同一天且选择了日期范围内最大值复现无法选中同一天的问题 ([764c62e](https://gitlab.hd123.com/vue/fant-mini-plus/commit/764c62e9e0174a2560667f8317b2c637f5e60c6c))
+
+### [0.1.10](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.9...v0.1.10) (2023-07-15)
+
+
+### Bug Fixes
+
+* 🐛 修复日历选择器星期和日期对应错误的问题 ([5f7d3f9](https://gitlab.hd123.com/vue/fant-mini-plus/commit/5f7d3f962407197dd11d5f8fa823ac589989dfab))
+
+### [0.1.9](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.8...v0.1.9) (2023-07-07)
 
 
 ### Features
 
-* ✨ Table 组件支持取消排序 ([a39f232](https://gitlab.hd123.com/vue/fant-mini-plus/commit/a39f232bcf8c369e9feab860ce100df7440826b5))
-# Changelog
+* ✨ 优化Popup的动画结束事件 ([54abe8a](https://gitlab.hd123.com/vue/fant-mini-plus/commit/54abe8a357ac04c1de35992227a66f0e56431d2b))
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+### [0.1.8](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.7...v0.1.8) (2023-06-07)
 
 ### [0.1.7](https://gitlab.hd123.com/vue/fant-mini-plus/compare/v0.1.6...v0.1.7) (2023-06-05)
 

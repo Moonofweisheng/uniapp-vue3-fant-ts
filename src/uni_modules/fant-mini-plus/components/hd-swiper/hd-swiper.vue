@@ -297,7 +297,11 @@ const swiperHeight = ref<number>(0) // 轮播图片高度
 const { proxy } = getCurrentInstance() as any
 
 onMounted(() => {
-  const query = uni.createSelectorQuery().in(proxy)
+  const query = uni
+    .createSelectorQuery()
+    // #ifndef MP-ALIPAY
+    .in(proxy)
+  // #endif
   query
     .select('.swiper-item')
     .boundingClientRect((data: any) => {

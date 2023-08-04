@@ -6,7 +6,9 @@
 下面演示了省市区选择组件的用法，省市区选择完成后会触发 `confirm` 事件,返回值为省市区三项的数组。
 
 首先安装vant提供的省市区数据源  
-```yarn add @vant/area-data```
+```sh
+yarn add @vant/area-data
+```
 
 ```html
   <hd-area :area-data="areaData" :area="areaSelect" @confirm="doConfirm"></hd-area>
@@ -21,7 +23,7 @@ const areaData = ref(areaList) // 位置信息数据
 const areaSelect = ref<Ucn[]>([]) // 已选省市区
 const area = useArea()
 
-function onClick() {
+function showArea() {
   area.showArea()
 }
 

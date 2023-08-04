@@ -1,20 +1,20 @@
 <!--
  * @Author: weisheng
  * @Date: 2023-02-21 13:46:13
- * @LastEditTime: 2023-03-24 10:21:31
+ * @LastEditTime: 2023-06-06 19:36:41
  * @LastEditors: weisheng
  * @Description: 
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\components\fan-loading\fan-loading.vue
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\fan-loading\fan-loading.vue
  * 记得注释
 -->
 <template>
   <view :class="rootClass">
-    <view :class="['hd-loading--spinner', `hd-loading--spinner--${type}`]" :style="spinnerStyle">
+    <view :class="['fan-loading--spinner', `fan-loading--spinner--${type}`]" :style="spinnerStyle">
       <block v-if="type === 'flower'">
-        <view v-for="index in 12" :key="index" class="hd-loading--dot" />
+        <view v-for="index in 12" :key="index" class="fan-loading--dot" />
       </block>
     </view>
-    <view class="hd-loading--text" :style="textStyle">
+    <view class="fan-loading--text" :style="textStyle">
       <slot />
     </view>
   </view>
@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<Props>(), {
   /**
    * 颜色
    */
-  color: String,
+  color: '#A1A1A1',
   /**
    * 是否垂直排列图标和文字内容
    */
@@ -75,9 +75,9 @@ const props = withDefaults(defineProps<Props>(), {
  * 根节点样式
  */
 const rootClass = computed(() => {
-  const rootClass = ['hd-loading']
+  const rootClass = ['fan-loading']
   if (props.vertical) {
-    rootClass.push('hd-loading--vertical')
+    rootClass.push('fan-loading--vertical')
   }
   return rootClass
 })
@@ -100,7 +100,7 @@ const textStyle = computed(() => {
 <style lang="scss" scoped>
 @import '../../libs/css/index.scss';
 
-.hd-loading {
+.fan-loading {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -140,7 +140,7 @@ const textStyle = computed(() => {
   &--vertical {
     flex-direction: column;
 
-    .hd-loading--text {
+    .fan-loading--text {
       margin: var(--padding-xs, $padding-xs) 0 0;
     }
   }
@@ -165,7 +165,7 @@ const textStyle = computed(() => {
 }
 
 @for $i from 1 through 12 {
-  .hd-loading--dot:nth-of-type(#{$i}) {
+  .fan-loading--dot:nth-of-type(#{$i}) {
     transform: rotate($i * 30deg);
     opacity: calc(1 - (0.75 / 12) * ($i - 1));
   }
