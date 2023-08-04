@@ -156,7 +156,9 @@ function getElementData(el, callback) {
   // eslint-disable-next-line no-undef
   uni
     .createSelectorQuery()
+    // #ifndef MP-ALIPAY
     .in(proxy)
+    // #endif
     .selectAll(el)
     .boundingClientRect()
     .exec((data) => {

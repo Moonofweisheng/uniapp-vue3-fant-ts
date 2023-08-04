@@ -10,7 +10,6 @@
       :opacity="overlayOpacity"
     ></hd-overlay>
     <hd-transition
-      :zIndex="zIndex"
       :destroy="destroy"
       :name="position"
       :customStyle="contentStyle"
@@ -207,10 +206,14 @@ const transDuration = computed(() => {
  */
 function onAfterLeave() {
   emit('transitionEnd')
+  showTrans.value = false
+  nextTick(() => {
+    showTrans.value = true
+  })
 }
 
 function open(direction?: 'top' | 'center' | 'bottom' | 'left' | 'right') {
-  timer.value && clearTimeout(timer.value)
+  // timer.value && clearTimeout(timer.value)
   const innerType = ['top', 'center', 'bottom', 'left', 'right']
   if (!(direction && innerType.indexOf(direction) !== -1)) {
     direction = props.type
@@ -235,16 +238,6 @@ function open(direction?: 'top' | 'center' | 'bottom' | 'left' | 'right') {
  */
 function close() {
   show.value = false
-  if (transDuration.value) {
-    timer.value = setTimeout(() => {
-      showTrans.value = false
-      nextTick(() => {
-        showTrans.value = true
-      })
-    }, transDuration.value)
-  } else {
-    timer.value && clearTimeout(timer.value)
-  }
   /**
    * 弹层状态变更
    * @arg show:Boolean 弹层状态

@@ -1,7 +1,7 @@
 <!--
  * @Author: 刘湘
  * @Date: 2021-05-25 16:34:27
- * @LastEditTime: 2023-05-19 16:41:17
+ * @LastEditTime: 2023-06-06 22:30:16
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-toast\hd-toast.vue
@@ -196,6 +196,8 @@ function afterLeave() {
 </script>
 
 <style lang="scss" scoped>
+@import '../../libs/css/index.scss';
+
 $types: success, warning, error;
 
 .hd-toast {

@@ -53,11 +53,6 @@
 
 ```html
 <hd-loading></hd-loading>
-<hd-button @click="onClick">打开loading(2s后自动关闭)</hd-button>
-```
-
-```html
-<hd-loading></hd-loading>
 <hd-stepper shape="circle" v-model="value7" :asyncChange="true" @change="onChange"></hd-stepper>
 ```
 

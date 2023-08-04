@@ -356,7 +356,11 @@ function getInitCurrentDate(defaultDate: number | number[] | null = null) {
       defaultDate = []
     }
     const [startDay, endDay] = defaultDate || []
-    const start = getDateFromRange(startDay || now, props.minDate, getPrevDay(new Date(props.maxDate)).getTime())
+    const start = getDateFromRange(
+      startDay || now,
+      props.minDate,
+      props.allowSameDay ? new Date(props.maxDate).getTime() : getPrevDay(new Date(props.maxDate)).getTime()
+    )
     const date = endDay ? new Date(endDay).getTime() : now
     const end = getDateFromRange(date, props.allowSameDay ? date : getNextDay(new Date(props.minDate)).getTime())
     return [start, end]
@@ -452,7 +456,6 @@ let calendarPop = usePopup('calendarPop') // popup
 // @vuese
 // 主动关闭
 function close() {
-  console.log(23223)
   calendarPop.closePopup()
 }
 

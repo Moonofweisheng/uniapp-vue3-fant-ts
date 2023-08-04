@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2023-03-21 22:52:15
- * @LastEditTime: 2023-05-23 15:47:25
+ * @LastEditTime: 2023-06-23 13:49:01
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\components\hd-section\hd-section.vue
@@ -241,7 +241,11 @@ function click(index) {
 const { proxy } = getCurrentInstance() as any
 // 获取各个tab的节点信息
 function getTabsInfo() {
-  const view = uni.createSelectorQuery().in(proxy)
+  const view = uni
+    .createSelectorQuery()
+    // #ifndef MP-ALIPAY
+    .in(proxy)
+  // #endif
   for (let i = 0; i < props.list.length; i++) {
     view.select('.hd-section-item-' + i).boundingClientRect()
   }

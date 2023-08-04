@@ -1,10 +1,10 @@
 /*
  * @Author: weisheng
  * @Date: 2021-12-21 14:22:03
- * @LastEditTime: 2023-03-21 22:08:45
+ * @LastEditTime: 2023-06-07 11:51:55
  * @LastEditors: weisheng
  * @Description:
- * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini\index.ts
+ * @FilePath: \fant-mini-plus\src\uni_modules\fant-mini-plus\index.ts
  * 记得注释
  */
 import type { App } from 'vue'
@@ -26,6 +26,9 @@ export * from './components/hd-popup'
 
 // Area
 export * from './components/hd-area'
+
+// SwipeAction
+export * from './components/hd-swipe-action'
 
 // 颜色转换
 export * from './libs/functions/colorExchanghe'
