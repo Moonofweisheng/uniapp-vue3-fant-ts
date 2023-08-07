@@ -78,6 +78,10 @@ uniapp-vue3-fant-ts
 ```
 
 #### 开发步骤
+
+##### 注意！！！
+>插件市场会将类似`.eslintrc.js`这种以`.`开头的文件忽略掉，故我将`.`改成了`_`上传。如果直接在插件市场下载，需要手动将`_`改为`.`，涉及文件及目录包含`_husky`、`_vscode`、`_env.development`、`_env.production`、`_eslintignore`、`_eslintrc.js`、`_git-cz.json`、`_gitignore`、`_prettierrc`。或者到[gitee](https://gitee.com/fant-mini/uniapp-vue3-fant-ts)上`clone`或`fork`
+
 - 安装依赖  
   - 安装前端项目依赖：`yarn `
   - 安装mock项目依赖：`yarn mock:install`
