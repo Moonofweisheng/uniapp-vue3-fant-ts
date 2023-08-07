@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.0.23](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.22...v1.0.23) (2023-08-07)
+
+
+### ✨ Features | 新功能
+
+* ✨ 增加分包示例代码 ([8d2f93c](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/commit/8d2f93c80404a48abd3bffc057e20126cf06d05e))
+
 ### [1.0.22](https://gitee.com/fant-mini/uniapp-vue3-fant-ts/compare/v1.0.21...v1.0.22) (2023-07-07)
 
 
