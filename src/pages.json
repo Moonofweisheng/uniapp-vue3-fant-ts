@@ -34,9 +34,12 @@
         "navigationBarTitleText": "",
         "navigationBarBackgroundColor": "#E7F0FF"
       }
-    },
-    {
-      "path": "pages/routerDemo/RouterDemo",
+    }
+  ],
+  "subPackages": [{
+    "root": "pagesA",
+    "pages": [    {
+      "path": "routerDemo/RouterDemo",
       "name": "routerDemo",
       "style": {
         "navigationBarTitleText": "",
@@ -44,14 +47,14 @@
       }
     },
     {
-      "path": "pages/routerDemo/RouterDemo1",
+      "path": "routerDemo/RouterDemo1",
       "name": "routerDemo1",
       "style": {
         "navigationBarTitleText": "",
         "navigationBarBackgroundColor": "#E7F0FF"
       }
-    }
-  ],
+    }]
+  }],
   "tabBar": {
     "color": "#bfbfbf",
     "selectedColor": "#0165FF",
