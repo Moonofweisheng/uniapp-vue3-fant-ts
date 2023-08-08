@@ -175,15 +175,10 @@ yarn upload:mp-dingtalk
 ```
 
 
-## 联系我
-
+## 联系方式
 有不明白或者建议可以扫码交流
-#### QQ群
-<img  src="https://fant-mini-plus.top/img/qq.jpg
-" width="220" height="auto">
 
-#### 微信群
-<img src="https://fant-mini-plus.top/img/weixin.png
-" width="220" height="auto">
+[联系我们](http://fant-mini-plus.top/fant-mini-plus/components/contact.html)
+
 
 
