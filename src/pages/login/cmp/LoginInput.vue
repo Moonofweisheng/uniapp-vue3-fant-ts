@@ -1,7 +1,7 @@
 <!--
  * @Author: weisheng
  * @Date: 2023-04-18 13:23:10
- * @LastEditTime: 2023-05-09 20:56:17
+ * @LastEditTime: 2023-08-10 15:26:24
  * @LastEditors: weisheng
  * @Description: 
  * @FilePath: \uniapp-vue3-fant-ts\src\pages\login\cmp\LoginInput.vue
@@ -76,7 +76,9 @@ function onFocus() {
 
 // 失焦
 function onBlur() {
-  focus.value = false
+  setTimeout(() => {
+    focus.value = false
+  }, 50)
 }
 
 // 清除按钮事件

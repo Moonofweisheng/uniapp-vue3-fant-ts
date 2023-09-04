@@ -1,10 +1,24 @@
 # Vue3-Uni-TS-Template基础模板
+一个vue3快速启动模板。
 
-## [官方文档：https://fant-mini-plus.top](https://fant-mini-plus.top/fant-mini-plus/)
+## 仓库地址
+现在提供2个模板给到大家，基于不同的组件库实现，后续插件将会开启广告配置，各位不同担心，因为模板代码已开源，可以到Github或者Gitee下载本模板。
 
-## [开发计划（规划中）](https://docs.qq.com/sheet/DSVZOdkhOalFPd2NZ?tab=csws7k&u=60ccbc87e7b04883b8c01ab07165a577)
+### 基于wot-design-uni组件开发的快速启动项目wot-starter
 
-关于开发计划的问题或者建议请先到[Gitee](https://gitee.com/fant-mini/uniapp-vue3-fant-ts)或者[Github](https://github.com/Moonofweisheng/uniapp-vue3-fant-ts)提出issue，或者在评论区发表评论，方便我记录问题以及安排后续的开发计划。（组件或者模板使用上有什么问题，希望增加什么组件或者模板页面都可以提）
+<p align="center">
+  🔥 <a href="https://github.com/Moonofweisheng/wot-starter">Git仓库 (Github)</a>&nbsp;
+  🚀 <a href="https://gitee.com/fant-mini/wot-starter">Git仓库 (Gitee)</a>
+</p>
+
+### 基于fant-mini-plus组件开发的快速启动项目uniapp-vue3-fant-ts
+<p align="center">
+  🔥 <a href="https://github.com/Moonofweisheng/uniapp-vue3-fant-ts">Git仓库 (Github)</a>&nbsp;
+  🚀 <a href="https://gitee.com/fant-mini/uniapp-vue3-fant-ts">Git仓库 (Gitee)</a>
+</p>
+
+
+
 
 #### 介绍
 基于uni-app和fant-mini-plus的vue3项目基础模板，使用vue3、vite4、[fant-mini-plus](https://ext.dcloud.net.cn/plugin?id=11489)、pinia、[uni-mini-router](https://ext.dcloud.net.cn/plugin?id=11208)、axios、[fant-axios-adapter](https://ext.dcloud.net.cn/plugin?id=11817)开发，基于koa实现mock功能

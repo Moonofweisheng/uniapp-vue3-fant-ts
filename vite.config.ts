@@ -1,7 +1,7 @@
 /*
  * @Author: weisheng
  * @Date: 2023-03-21 22:49:24
- * @LastEditTime: 2023-05-31 17:47:18
+ * @LastEditTime: 2023-08-10 14:44:21
  * @LastEditors: weisheng
  * @Description:
  * @FilePath: \uniapp-vue3-fant-ts\vite.config.ts
@@ -31,5 +31,16 @@ export default defineConfig({
         globalsPropValue: true
       }
     })
-  ]
+  ],
+  server: {
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://127.0.0.1:3000',
+    //     changeOrigin: true,
+    //     rewrite: (path) => {
+    //       return path.replace(/^\/api/, '/api')
+    //     }
+    //   }
+    // }
+  }
 })
